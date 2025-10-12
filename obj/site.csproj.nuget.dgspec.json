@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira/site/site.csproj": {}
+    "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/site.csproj": {}
   },
   "projects": {
-    "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira/site/site.csproj": {
+    "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/site.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira/site/site.csproj",
+        "projectUniqueName": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/site.csproj",
         "projectName": "site",
-        "projectPath": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira/site/site.csproj",
+        "projectPath": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/site.csproj",
         "packagesPath": "/home/lucianapereira/.nuget/packages/",
-        "outputPath": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira/site/obj/",
+        "outputPath": "/mnt/c/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/lucianapereira/.nuget/NuGet/NuGet.Config"
