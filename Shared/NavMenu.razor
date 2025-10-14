@@ -1,39 +1,85 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">site</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿<nav class="navbar">
+    <img src="@logoSrc" alt="Logo" class="logo" />
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
+    <div class="navbar-center desktop-menu">
+        <a href="#portfolio">Portfólio</a>
+        <a href="#blog">Blog</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#perfil">Perfil</a>
+    </div>
+
+    <div class="navbar-right">
+        <button class="icon-button" @onclick="ToggleLanguage">@((MarkupString)languageIcon)</button>
+        <button class="icon-button" @onclick="ToggleTheme">🌙</button>
+        <button class="icon-button">✉️</button>
+        <button class="hamburger" @onclick="ToggleMobileMenu">☰</button>
+    </div>
+
+    @if (showMobileMenu)
+    {
+        <div class="mobile-menu">
+            <a href="#portfolio">Portfólio</a>
+            <a href="#blog">Blog</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#perfil">Perfil</a>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    }
+</nav>
+
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool showMobileMenu = false;
+    private string logoSrc = "/images/logo-black.png";
+    private bool isDarkMode = false;
+    private string languageIcon = @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>";
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (firstRender)
+        {
+            isDarkMode = await JS.InvokeAsync<bool>("detectDarkMode");
+            UpdateVisuals();
+            StateHasChanged();
+        }
     }
+
+    private void ToggleMobileMenu()
+    {
+        showMobileMenu = !showMobileMenu;
+    }
+
+    private void ToggleTheme()
+    {
+        isDarkMode = !isDarkMode;
+        UpdateVisuals();
+    }
+
+    private void UpdateVisuals()
+    {
+        logoSrc = isDarkMode
+            ? "/images/logo-colorful.png"
+            : "/images/logo-black.png";
+
+        UpdateLanguageIcon();
+    }
+
+    private void UpdateLanguageIcon()
+    {
+        languageIcon = isDarkMode
+            ? @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>"
+            : @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>";
+    }
+
+    private void ToggleLanguage()
+    {
+        // Ainda não implementado
+    }
+
+
+
+    [Inject]
+    private IJSRuntime JS { get; set; } = default!;
 }
+
+

@@ -5,7 +5,9 @@
     "open-iconic": "^1.1.1"
   },
   "scripts": {
-    "sass": "sass --watch scss:css"
+    "sass:watch": "sass --watch scss/app.scss:wwwroot/css/app.css"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
   }
-
 }
