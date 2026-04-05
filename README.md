@@ -3,7 +3,7 @@
 
 Este repositório contém o **código-fonte** do meu site pessoal, desenvolvido com Blazor WebAssembly.
 
-🔗 **Acesse o site:** 
+🔗 **Acesse o site:**
 [https://luciana-pereira.github.io](https://luciana-pereira.github.io)
 
 ![Deploy status](https://github.com/luciana-pereira/luciana-pereira.github.io/actions/workflows/deploy.yml/badge.svg)
@@ -11,10 +11,12 @@ Este repositório contém o **código-fonte** do meu site pessoal, desenvolvido 
 ---
 
 ## Tecnologias
-- [Blazor WebAssembly (.NET)](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
+- [Blazor WebAssembly (.NET)](https://learn.microsoft.com/pt-br/aspnet/core/blazor/?view=aspnetcore-10.0&utm_source=chatgpt.com)
+- Blazor WASM
 - HTML e SASS (CSS pré-processado)
 - GitHub Actions (para CI/CD)
 - GitHub Pages (Hospedagem)
+- Bootstrap via CDN
 
 ---
 
@@ -26,6 +28,17 @@ As alterações feitas neste repositório são automaticamente compiladas e publ
 ## Sobre o Site
 
 Este site apresenta meu trabalho, experiências e projetos. Foi pensado para ser uma vitrine profissional com tecnologia moderna, focado em performance e escalabilidade com Blazor.
+
+---
+
+## Rodar a aplicação localmente
+
+```.shell
+dotnet restore luciana-pereira.github.io.sln
+dotnet build luciana-pereira.github.io.sln
+dotnet run --project site.csproj
+```
+
 
 ---
 

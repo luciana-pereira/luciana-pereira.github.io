@@ -5,9 +5,10 @@
     "open-iconic": "^1.1.1"
   },
   "scripts": {
-    "sass:watch": "sass --watch scss/app.scss:wwwroot/css/app.css"
+    "sass": "sass scss/app.scss wwwroot/css/app.css --watch"
   },
   "devDependencies": {
+    "eslint": "^10.1.0",
     "sass": "^1.93.2"
   }
 }

@@ -1,45 +1,82 @@
 ﻿<nav class="navbar">
-    <img src="@logoSrc" alt="Logo" class="logo" />
+    <NavLink href="/" class="nav__link" activeClass="active">
+        <img src="@logoSrc" alt="Logo" class="logo" />
+    </NavLink>
 
-    <div class="navbar-center desktop-menu">
-        <a href="#portfolio">Portfólio</a>
-        <a href="#blog">Blog</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#perfil">Perfil</a>
-    </div>
+    @* <div class="navbar-center"> *@
+        @* <NavLink href="/experiencia" class="nav__link" activeClass="active">Experiência</NavLink>
+        <NavLink href="/projetos" class="nav__link" activeClass="active">Projetos</NavLink>
+        <NavLink href="/habilidades" class="nav__link" activeClass="active">Habilidades</NavLink>
+        <NavLink href="/certificados" class="nav__link" activeClass="active">Certificados</NavLink>
+        <NavLink href="/blog" class="nav__link" activeClass="active">Blog</NavLink>
+        <NavLink href="/cursos" class="nav__link" activeClass="active">Cursos</NavLink>
+        <NavLink href="/contato" class="nav__link" activeClass="active">Contato</NavLink> *@
+    
+    
+    
+        @* <div class="theme-toggle">
+            <button class="toggle-btn @(isDarkMode ? "active" : "")" @onclick="ToggleTheme">
+
+                <!-- Ícone ESQUERDA -->
+                <div class="icon-left">
+                    @((MarkupString)themeIcon)
+                </div>
+
+                <!-- Ícone DIREITA -->
+                <div class="icon-right">
+                    @((MarkupString)themeIcon)
+                </div>
+
+                <!-- Bolinha -->
+                <div class="toggle-circle"></div>
+
+            </button>
+        </div> *@
+    
+    
+    @* </div> *@
 
     <div class="navbar-right">
         <button class="icon-button" @onclick="ToggleLanguage">@((MarkupString)languageIcon)</button>
-        <button class="icon-button" @onclick="ToggleTheme">🌙</button>
-        <button class="icon-button">✉️</button>
-        <button class="hamburger" @onclick="ToggleMobileMenu">☰</button>
+        <button class="icon-button" @onclick="ToggleTheme">
+            @((MarkupString)themeIcon)
+        </button>
+        @* <button class="icon-button" @onclick="GetInTouch">@((MarkupString)comunicationIcon)</button> *@
+        <button class="icon-button hamburger" @onclick="ToggleMobileMenu">@((MarkupString)mobileMenu)</button>
     </div>
 
+
     @if (showMobileMenu)
-    {
-        <div class="mobile-menu">
-            <a href="#portfolio">Portfólio</a>
-            <a href="#blog">Blog</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#perfil">Perfil</a>
+    { 
+        <div class="mobile__menu">
+            <NavLink href="/portfolio" class="nav__link" activeClass="active">Portfólio</NavLink>
+            <NavLink href="/blog" class="nav__link" activeClass="active">Blog</NavLink>
+            <NavLink href="/cursos" class="nav__link" activeClass="active">Cursos</NavLink>
+            <NavLink href="/perfil" class="nav__link" activeClass="active">Perfil</NavLink>
         </div>
     }
 </nav>
-
 
 @code {
     private bool showMobileMenu = false;
     private string logoSrc = "/images/logo-black.png";
     private bool isDarkMode = false;
+
     private string languageIcon = @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>";
-
-
+    private string mobileMenu = @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' stroke-linejoin='round'><line x1 = '3' y1='6' x2='21' y2='6'></line><line x1 = '3' y1='12' x2='21' y2='12'></line><line x1 = '3' y1='18' x2='21' y2='18'></line></svg>";
+    
+    private string themeIcon = @"<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#1f1f1f'><path d='M0 0h24v24H0z' fill='none'/><path d='M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z'/></svg>";
+    
+    private string comunicationIcon = @"<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#FFFFFF'><path d='M0 0h24v24H0z' fill='none'/><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>";
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            isDarkMode = await JS.InvokeAsync<bool>("detectDarkMode");
+            var theme = await JS.InvokeAsync<string>("theme.load");
+
+            isDarkMode = theme == "dark";
             UpdateVisuals();
+
             StateHasChanged();
         }
     }
@@ -49,10 +86,14 @@
         showMobileMenu = !showMobileMenu;
     }
 
-    private void ToggleTheme()
+    private async Task ToggleTheme()
     {
-        isDarkMode = !isDarkMode;
+        var theme = await JS.InvokeAsync<string>("theme.toggle");
+
+        isDarkMode = theme == "dark";
         UpdateVisuals();
+        UpdateThemeIcon();
+        UpdateComunicationIcon();
     }
 
     private void UpdateVisuals()
@@ -61,14 +102,33 @@
             ? "/images/logo-colorful.png"
             : "/images/logo-black.png";
 
-        UpdateLanguageIcon();
+       UpdateLanguageIcon();
     }
 
     private void UpdateLanguageIcon()
     {
         languageIcon = isDarkMode
-            ? @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>"
-            : @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>";
+            ? @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>"
+            : @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-languages h-3 w-3 mr-1' aria-hidden='true'><path d='m5 8 6 6'></path><path d='m4 14 6-6 2-3'></path><path d='M2 5h12'></path><path d='M7 2h1'></path><path d='m22 22-5-10-5 10'></path><path d='M14 18h6'></path></svg>";
+    
+        mobileMenu = isDarkMode
+            ? @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' stroke-linejoin='round'><line x1 = '3' y1='6' x2='21' y2='6'></line><line x1 = '3' y1='12' x2='21' y2='12'></line><line x1 = '3' y1='18' x2='21' y2='18'></line></svg>"
+            : @"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' stroke-linejoin='round'><line x1 = '3' y1='6' x2='21' y2='6'></line><line x1 = '3' y1='12' x2='21' y2='12'></line><line x1 = '3' y1='18' x2='21' y2='18'></line></svg>";
+
+    }
+
+    private void UpdateThemeIcon()
+    {
+        themeIcon = isDarkMode
+            ? @"<svg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='#FFFFFF'><rect fill='none' height='24' width='24'/><path d='M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0 c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2 c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1 C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06 c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41 l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41 c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36 c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z'/></svg>"
+            : @"<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#1f1f1f'><path d='M0 0h24v24H0z' fill='none'/><path d='M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z'/></svg>";
+    }
+
+    private void UpdateComunicationIcon()
+    {
+        comunicationIcon = isDarkMode
+            ? @"<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#FFFFFF'><path d='M0 0h24v24H0z' fill='none'/><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>"
+            : @"<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0z' fill='none'/><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>";
     }
 
     private void ToggleLanguage()
@@ -76,6 +136,10 @@
         // Ainda não implementado
     }
 
+    private void GetInTouch()
+    {
+        
+    }
 
 
     [Inject]
