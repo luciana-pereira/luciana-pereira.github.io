@@ -1,23 +1,23 @@
-/* /Shared/MainLayout.razor.rz.scp.css */
-.page[b-xg2j8i9j1j] {
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-yhl8t8yawy] {
     position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 14vh;
 }
 
-main[b-xg2j8i9j1j] {
+main[b-yhl8t8yawy] {
     flex: 1;
 }
 
 @media (min-width: 641px) {
-    .page[b-xg2j8i9j1j] {
+    .page[b-yhl8t8yawy] {
         flex-direction: row;
     }
 }
-/* /Shared/NavMenu.razor.rz.scp.css */
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
 /* Navbar */
-.navbar[b-29rfoo2l4f] {
+.navbar[b-zpd9r1mqgx] {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,13 +25,13 @@ main[b-xg2j8i9j1j] {
     border-bottom: 1px solid #5e84e8;
 }
 
-.navbar-right[b-29rfoo2l4f] {
+.navbar-right[b-zpd9r1mqgx] {
     display: flex;
     gap: 1rem;
 }
 
 /* Mobile Menu */
-div.mobile__menu[b-29rfoo2l4f] {
+div.mobile__menu[b-zpd9r1mqgx] {
     font-weight: 500;
     font-size: 1.2rem;
 
@@ -47,36 +47,36 @@ div.mobile__menu[b-29rfoo2l4f] {
     border-radius: 0px 0px 0px 15px;
 }
 
-div.mobile__menu .nav__link[b-29rfoo2l4f] {
+div.mobile__menu .nav__link[b-zpd9r1mqgx] {
     padding: 0.75rem;
     border-top: 1px solid #eee;
     text-align: center;
     color: var(--text) !important;
 }
 
-div.mobile__menu .nav__link:hover[b-29rfoo2l4f] {
+div.mobile__menu .nav__link:hover[b-zpd9r1mqgx] {
     background: linear-gradient(90deg, var(--accent), var(--primary));
     color: white !important;
 }
 
-button.hamburger[b-29rfoo2l4f] {
+button.hamburger[b-zpd9r1mqgx] {
     padding: 10px 15px;
     border-radius: 50%;
     display: flex;
 }
 
-button.hamburger:hover[b-29rfoo2l4f] {
+button.hamburger:hover[b-zpd9r1mqgx] {
     cursor: pointer;
     transition: background-position 0.5s ease;
     color: var(--text) !important;
 }
 
 @media (max-width: 1100px) {
-    .navbar-right .hamburger[b-29rfoo2l4f] {
+    .navbar-right .hamburger[b-zpd9r1mqgx] {
         display: block;
     }
 
-    .mobile-menu[b-29rfoo2l4f] {
+    .mobile-menu[b-zpd9r1mqgx] {
         display: flex;
     }
 }
