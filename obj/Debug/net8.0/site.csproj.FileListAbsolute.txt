@@ -2893,8 +2893,6 @@ C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\bundle\site.styles.css
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\projectbundle\site.bundle.scp.css
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\blazor.build.boot-extension.json
@@ -3111,6 +3109,8 @@ C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\site.pdb
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\ref\site.dll
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\bin\Debug\net8.0\package-lock.json
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\m7p7vyzyb8-2z49pgv5sd.gz
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\056kmy3dnd-wpqwzppr8m.gz
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\1lygdztbcc-pxirw4abnd.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\m7p7vyzyb8-gzkby4rm7c.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\056kmy3dnd-zzg2v1ypfd.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\1lygdztbcc-l6qqh9bzj4.gz

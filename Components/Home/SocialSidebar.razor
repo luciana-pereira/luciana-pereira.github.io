@@ -1,0 +1,14 @@
+@using site.Models
+
+<div class="social__container">
+    <div class="line">
+        <span class="dot bottom"></span>
+        <span class="dot top"></span>
+    </div>
+
+    <SocialLinks CssClass="social__icons" Links="Links" />
+</div>
+
+@code {
+    [Parameter] public List<SocialLink> Links { get; set; } = new List<SocialLink>();
+}

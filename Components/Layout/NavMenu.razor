@@ -1,0 +1,82 @@
+﻿@using site.Enums
+@using site.Services
+
+<nav class="navbar">
+    <NavLink href="/" class="nav__link" activeClass="active">
+        <img src="@logoSrc" alt="Logo" class="logo" />
+    </NavLink>
+
+    <div class="navbar-right">
+        <button class="icon-button" @onclick="ToggleLanguage">
+            <Icon Name="IconType.Language" IsDark="ThemeService.IsDarkMode" />
+        </button>
+
+        <button class="icon-button" @onclick="ToggleTheme">
+            <Icon Name="IconType.Theme" IsDark="ThemeService.IsDarkMode" />
+        </button>
+
+        <button class="icon-button" @onclick="GetInTouch">
+            <Icon Name="IconType.Email" IsDark="ThemeService.IsDarkMode" />
+        </button>
+
+        <button class="icon-button hamburger" @onclick="ToggleMobileMenu">
+            <Icon Name="IconType.Menu" IsDark="ThemeService.IsDarkMode" />
+        </button>    
+    </div>
+
+    @if (showMobileMenu)
+    { 
+        <div class="mobile__menu">
+            <NavLink href="/portfolio" class="nav__link" activeClass="active">Portfólio</NavLink>
+            <NavLink href="/blog" class="nav__link" activeClass="active">Blog</NavLink>
+            <NavLink href="/cursos" class="nav__link" activeClass="active">Cursos</NavLink>
+            <NavLink href="/perfil" class="nav__link" activeClass="active">Perfil</NavLink>
+        </div>
+    }
+</nav>
+
+@code {
+    private bool showMobileMenu = false;
+    private string logoSrc = "/images/logo-black.png";
+    @inject ThemeService ThemeService
+        
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await ThemeService.InitializeAsync();
+            UpdateVisuals();
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleMobileMenu()
+    {
+        showMobileMenu = !showMobileMenu;
+    }
+
+    private async Task ToggleTheme()
+    {
+        await ThemeService.ToggleAsync();
+        UpdateVisuals();
+    }
+
+    private void UpdateVisuals()
+    {
+        logoSrc = ThemeService.IsDarkMode
+            ? "/images/logo-colorful.png"
+            : "/images/logo-black.png";
+    }
+
+    private void ToggleLanguage()
+    {
+        // Ainda não implementado
+    }
+
+    private void GetInTouch()
+    {
+        
+    }
+}
+
+

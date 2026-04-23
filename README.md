@@ -36,7 +36,7 @@ Este site apresenta meu trabalho, experiências e projetos. Foi pensado para ser
 ```.shell
 dotnet restore luciana-pereira.github.io.sln
 dotnet build luciana-pereira.github.io.sln
-dotnet run --project site.csproj
+dotnet run --project site.csproj ou dotnet watch run --project site.csproj
 ```
 
 

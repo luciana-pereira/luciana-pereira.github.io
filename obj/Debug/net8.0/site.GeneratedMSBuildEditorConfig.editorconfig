@@ -28,6 +28,22 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Common/Icon.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb21tb25cSWNvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Common/SocialLinks.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb21tb25cU29jaWFsTGlua3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeHero.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVIZXJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/SocialSidebar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXFNvY2lhbFNpZGViYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Pages/Blog.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,10 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-bvvag6z4i1
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-pmrzm674n3
 
-[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-q57m54tjco
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-4i8e1co596

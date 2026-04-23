@@ -1,90 +1,43 @@
 @page "/"
+@using site.Components.Common
+@using site.Components.Home
+@using site.Models
 
 <div id="tsparticles"></div>
 
 <div class="home">
-    <div class="social__container">
-        <div class="line">
-            <span class="dot bottom"></span>
-            <span class="dot top"></span>
-        </div>
+    <SocialSidebar Links="socialLinks" />
 
-        <div class="social__icons">
-            <a href="https://github.com/lucianapereira" 
-                target="_blank" 
-                title="GitHub"
-            >
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/lucianapereiras/" 
-                target="_blank" 
-                title="LinkedIn"
-            >
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a 
-                href="https://wa.me/213123"
-                target="_blank" 
-                title="WhatsApp"
-            >
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
+    <HomeHero 
+        Title="Software Engineer"
+        Subtitle="Front-end, Back-end & Cloud"
+        Description1="
+                Trabalho como engenheira de software há mais de 5 anos, construindo aplicações web 
+                e mobile. Já atuei tanto no front-end quanto no back-end e em cloud. Gosto de código 
+                limpo, boas práticas e, principalmente, de resolver problemas de forma inteligente 
+                (não só “fazer funcionar”)."
+        Description2="
+                Sou movida por desafios e aprendizado constante. 
+                Curto trabalhar em equipe, trocar ideias e encarar desafios que me tirem da zona de conforto.
+                Estou sempre aberta a novas oportunidades, 
+                principalmente aquelas que me façam evoluir como desenvolvedora e 
+                participar de algo relevante."
+        Image="/images/profile.png" 
+        Links="socialLinks"
+    />
 
-            <a href="https://twitter.com/lucianapereiras" 
-                target="_blank" 
-                title="Twitter"
-            >
-                <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/luciana.pereiras.35762241" 
-                target="_blank" 
-                title="Facebook"
-            >
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/lucianapereiras/" 
-                target="_blank" 
-                title="Instagram"
-            >
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w" 
-                target="_blank" 
-                title="YouTube"
-            >
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-        </div>
-    </div>
-
-
-    <section class="home__content">
-        <div class="home__text">
-            <h1 class="home__title">Software Engineer</h1>
-            <h2 class="home__subtitle">Front-end, Back-end & Cloud</h2>
-
-            <p class="home__description">
-                Engenheira de Software com mais de 5 anos de experiência em desenvolvimento de aplicações web e mobile. 
-                Atuei em ambientes front-end, back-end e nuvem. 
-                Com um histórico comprovado de entrega de projetos de alta qualidade, 
-                busco constantemente aprimorar minhas habilidades e contribuir para o sucesso de equipes dinâmicas. 
-                Estou sempre aberta a novas oportunidades e desafios que me permitam crescer profissionalmente e fazer 
-                a diferença no mundo da tecnologia.
-            </p>
-        </div>
-
-        @* <div class="home__actions">
-            <button class="btn btn--primary">Entre em contato</button>
-            <button class="btn btn--secondary">Veja meu portfólio</button>
-        </div> *@
-
-        <div class="home__image">
-            <img src="/images/profile.png" alt="Foto de Perfil" class="image__profile" />
-        </div>
-    </section>
 </div>
 
 @code {
-    private string logoSrc = "/images/logo-black.png";
-}
+    private List<SocialLink> socialLinks = new List<SocialLink> ()
+    {
+        new SocialLink() { Url = "https://github.com/luciana-pereira", Icon = "fa-brands fa-github", Name = "GitHub" },
+        new SocialLink() { Url = "https://www.linkedin.com/in/lucianapereiras/", Icon = "fa-brands fa-linkedin", Name = "LinkedIn" },
+        new SocialLink() { Url = "https://wa.me/11982779387", Icon = "fa-brands fa-whatsapp", Name = "WhatsApp" },
+        new SocialLink() { Url = "https://twitter.com/lupereiradev", Icon = "fa-brands fa-twitter", Name = "Twitter" },
+        new SocialLink() { Url = "https://www.facebook.com/luciana.pereiras.35762241", Icon = "fa-brands fa-facebook", Name = "Facebook" },
+        new SocialLink() { Url = "https://www.instagram.com/lucianapereiradev/", Icon = "fa-brands fa-instagram", Name = "Instagram" },
+        new SocialLink() { Url = "https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w", Icon = "fa-brands fa-youtube", Name = "YouTube" },
+    };
+};
 

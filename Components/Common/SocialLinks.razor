@@ -1,0 +1,15 @@
+@using site.Models
+
+<div class="@CssClass">
+    @foreach (SocialLink link in Links)
+    {
+        <a href="@link.Url" target="_blank" title="@link.Name">
+            <i class="@link.Icon"></i>
+        </a>
+    }
+</div>
+
+@code {
+    [Parameter] public string CssClass { get; set; } = "";
+    [Parameter] public List<SocialLink> Links { get; set; } = new();
+}

@@ -1,0 +1,30 @@
+@using site.Models
+
+<section class="home__content">
+    <div class="home__text">
+        <h1 class="home__title">@Title</h1>
+        <h2 class="home__subtitle">@Subtitle</h2>
+
+        <p class="home__description">@Description1</p>
+        <p class="home__description">@Description2</p>
+    </div>
+        @* <div class="home__actions">
+            <button class="btn btn--primary">Entre em contato</button>
+            <button class="btn btn--secondary">Veja meu portfólio</button>        
+            </div> *@
+    <div class="home__image">
+        <img src="@Image" alt="Foto de Perfil" class="image__profile" />
+    </div>
+
+    <SocialLinks CssClass="home__social" Links="Links" />
+</section>
+
+@code {
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string Subtitle { get; set; } = "";
+    [Parameter] public string Description1 { get; set; } = "";
+    [Parameter] public string Description2 { get; set; } = "";
+    [Parameter] public string Image { get; set; } = "";
+    [Parameter] public List<SocialLink> Links { get; set; } = new List<SocialLink>();
+
+}
