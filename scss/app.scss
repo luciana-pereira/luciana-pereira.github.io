@@ -65,7 +65,7 @@ main {
 
 /* Navbar */
 img.logo {
-    height: 10vh;
+    height: 8vh;
     width: auto;
 }
 
@@ -73,7 +73,7 @@ img.logo {
     display: flex;
     top: 0;
     width: 100%;
-    padding: 2.5rem 10rem !important;
+    padding: 0.5rem 4rem !important;
     z-index: 1000;
     border-bottom: 1px solid #9c979b46;
     margin: 0 auto;
@@ -82,7 +82,7 @@ img.logo {
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
     font-size: 1.5rem;
 }
 
@@ -90,14 +90,14 @@ img.logo {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     border-radius: 50%;
     font-size: large;
 }
 
 button.icon-button > svg {
-    width: 60px !important;
-    height: 60px !important;
+    width: 2.5vw !important;
+    height: 2.5vh !important;
     transition: fill 0.2s ease;
 }
 
@@ -162,8 +162,10 @@ button.icon-button > svg {
 
 /* Page Home */
 div.home {
+    /* max-width: 1200px; */
     margin: 0 auto;    
-    padding: clamp(1rem, 4vw, 4rem);
+    /* padding: 2rem; */
+    padding: clamp(0.8rem, 0.8vw, 0.8rem);
     display: flex;
 }
 
@@ -177,7 +179,7 @@ div.social__container {
     align-items: center;
     justify-content: flex-end;
     height: 85vh;
-    padding: 5rem 1.25rem 1.25rem;
+    padding: 2rem 1.25rem 1.25rem;
 }
 
 .line {
@@ -192,8 +194,8 @@ span.dot {
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    width: 1rem;
-    height: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background: var(--text);
     border-radius: 100%;
 }
@@ -212,7 +214,7 @@ span.dot.top {
 div.social__icons {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
     width: 100%;
     z-index: 50;
 }
@@ -226,7 +228,7 @@ div.social__icons a {
 {
     font-weight: 400;
     color: var(--text);
-    font-size: 80px;
+    font-size: 25px;
     transition: color 0.2s;
 }
 
@@ -251,28 +253,28 @@ div.home__text {
 }
 
 h1.home__title {
-    font-size: clamp(3rem, 10vw, 10rem);
+    font-size: clamp(4rem, 4vw, 4rem);
     font-weight: 900;
     color: var(--text);
     text-align: center;
-    margin-top: 15rem;
+    margin-top: 2rem;
 }
 
 h2.home__subtitle {
-    font-size: clamp(3rem, 10vw, 10rem);
+    font-size: clamp(4rem, 4vw, 4rem);
     font-weight: 900;
     background: linear-gradient(90deg, var(--accent), var(--primary));
     text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 10rem;
+    /* margin-top: 0.5rem; */
+    margin-bottom: 1.8rem;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 p.home__description {
-    margin: 2rem 10rem;
-    font-size: clamp(4rem, 3vw, 4rem);
+    margin: 0rem 2rem;
+    font-size: clamp(1.2rem, 1.2vw, 1.2rem);
     line-height: 1.6;
     color: var(--text);
     font-weight: 500;
@@ -334,7 +336,7 @@ div.home__image img:hover {
 /* Mobile Menu */
 div.mobile__menu {
     font-weight: 500;
-    font-size: clamp(3rem, 3vw, 3rem);
+    font-size: clamp(1rem, 1vw, 1rem);
 
     display: flex;
     flex-direction: column;
@@ -342,14 +344,14 @@ div.mobile__menu {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 35% !important;
+    width: 20% !important;
     border: 1px solid #eee;
     color: var(--text) !important;
     border-radius: 0px 0px 0px 15px;
 }
 
 div.mobile__menu .nav__link {
-    padding: 1.5rem;
+    padding: 0.5rem;
     border-top: 1px solid #eee;
     text-align: center;
     color: var(--text) !important;
@@ -414,12 +416,12 @@ button.hamburger:hover {
 } */
 
 /* Responsive Styles */
-@media (max-width: 3600px) {
-    div.mobile__menu {
+/* @media (max-width: 3600px) { */
+    /* div.mobile__menu {
         width: 100% !important;
-    }
+    } */
 
-    section.home__content {
+    /* section.home__content {
         flex-direction: column;
     }
 
@@ -441,7 +443,7 @@ button.hamburger:hover {
     div.home__actions {
         justify-content: center;
     }
-}
+} */
 
 @media (max-width: 1510px) {
     div.home {
@@ -450,18 +452,34 @@ button.hamburger:hover {
         align-items: center;
         padding: 0% 3%;    
     }
+    
+    /* div.home__social {
+        justify-content: center;
+        margin-top: 5rem;
+        display: flex; 
+        gap: 5rem;
+    } */
 
     div.home__actions {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
     }
+
+    /* div.social__container {
+        display: none; 
+    } */
+
+    /* img.image__profile {
+        width: 50vh;
+        height: 50vh;
+    } */
 }
 
 @media (min-width: 1280px) {
-    .social__container {
+    /* .social__container {
         margin-top: 2.5rem;
-    }
+    } */
 
     .social__icons {
         gap: 2rem;
@@ -471,23 +489,36 @@ button.hamburger:hover {
 @media (max-width: 1024px) {
     section.home__content {
         flex-direction: column;
-        text-align: center;
     }
-
+    
     div.home__actions {
         justify-content: center;
+    }
+
+    /* div.social__container {
+        display: none;
+    } */
+
+    div.home__social {
+        justify-content: center;
+        margin-top: 1rem;
+        display: flex; 
+        gap: 2rem;
+    }
+
+    div.home__image img {
+        width: 50%;
+        margin-top: 0px
     }
 }
 
 @media (min-width: 1024px) {
-    div.social__container {
-        height: 80vh;
-        padding: 5rem 2.25rem 2.5rem;
-        margin-top: -0.75rem;
-        justify-content: space-between;
-    }
 
-    .line {
+    /* div.social__container {
+        display: none;
+    } */
+
+    /* .line {
         display: block;
     }
 
@@ -498,21 +529,26 @@ button.hamburger:hover {
     .icon {
         width: 32px;
         height: 32px;
-    }
+    } */
 }
 
 @media (max-width: 768px) {
     button.icon-button > svg {
-        width: 80px !important;
-        height: 80px !important;
+        width: 3vw !important;
+        height: 3vh !important;
     }
 
     img.logo {
-        height: 7vh;
+        height: 8vh;
     }
 
     div.social__container {
         display: none; 
+    }
+
+    div.mobile__menu {
+        width: 100% !important;
+        border-radius: unset;
     }
     
     /* .desktop-menu {
@@ -537,8 +573,8 @@ button.hamburger:hover {
     }
 
     button.icon-button > svg {
-        width: 80px !important;
-        height: 80px !important;
+        width: 3vw !important;
+        height: 3vh !important;
     }
 
     img.logo {

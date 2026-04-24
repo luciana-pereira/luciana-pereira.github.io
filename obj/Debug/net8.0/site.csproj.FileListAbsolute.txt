@@ -3111,6 +3111,6 @@ C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\bin\Debug\net8.0\package-lock.json
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\m7p7vyzyb8-gzkby4rm7c.gz
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\056kmy3dnd-zzg2v1ypfd.gz
-C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\1lygdztbcc-l6qqh9bzj4.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\m7p7vyzyb8-60nfga4n6o.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\056kmy3dnd-78p40frimt.gz
+C:\Users\l.dos.santos.souza\projects\luciana-pereira.github.io\obj\Debug\net8.0\compressed\1lygdztbcc-sozm2mczaq.gz
