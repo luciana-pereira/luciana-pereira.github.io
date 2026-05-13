@@ -11,16 +11,17 @@
             @Body
         </article>
     </main>
+    <Footer />
 </div>
 
 @inject IJSRuntime JS
 
 @code {
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    @* protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("loadParticles");
+            await JS.InvokeVoidAsync(identifier: "loadParticles");
         }
-    }
+    } *@
 }

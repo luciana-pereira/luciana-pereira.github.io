@@ -8,8 +8,8 @@
 :root {
     --bg: #e7e7e7;
     --text: #000000;
-    --primary: #e415d7;
-    --accent: #29afee;
+    --primary: #FF00C7;
+    --accent: #00A3FF;
 }
 
 [data-theme="dark"] {
@@ -128,7 +128,7 @@ button.icon-button > svg {
     transform: translateX(28px);
 } */
 
-/* Ícones fixos */
+/* ï¿½cones fixos */
 /* .icon-left,
 .icon-right {
     position: absolute;
@@ -162,9 +162,7 @@ button.icon-button > svg {
 
 /* Page Home */
 div.home {
-    /* max-width: 1200px; */
     margin: 0 auto;    
-    /* padding: 2rem; */
     padding: clamp(0.8rem, 0.8vw, 0.8rem);
     display: flex;
 }
@@ -210,7 +208,7 @@ span.dot.top {
     top: 0;
 }
 
-/* Ícones */
+/* Icones */
 div.social__icons {
     display: flex;
     flex-direction: column;
@@ -223,7 +221,7 @@ div.social__icons a {
     text-decoration: none;
 }
 
-/* Ícones (placeholder) */
+/* Icones (placeholder) */
 .fa-brands, .fab
 {
     font-weight: 400;

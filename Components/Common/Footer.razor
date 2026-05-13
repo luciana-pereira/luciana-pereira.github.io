@@ -1,0 +1,80 @@
+@using site.Models
+
+<footer class="footer">
+
+    <div class="footer__container">
+
+        <!-- Branding -->
+        <div class="footer__brand">
+
+            <h2 class="footer__logo">
+                Luciana Pereira
+            </h2>
+
+            <p class="footer__description">
+                Engenheira de software full-stack apaixonada por
+                arquitetura, cloud e plataformas modernas.
+            </p>
+            <SocialLinks CssClass="social__icons" Links="socialLinks" />
+
+        </div>
+
+        <!-- Navegação -->
+        <div class="footer__links">
+
+            <h3>Navegação</h3>
+
+            <a href="#about">Sobre</a>
+            <a href="#experience">Experiência</a>
+            <a href="#projects">Projetos</a>
+            <a href="#blog">Blog</a>
+            <a href="#courses">Cursos</a>
+
+        </div>
+
+        <!-- Contato -->
+        <div class="footer__contact">
+
+            <h3>Contato</h3>
+
+            <p>São Paulo, Brasil</p>
+
+            <p>
+                contato@devzerobug.com.br
+            </p>
+            <button class="footer__button">
+                Vamos Trabalhar Juntos
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer__bottom">
+
+        <p>
+            © 2026 Luciana Pereira.
+            Todos os direitos reservados.
+        </p>
+
+        <p>
+            Desenvolvido com Blazor WebAssembly
+        </p>
+
+    </div>
+
+</footer>
+
+@code {
+    private List<SocialLink> socialLinks = new List<SocialLink> ()
+    {
+        new SocialLink() { Url = "https://github.com/luciana-pereira", Icon = "fa-brands fa-github", Name = "GitHub" },
+        new SocialLink() { Url = "https://www.linkedin.com/in/lucianapereiras/", Icon = "fa-brands fa-linkedin", Name = "LinkedIn" },
+        new SocialLink() { Url = "https://wa.me/11982779387", Icon = "fa-brands fa-whatsapp", Name = "WhatsApp" },
+        new SocialLink() { Url = "https://twitter.com/lupereiradev", Icon = "fa-brands fa-twitter", Name = "Twitter" },
+        new SocialLink() { Url = "https://www.facebook.com/luciana.pereiras.35762241", Icon = "fa-brands fa-facebook", Name = "Facebook" },
+        new SocialLink() { Url = "https://www.instagram.com/lucianapereiradev/", Icon = "fa-brands fa-instagram", Name = "Instagram" },
+        new SocialLink() { Url = "https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w", Icon = "fa-brands fa-youtube", Name = "YouTube" },
+    };
+}

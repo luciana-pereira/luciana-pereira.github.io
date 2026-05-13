@@ -1,4 +1,4 @@
-@using site.Models
+@* @using site.Models *@
 
 <section class="home__content">
     <div class="home__text">
@@ -6,6 +6,7 @@
         <h2 class="home__subtitle">@Subtitle</h2>
 
         <p class="home__description">@Description1</p>
+        <br />
         <p class="home__description">@Description2</p>
     </div>
         @* <div class="home__actions">
@@ -16,7 +17,7 @@
         <img src="@Image" alt="Foto de Perfil" class="image__profile" />
     </div>
 
-    <SocialLinks CssClass="home__social" Links="Links" />
+    @* <SocialLinks CssClass="home__social" Links="Links" /> *@
 </section>
 
 @code {
@@ -25,6 +26,6 @@
     [Parameter] public string Description1 { get; set; } = "";
     [Parameter] public string Description2 { get; set; } = "";
     [Parameter] public string Image { get; set; } = "";
-    [Parameter] public List<SocialLink> Links { get; set; } = new List<SocialLink>();
+    @* [Parameter] public List<SocialLink> Links { get; set; } = new List<SocialLink>(); *@
 
 }
