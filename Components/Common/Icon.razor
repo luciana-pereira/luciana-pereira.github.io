@@ -14,6 +14,14 @@
         @MenuIcon()
         break;
 
+    case IconType.Courses:
+        @CoursesIcon()
+        break;
+
+    case IconType.Blog:
+        @BlogIcon()
+        break;
+
     case IconType.Email:
         @EmailIcon()
         break;
@@ -81,4 +89,33 @@
                                                 viewBox="0 0 24 24">
         <path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/>
     </svg>;
+
+    private RenderFragment CoursesIcon() => @<svg xmlns="http://www.w3.org/2000/svg" 
+                                                width="24" 
+                                                height="24" 
+                                                viewBox="0 0 24 24" 
+                                                fill="none" 
+                                                stroke="@(IsDark ? "white" : "black")"
+                                                stroke-width="2" 
+                                                stroke-linecap="round" 
+                                                stroke-linejoin="round" 
+                                                class="relative z-10 shrink-0 size-4 mr-2">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+    </svg>;
+
+    private RenderFragment BlogIcon() => @<svg xmlns="http://www.w3.org/2000/svg" 
+                                            width="24" 
+                                            height="24" 
+                                            viewBox="0 0 24 24" 
+                                            fill="none" 
+                                            stroke="@(IsDark ? "white" : "black")"
+                                            stroke-width="2" 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            class="mr-2 h-4 w-4">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+    </svg>;
+
 }

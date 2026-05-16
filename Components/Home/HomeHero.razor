@@ -1,24 +1,57 @@
 @* @using site.Models *@
+@using site.Enums
+@using site.Services
 
-<section class="home__content">
-    <div class="home__text">
-        <h1 class="home__title">@Title</h1>
-        <h2 class="home__subtitle">@Subtitle</h2>
+<div class="container">
+    <section class="hero">
+        <div class="hero__left">
+            <h1 class="home__title">@Title</h1>
+            <h2 class="home__subtitle">@Subtitle</h2>
+            <p class="home__description">@Description1</p>
+            <p class="home__description">@Description2</p>
+            <div class="home__actions">
+                <button class="btn btn--primary">
+                    <Icon Name="IconType.Courses" IsDark="ThemeService.IsDarkMode" />
+                    Ver Cursos
+                </button>
+                <button class="btn btn--secondary">
+                    <Icon 
+                        Name="IconType.Blog" 
+                        IsDark="ThemeService.IsDarkMode" 
+                    />
+                    Ler Blog
+                </button>
+            </div>
+            <br />
+            <div class="home__social">
+                <h3 class="home__social-title">
+                    Canais no YouTube:
+                </h3>
+                <a class="btn--social" href="https://www.youtube.com/@@LucianaPereiraDev" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                    @@LucianaPereiraDev
+                    <div class="btn-tag">Em construção</div>
+                </a>
+                <a class="btn--social" href="https://www.youtube.com/@@DevZeroBug" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                    @@DevZeroBug
+                    <div class="btn-tag">Em construção</div>
+                </a>
+            </div>        
+        </div>
 
-        <p class="home__description">@Description1</p>
-        <br />
-        <p class="home__description">@Description2</p>
-    </div>
-        @* <div class="home__actions">
-            <button class="btn btn--primary">Entre em contato</button>
-            <button class="btn btn--secondary">Veja meu portfólio</button>        
-            </div> *@
-    <div class="home__image">
-        <img src="@Image" alt="Foto de Perfil" class="image__profile" />
-    </div>
-
-    @* <SocialLinks CssClass="home__social" Links="Links" /> *@
-</section>
+        <div class="hero__right">
+            <div class="hero__image">
+                <img 
+                    src="@Image" 
+                    alt="Foto de Perfil" 
+                    class="image__profile"
+                />
+            </div>
+            <HomeStats />
+        </div>
+    </section>
+</div>
 
 @code {
     [Parameter] public string Title { get; set; } = "";
@@ -26,6 +59,15 @@
     [Parameter] public string Description1 { get; set; } = "";
     [Parameter] public string Description2 { get; set; } = "";
     [Parameter] public string Image { get; set; } = "";
-    @* [Parameter] public List<SocialLink> Links { get; set; } = new List<SocialLink>(); *@
+    @inject ThemeService ThemeService
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await ThemeService.InitializeAsync();
+            StateHasChanged();
+        }
+    }
 
 }

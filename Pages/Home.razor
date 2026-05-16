@@ -3,17 +3,13 @@
 @using site.Components.Home
 @using site.Models
 
-@* <div id="tsparticles"></div> *@
-
 <div class="home">
-    @* <SocialSidebar /> *@
-
     <HomeHero 
         Title="Software Engineer"
         Subtitle="Front-end, Back-end & Cloud"
         Description1="
-                Trabalho como engenheira de software há mais de 5 anos, construindo aplicações web 
-                e mobile. Já atuei tanto no front-end quanto no back-end e em cloud. Gosto de código 
+                Engenheira de software, que atua na construção de aplicações web 
+                e mobile, tanto no front-end quanto no back-end e em cloud. Gosto de código 
                 limpo, boas práticas e, principalmente, de resolver problemas de forma inteligente 
                 (não só “fazer funcionar”)."
         Description2="
@@ -25,17 +21,15 @@
         Image="/images/profile.png" 
     />
 
+    <HomeProjects />
+
+    <HomeBlogPreview />
+
+    <HomeCoursesPreview />
+
+    <HomeCTA />
+
 </div>
 
 @code {
-    @* private List<SocialLink> socialLinks = new List<SocialLink> ()
-    {
-        new SocialLink() { Url = "https://github.com/luciana-pereira", Icon = "fa-brands fa-github", Name = "GitHub" },
-        new SocialLink() { Url = "https://www.linkedin.com/in/lucianapereiras/", Icon = "fa-brands fa-linkedin", Name = "LinkedIn" },
-        new SocialLink() { Url = "https://wa.me/11982779387", Icon = "fa-brands fa-whatsapp", Name = "WhatsApp" },
-        new SocialLink() { Url = "https://twitter.com/lupereiradev", Icon = "fa-brands fa-twitter", Name = "Twitter" },
-        new SocialLink() { Url = "https://www.facebook.com/luciana.pereiras.35762241", Icon = "fa-brands fa-facebook", Name = "Facebook" },
-        new SocialLink() { Url = "https://www.instagram.com/lucianapereiradev/", Icon = "fa-brands fa-instagram", Name = "Instagram" },
-        new SocialLink() { Url = "https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w", Icon = "fa-brands fa-youtube", Name = "YouTube" },
-    }; *@
 }

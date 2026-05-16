@@ -1,8 +1,5 @@
 ﻿@inherits LayoutComponentBase
 
-@* <div id="particles-js"></div> *@
-@* <div class="particles-overlay"></div> *@
-
 <div class="page">
     <NavMenu />
 
@@ -17,11 +14,5 @@
 @inject IJSRuntime JS
 
 @code {
-    @* protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync(identifier: "loadParticles");
-        }
-    } *@
+
 }

@@ -5,5 +5,7 @@ public enum IconType
     Theme,
     Language,
     Menu,
-    Email
+    Email,
+    Courses,
+    Blog
 }

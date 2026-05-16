@@ -1,4 +1,7 @@
 @using site.Models
+@using site.Services
+@implements IDisposable
+@inject ThemeService ThemeService
 
 <footer class="footer">
 
@@ -7,44 +10,79 @@
         <!-- Branding -->
         <div class="footer__brand">
 
-            <h2 class="footer__logo">
-                Luciana Pereira
-            </h2>
+            <NavLink href="/" class="nav__link" activeClass="active">
+                <img src="@CurrentLogo" alt="Logo" class="logo" />
+            </NavLink>
 
             <p class="footer__description">
                 Engenheira de software full-stack apaixonada por
                 arquitetura, cloud e plataformas modernas.
             </p>
+            <div class="footer__location">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>São Paulo, Brasil</p>
+            </div>
             <SocialLinks CssClass="social__icons" Links="socialLinks" />
+            <div class="footer__newsletter">
 
+                <h5>Receba conteúdos</h5>
+
+                <div class="footer__newsletter-form">
+
+                    <input
+                        type="email"
+                        placeholder="Seu email" />
+
+                    <button>
+                        Inscrever
+                    </button>
+
+                </div>
+
+            </div>
         </div>
 
-        <!-- Navegação -->
+        <!-- Conteúdo -->
         <div class="footer__links">
 
-            <h3>Navegação</h3>
+            <h5>Conteúdo</h5>
 
-            <a href="#about">Sobre</a>
-            <a href="#experience">Experiência</a>
-            <a href="#projects">Projetos</a>
             <a href="#blog">Blog</a>
+            <a href="#about">Sobre</a>
             <a href="#courses">Cursos</a>
+            <a href="#projects">Projetos</a>
+            <a href="#experience">Experiência</a>
 
         </div>
 
         <!-- Contato -->
         <div class="footer__contact">
 
-            <h3>Contato</h3>
-
-            <p>São Paulo, Brasil</p>
+            <h5>Contato</h5>
 
             <p>
                 contato@devzerobug.com.br
             </p>
-            <button class="footer__button">
+
+            <div class="footer__mini-form">
+
+                <input
+                    type="email"
+                    placeholder="Seu email" />
+
+                <textarea
+                    rows="3"
+                    placeholder="Fale sobre seu projeto"></textarea>
+
+                <button class="footer__button">
+                    Enviar Mensagem
+                </button>
+
+            </div>            
+            
+            @* <button class="footer__button">
                 Vamos Trabalhar Juntos
-            </button>
+            </button> *@
 
         </div>
 
@@ -58,9 +96,8 @@
             Todos os direitos reservados.
         </p>
 
-        <p>
-            Desenvolvido com Blazor WebAssembly
-        </p>
+        <a href="">Política de Privacidade</a>
+        <a href="">Termos de Uso</a>
 
     </div>
 
@@ -77,4 +114,33 @@
         new SocialLink() { Url = "https://www.instagram.com/lucianapereiradev/", Icon = "fa-brands fa-instagram", Name = "Instagram" },
         new SocialLink() { Url = "https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w", Icon = "fa-brands fa-youtube", Name = "YouTube" },
     };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await ThemeService.InitializeAsync();
+            StateHasChanged();
+        }
+    }
+
+    private string CurrentLogo =>
+        ThemeService.IsDarkMode
+            ? "/images/White_Logo_1.png"
+            : "/images/Black_Logo_1.png";
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnThemeChanged += HandleThemeChanged;
+    }
+
+    private async void HandleThemeChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnThemeChanged -= HandleThemeChanged;
+    }
 }

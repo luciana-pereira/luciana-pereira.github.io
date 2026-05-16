@@ -1,9 +1,11 @@
 ﻿@using site.Enums
 @using site.Services
+@implements IDisposable
+@inject ThemeService ThemeService
 
 <nav class="navbar">
     <NavLink href="/" class="nav__link" activeClass="active">
-        <img src="@logoSrc" alt="Logo" class="logo" />
+        <img src="@CurrentLogo" alt="Logo" class="logo" />
     </NavLink>
 
     <div class="navbar-right">
@@ -37,15 +39,27 @@
 
 @code {
     private bool showMobileMenu = false;
-    private string logoSrc = "/images/logo-black.png";
-    @inject ThemeService ThemeService
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnThemeChanged += HandleThemeChanged;
+    }
+
+    private async void HandleThemeChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnThemeChanged -= HandleThemeChanged;
+    }
         
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await ThemeService.InitializeAsync();
-            UpdateVisuals();
             StateHasChanged();
         }
     }
@@ -58,15 +72,12 @@
     private async Task ToggleTheme()
     {
         await ThemeService.ToggleAsync();
-        UpdateVisuals();
     }
 
-    private void UpdateVisuals()
-    {
-        logoSrc = ThemeService.IsDarkMode
-            ? "/images/logo-colorful.png"
-            : "/images/logo-black.png";
-    }
+    private string CurrentLogo => 
+        ThemeService.IsDarkMode 
+            ? "/images/White_Logo_1.png" 
+            : "/images/Black_Logo_1.png";
 
     private void ToggleLanguage()
     {
