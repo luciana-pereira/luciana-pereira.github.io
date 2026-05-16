@@ -1,4 +1,9 @@
 @using site.Enums
+@using site.Services
+
+@inject ThemeService ThemeService
+
+@implements IDisposable
 
 @switch (Name)
 {
@@ -29,15 +34,29 @@
 
 @code {
     [Parameter] public IconType Name { get; set; }
-    [Parameter] public bool IsDark { get; set; }
 
-    private RenderFragment ThemeIcon() => IsDark ? DarkThemeIcon() : LightThemeIcon();
+    protected override void OnInitialized()
+    {
+        ThemeService.OnThemeChanged += HandleThemeChanged;
+    }
+
+    private void HandleThemeChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnThemeChanged -= HandleThemeChanged;
+    }
+    private RenderFragment ThemeIcon() => ThemeService.IsDarkMode ? DarkThemeIcon() : LightThemeIcon();
 
     private RenderFragment DarkThemeIcon() => @<svg xmlns="http://www.w3.org/2000/svg" 
                                                     height="24px" 
                                                     viewBox="0 -960 960 960" 
-                                                    width="24px" fill="@(IsDark ? "white" : "black")"
-                                                    stroke="@(IsDark ? "white" : "black")">
+                                                    width="24px" 
+                                                    fill="@(ThemeService.IsDarkMode ? "white" : "black")"
+                                                    stroke="@(ThemeService.IsDarkMode ? "white" : "black")">
         <path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/>
     </svg>;
 
@@ -45,7 +64,7 @@
                                                     height="24px" 
                                                     viewBox="0 0 24 24" 
                                                     width="24px" 
-                                                    stroke="@(IsDark ? "white" : "black")"
+                                                    stroke="@(ThemeService.IsDarkMode ? "white" : "black")"
                                                     fill="#1f1f1f">
         <path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/>
     </svg>;
@@ -56,7 +75,7 @@
                                                     height="24"
                                                     viewBox="0 0 24 24"
                                                     fill="none"
-                                                    stroke="@(IsDark ? "white" : "black")"
+                                                    stroke="@(ThemeService.IsDarkMode ? "white" : "black")"
                                                     stroke-width="2" 
                                                     stroke-linecap="round" 
                                                     stroke-linejoin="round" 
@@ -72,7 +91,7 @@
 
     private RenderFragment MenuIcon() => @<svg xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24"
-                                                stroke="@(IsDark ? "white" : "black")"
+                                                stroke="@(ThemeService.IsDarkMode ? "white" : "black")"
                                                 stroke-width="2"
                                                 fill="none"
                                                 viewBox="0 0 24 24">
@@ -84,7 +103,7 @@
     private RenderFragment EmailIcon() => @<svg xmlns="http://www.w3.org/2000/svg"
                                                 width="24" 
                                                 height="24"
-                                                fill="@(IsDark ? "white" : "black")"
+                                                fill="@(ThemeService.IsDarkMode ? "white" : "black")"
                                                 stroke-width="2"
                                                 viewBox="0 0 24 24">
         <path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/>
@@ -95,7 +114,7 @@
                                                 height="24" 
                                                 viewBox="0 0 24 24" 
                                                 fill="none" 
-                                                stroke="@(IsDark ? "white" : "black")"
+                                                stroke="@(ThemeService.IsDarkMode ? "white" : "black")"
                                                 stroke-width="2" 
                                                 stroke-linecap="round" 
                                                 stroke-linejoin="round" 
@@ -109,7 +128,7 @@
                                             height="24" 
                                             viewBox="0 0 24 24" 
                                             fill="none" 
-                                            stroke="@(IsDark ? "white" : "black")"
+                                            stroke="@(ThemeService.IsDarkMode ? "white" : "black")"
                                             stroke-width="2" 
                                             stroke-linecap="round" 
                                             stroke-linejoin="round" 
