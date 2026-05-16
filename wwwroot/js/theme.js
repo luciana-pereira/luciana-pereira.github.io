@@ -1,17 +1,28 @@
 ﻿window.theme = {
-    toggle: function () {
-        const current = document.documentElement.getAttribute("data-theme");
-        const newTheme = current === "light" ? "dark" : "light";
+    toggle: () => {
 
-        document.documentElement.dataset.theme = newTheme;
-        localStorage.setItem("theme", newTheme);
+        const current =
+            document.documentElement.dataset.theme;
 
-        return newTheme;
+        const next =
+            current === "dark"
+                ? "light"
+                : "dark";
+
+        document.documentElement.dataset.theme = next;
+
+        localStorage.setItem("theme", next);
+
+        return next;
     },
 
-    load: function () {
-        const saved = localStorage.getItem("theme") || "dark";
-        document.documentElement.dataset.theme = saved;
-        return saved;
+    load: () => {
+
+        const savedTheme =
+            localStorage.getItem("theme") || "dark";
+
+        document.documentElement.dataset.theme = savedTheme;
+
+        return savedTheme;
     }
 };

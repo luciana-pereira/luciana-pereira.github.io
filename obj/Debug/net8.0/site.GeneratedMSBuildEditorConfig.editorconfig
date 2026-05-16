@@ -4,12 +4,15 @@ build_property.EnableSingleFileAnalyzer =
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = site
 build_property.RootNamespace = site
@@ -40,8 +43,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb21tb25cU29jaWFsTGlua3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeBlogPreview.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVCbG9nUHJldmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeCoursesPreview.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVDb3Vyc2VzUHJldmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeCTA.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVDVEEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeHero.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVIZXJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeProjects.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVQcm9qZWN0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeSkills.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVTa2lsbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/HomeStats.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb21lXEhvbWVTdGF0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/l.dos.santos.souza/projects/luciana-pereira.github.io/Components/Home/SocialSidebar.razor]
