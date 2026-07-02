@@ -1,55 +1,39 @@
 window.loader = {
+  start: () => {
+    let progress = 0;
 
-    start: () => {
+    const progressBar = document.querySelector(".loader-progress");
 
-        let progress = 0;
+    const percentage = document.getElementById("loader-text");
 
-        const progressBar =
-            document.querySelector(".loader-progress");
+    const interval = setInterval(() => {
+      progress++;
 
-        const percentage =
-            document.getElementById("loader-text");
+      if (progressBar) progressBar.style.width = `${progress}%`;
 
-        const interval = setInterval(() => {
+      if (percentage) percentage.innerText = `${progress}%`;
 
-            progress++;
+      if (progress >= 100) {
+        clearInterval(interval);
 
-            if (progressBar)
-                progressBar.style.width =
-                    `${progress}%`;
+        setTimeout(() => {
+          const loader = document.getElementById("initial-loader");
 
-            if (percentage)
-                percentage.innerText =
-                    `${progress}%`;
+          if (loader) {
+            loader.classList.add("hide");
 
-            if (progress >= 100)
-            {
-                clearInterval(interval);
+            setTimeout(() => {
+              loader.remove();
+            }, 600);
+          }
 
-                setTimeout(() => {
-
-                    const loader =
-                        document.getElementById("initial-loader");
-
-                    if (loader)
-                    {
-                        loader.classList.add("hide");
-
-                        setTimeout(() => {
-                            loader.remove();
-                        }, 600);
-                    }
-
-                    document.body.classList.remove("loading");
-
-                }, 300);
-            }
-
-        }, 20);
-    }
+          document.body.classList.remove("loading");
+        }, 300);
+      }
+    }, 20);
+  },
 };
 
 window.addEventListener("load", () => {
-
-    window.loader.start();
+  window.loader.start();
 });

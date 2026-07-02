@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "site",
   "resources": {
-    "hash": "sha256-XiNWiOIHKFKiCAQ+O399Yavv5wB6i1Qt80GEeqyp2Ys=",
+    "hash": "sha256-yIJo8Z9/eu1XFsQhRm3BR5fDRdsOewmE9NWlHcBixIw=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YDHEHpc+/PUWFYa9BMCN3EcVlpemjKD024swcpPfMIQ="
     },
@@ -49,7 +49,7 @@
       "System.Text.RegularExpressions.wasm": "sha256-QDY1fw+uRh8SRATrPAVeYk+dujYqfGm5T/c2iNubvj0=",
       "System.Threading.wasm": "sha256-aijIo9C3m+brvr2pAaUBxq74zX2hzPEvgojYtbaKHSE=",
       "System.Private.CoreLib.wasm": "sha256-nXuSajdYbHP6m7hEK9FW5fWN/GSh9ljOtQo5Bijq6MI=",
-      "site.wasm": "sha256-SDdNvEAyemYK/Je1YUdpLjBsxtA0fcMT6ojYAN6ErQs="
+      "site.wasm": "sha256-dGwJJnrEaFofTOdDB/OcjtDRS8s6eygmg4UQ865yObU="
     }
   },
   "cacheBootResources": true,
