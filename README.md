@@ -1,7 +1,5 @@
 # Site Profissional
 
-</br>
-
 Este repositório contém o **código-fonte** do meu site pessoal, desenvolvido com Blazor WebAssembly.
 
 🔗 **Acesse o site:**
@@ -9,7 +7,6 @@ Este repositório contém o **código-fonte** do meu site pessoal, desenvolvido 
 
 ![Deploy status](https://github.com/luciana-pereira/luciana-pereira.github.io/actions/workflows/deploy.yml/badge.svg)
 
----
 
 ## Tecnologias
 
@@ -30,7 +27,7 @@ As alterações feitas neste repositório são automaticamente compiladas e publ
 
 ## Sobre o Site
 
-Este site apresenta meu trabalho, experiências e projetos. Foi pensado para ser uma vitrine profissional com tecnologia moderna, focado em performance e escalabilidade com Blazor.
+Este site apresenta meu trabalho, experiências e projetos. Ele foi pensado como uma vitrine profissional com foco em performance, clareza de posicionamento e evolução gradual de autoridade técnica.
 
 ---
 
@@ -39,58 +36,16 @@ Este site apresenta meu trabalho, experiências e projetos. Foi pensado para ser
 ```.shell
 dotnet restore luciana-pereira.github.io.sln
 dotnet build luciana-pereira.github.io.sln
-dotnet run --project site.csproj ou dotnet watch run --project site.csproj
+dotnet run --project site.csproj ou dotnet watch --project ./site.csproj run
+
+dotnet watch --project .\site.csproj run --urls=http://127.0.0.1:5270 
 ```
+
+dotnet restore luciana-pereira.github.io.sln && dotnet build luciana-pereira.github.io.sln && dotnet run --project site.csproj
+
+--> Aplicação sera exibida em `http://localhost:5262/`
 
 ---
-
-## Rascunho
-
-## Estrutura ideal
-
-```.cmd
-Luciana Pereira
-    ↓
-Portfolio / autoridade técnica
-
-DevZeroBug
-    ↓
-Cursos + Blog + Plataforma
-```
-
-```.cmd
-luciana-pereira.github.io
-│
-├── Home
-├── Experience
-├── Projects
-├── Skills
-├── Certifications
-├── Contact
-├── Blog → redirect → blog.devzerobug.com
-└── Courses → redirect → app.devzerobug.com
-```
-
-## Plataforma DevZeroBug
-
-```.cmd
-devzerobug.com
-│
-├── blog.devzerobug.com
-├── app.devzerobug.com
-├── api.devzerobug.com
-└── auth.devzerobug.com
-```
-
-## Design System
-
-Definição de:
-
-- Tipografia
-- Spacing
-- Grid
-- Componentes
-- Tokens
 
 ## Identidade Visual
 
