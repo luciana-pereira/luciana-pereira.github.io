@@ -1,11 +1,7 @@
-# Olá, eu sou a Luciana Pereira
-
 <p align="center">
-  <img src="./wwwroot/images/Black_Logo_1.png" alt="Logo Luciana Pereira" width="220" />
-</p>
-
-<p align="center">
-  <a href="https://luciana-pereira.github.io">Visite meu site</a> e conheça meu trabalho pessoal e profissional.
+  <a href="https://luciana-pereira.github.io" target="_blank">
+    <img src="./wwwroot/images/Black_Logo_1.png" alt="Logo Luciana Pereira" width="520" />
+  </a>
 </p>
 
 ## Sobre mim
