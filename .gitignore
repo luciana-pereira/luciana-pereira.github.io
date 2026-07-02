@@ -36,6 +36,9 @@ Thumbs.db
 publish/
 dist/
 
-# arquivos tempor·rios
+# arquivos tempor√°rios
 *.tmp
 *.temp
+
+.avanade/
+.github/

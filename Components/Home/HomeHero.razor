@@ -1,6 +1,7 @@
 @* @using site.Models *@
 @using site.Enums
 @using site.Services
+@inject NavigationManager Navigation
 
 <div class="container">
     <section class="hero">
@@ -10,7 +11,7 @@
             <p class="home__description">@Description1</p>
             <p class="home__description">@Description2</p>
             <div class="home__actions">
-                <button class="btn btn--primary">
+                <button class="btn btn--primary" @onclick="GoToCourses">
                     <Icon Name="IconType.Courses"  />
                     Ver Cursos
                 </button>
@@ -67,6 +68,11 @@
             await ThemeService.InitializeAsync();
             StateHasChanged();
         }
+    }
+
+    private void GoToCourses()
+    {
+        Navigation.NavigateTo("/cursos");
     }
 
 }
