@@ -1,0 +1,83 @@
+@using site.Data
+@using site.Models
+
+@inject IJSRuntime JS
+
+@code {
+    private List<CourseCardItem> featured = CourseRepository.Courses
+        .OrderByDescending(c => c.Views)
+        .Take(3)
+        .ToList();
+
+    private int index = 0;
+
+    private void Prev()
+    {
+        index = (index - 1 + featured.Count) % featured.Count;
+    }
+
+    private void Next()
+    {
+        index = (index + 1) % featured.Count;
+    }
+}
+
+<section class="section featured-section">
+    <div class="featured-container">
+        <button class="featured-nav featured-nav--prev" @onclick="Prev">‹</button>
+
+        @if (featured.Count > 0)
+        {
+            var item = featured[index];
+            <article class="featured-slide">
+                <div class="featured-media">
+                    <img src="@item.Thumbnail" alt="@item.Title" />
+                    @if (!string.IsNullOrWhiteSpace(item.Badge))
+                    {
+                        <span class="course-badge">@item.Badge</span>
+                    }
+                </div>
+
+                <div class="featured-info">
+                    <div class="featured-title-row">
+                        <h3 class="featured-title">@item.Title</h3>
+                        <span class="featured-flag">Mais visto • @FormatViews(item.Views)</span>
+                    </div>
+                    <p class="featured-desc">@item.Description</p>
+                    <div class="featured-meta">
+                        <span class="course-pill course-pill--type">@item.Type</span>
+                        <span class="course-meta__item">@item.Duration</span>
+                        <span class="course-meta__item">@item.Difficulty</span>
+                    </div>
+                    <div class="featured-cta">
+                        <a class="course-card__cta" href="@item.Url" target="_blank" rel="noopener noreferrer">Acessar</a>
+                        <button type="button" class="course-card__preview" @onclick="() => OpenPreview(item)">Ver preview</button>
+                    </div>
+                </div>
+            </article>
+        }
+
+        <button type="button" class="featured-nav featured-nav--next" @onclick="Next">›</button>
+    </div>
+
+    <div class="featured-indicators">
+        @for (int i = 0; i < featured.Count; i++)
+        {
+            <button type="button" class="indicator @(i == index ? "active" : string.Empty)" @onclick="() => index = i" aria-label=$"Ir para slide {i+1}" aria-pressed="@(i==index)"></button>
+        }
+    </div>
+</section>
+
+@code {
+    private async Task OpenPreview(CourseCardItem item)
+    {
+        await JS.InvokeVoidAsync("console.log", $"Abrir preview: {item.Title}");
+    }
+
+    private static string FormatViews(int v)
+    {
+        if (v >= 1_000_000) return (v / 1_000_000D).ToString("0.#") + "M";
+        if (v >= 1_000) return (v / 1_000D).ToString("0.#") + "k";
+        return v.ToString();
+    }
+}
