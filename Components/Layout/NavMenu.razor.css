@@ -1,66 +1,66 @@
 /* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5rem !important;
-    border-bottom: 1px solid #5e84e8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem !important;
+  border-bottom: 1px solid #5e84e8;
 }
 
 .navbar-right {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 /* Mobile Menu */
 div.mobile__menu {
-    font-weight: 500;
-    font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 
-    display: flex;
-    flex-direction: column;
-    background: var(--bg);
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 25% !important;
-    border: 1px solid #eee;
-    color: var(--text) !important;
-    border-radius: 0px 0px 0px 15px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 25% !important;
+  border: 1px solid #eee;
+  color: var(--text) !important;
+  border-radius: 0px 0px 0px 15px;
 }
 
 div.mobile__menu .nav__link {
-    padding: 0.75rem;
-    border-top: 1px solid #eee;
-    text-align: center;
-    color: var(--text) !important;
+  padding: 0.75rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: var(--text) !important;
 }
 
 div.mobile__menu .nav__link:hover {
-    background: linear-gradient(90deg, var(--accent), var(--primary));
-    color: white !important;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  color: white !important;
 }
 
 button.hamburger {
-    padding: 10px 15px;
-    border-radius: 50%;
-    display: flex;
+  padding: 10px 15px;
+  border-radius: 50%;
+  display: flex;
 }
 
 button.hamburger:hover {
-    cursor: pointer;
-    transition: background-position 0.5s ease;
-    color: var(--text) !important;
+  cursor: pointer;
+  transition: background-position 0.5s ease;
+  color: var(--text) !important;
 }
 
 @media (max-width: 1100px) {
-    .navbar-right .hamburger {
-        display: block;
-    }
+  .navbar-right .hamburger {
+    display: block;
+  }
 
-    .mobile-menu {
-        display: flex;
-    }
+  .mobile-menu {
+    display: flex;
+  }
 }
 
 /* 

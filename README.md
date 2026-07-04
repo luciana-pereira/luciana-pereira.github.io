@@ -1,89 +1,48 @@
-# Site Profissional
+<p align="center">
+  <a href="https://luciana-pereira.github.io" target="_blank">
+    <img src="./wwwroot/images/Black_Logo_1.png" alt="Logo Luciana Pereira" width="520" />
+  </a>
+</p>
 
-Este repositório contém o **código-fonte** do meu site pessoal, desenvolvido com Blazor WebAssembly.
+## Sobre mim
 
-🔗 **Acesse o site:**
-[https://luciana-pereira.github.io](https://luciana-pereira.github.io)
+Sou engenheira de software apaixonada por desenvolvimento full-stack, design de experiência e soluções digitais que conectam pessoas e negócios. Este site é minha vitrine pública: um espaço onde compartilho projetos, conteúdos, cursos e minhas principais credenciais.
 
-![Deploy status](https://github.com/luciana-pereira/luciana-pereira.github.io/actions/workflows/deploy.yml/badge.svg)
+## O que você encontra no site
 
+- Minha história profissional e formações
+- Projetos reais e estudos de caso
+- Conteúdos e aprendizados em tecnologia
+- Cursos e formações que recomendo ou ofereço
+- Contato direto para parcerias e oportunidades
 
-## Tecnologias
+## Por que visitar
 
-- [Blazor WebAssembly (.NET)](https://learn.microsoft.com/pt-br/aspnet/core/blazor/?view=aspnetcore-10.0&utm_source=chatgpt.com)
-- Blazor WASM
-- HTML e SASS (CSS pré-processado)
-- GitHub Actions (para CI/CD)
-- GitHub Pages (Hospedagem)
-- Bootstrap via CDN
+Mesmo sendo um repositório público, o foco aqui é no site em si. Quero que você veja o conteúdo ao vivo e entenda o valor do meu trabalho através da experiência digital.
 
----
+> O código está disponível publicamente agora, mas estou planejando medidas de segurança para proteger partes sensíveis e evitar acesso não autorizado ao meu trabalho em desenvolvimento.
 
-## Publicação Automática
+## Acesse agora
 
-As alterações feitas neste repositório são automaticamente compiladas e publicadas no repositório `luciana-pereira.github.io` usando um workflow de GitHub Actions.
+- [https://luciana-pereira.github.io](https://luciana-pereira.github.io)
 
----
+## Minha proposta
 
-## Sobre o Site
+Este site foi criado para ser:
 
-Este site apresenta meu trabalho, experiências e projetos. Ele foi pensado como uma vitrine profissional com foco em performance, clareza de posicionamento e evolução gradual de autoridade técnica.
+- moderno e elegante
+- claro e direto ao ponto
+- rápido e responsivo
+- alinhado com minha identidade profissional
 
----
+## Quer falar comigo?
 
-## Rodar a aplicação localmente
-
-```.shell
-dotnet restore luciana-pereira.github.io.sln
-dotnet build luciana-pereira.github.io.sln
-dotnet run --project site.csproj ou dotnet watch --project ./site.csproj run
-
-dotnet watch --project .\site.csproj run --urls=http://127.0.0.1:5270 
-```
-
-dotnet restore luciana-pereira.github.io.sln && dotnet build luciana-pereira.github.io.sln && dotnet run --project site.csproj
-
---> Aplicação sera exibida em `http://localhost:5262/`
+- LinkedIn: https://www.linkedin.com/in/lucianapereiras/
+- GitHub: https://github.com/luciana-pereira
 
 ---
 
-## Identidade Visual
+## Observação
 
-### Cores principais (Versão Dark)
+Estou trabalhando para manter o site sempre atualizado e seguro. A partir de agora, o próximo passo será aplicar mecanismos que protejam melhor o código e o conteúdo em desenvolvimento.
 
-| Tipo       | Cor       |
-| ---------- | --------- |
-| Background | Preto     |
-| Primária   | Azul neon |
-| Secundária | Roxo      |
-| Destaque   | Magenta   |
-| Texto      | Branco    |
-
-### Paleta
-
-Primary Blue    #00A3FF
-Primary Purple  #7B61FF
-Accent Pink     #FF00C7
-Background      #050505
-Surface         #111111
-Text Primary    #FFFFFF
-Text Secondary  #B3B3B3
-Border          #262626
-
-### Heading
-
-Utilizar o [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk?utm_source=chatgpt.com&preview.script=Latn) para:
-
-- Titulo
-- Navbar
-- Destaques
-- Hero Section
-
-### Texto
-
-Utilizar o [Inter](https://fonts.google.com/specimen/Inter?utm_source=chatgpt.com) para:
-
-- Descrição
-- Cards
-- Artigos
-- Conteudo

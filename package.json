@@ -5,10 +5,13 @@
     "open-iconic": "^1.1.1"
   },
   "scripts": {
-    "sass": "sass scss/app.scss wwwroot/css/app.css --watch"
+    "sass": "sass scss/app.scss wwwroot/css/app.css --watch",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write \"**/*.{js,json,scss,css,md}\""
   },
   "devDependencies": {
     "eslint": "^10.1.0",
+    "prettier": "^3.0.0",
     "sass": "^1.93.2"
   }
 }

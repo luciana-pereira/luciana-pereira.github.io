@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": [ "#5817b6", "#db2777" ]
+      "value": ["#5817b6", "#db2777"]
     },
     "shape": {
       "type": "circle"
@@ -41,6 +41,6 @@
         "enable": false
       }
     }
-   },
+  },
   "retina_detect": false
 }
