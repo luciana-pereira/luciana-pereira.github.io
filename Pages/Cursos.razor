@@ -1,17 +1,61 @@
 ﻿@page "/cursos"
-@* @using site.Components.Home *@
 
-@* <div class="container">
-	<section class="section courses-page-header">
-		<h1 class="home__title">Cursos</h1>
-		<p class="home__description">
-			Trilhas profissionais em Azure, arquitetura e backend para evoluir com clareza tecnica e aplicacao pratica.
-		</p>
-	</section>
-</div> *@
+<FeaturedCarousel />
 
-<HomeCoursesPreview IsPreview="false" />
+@* Filtro único funcional no topo. O resultado filtrado é passado para o componente de cursos *@
+<div class="filters-bar filters-bar--top">
+	<div class="filters-wrap">
+		<select class="filter-select" @bind="selectedType">
+			<option value="">Todos os tipos</option>
+			@foreach (var ty in typeOptions) { <option value="@ty">@ty</option> }
+		</select>
+
+		<select class="filter-select" @bind="selectedFormat">
+			<option value="">Todos os formatos</option>
+			@foreach (var f in formatOptions) { <option value="@f">@f</option> }
+		</select>
+
+		<select class="filter-select" @bind="selectedLevel">
+			<option value="">Todos os níveis</option>
+			@foreach (var l in levelOptions) { <option value="@l">@l</option> }
+		</select>
+
+		<button type="button" class="filter-clear" @onclick="ResetFilters">Limpar</button>
+	</div>
+</div>
+
+<HomeCoursesPreview IsPreview="false" Courses="filteredCourses" />
+
+@using site.Data
+@using site.Models
 
 @code {
+	private string selectedType = string.Empty;
+	private string selectedFormat = string.Empty;
+	private string selectedLevel = string.Empty;
 
+	private IEnumerable<string> typeOptions = Array.Empty<string>();
+	private IEnumerable<string> formatOptions = Array.Empty<string>();
+	private IEnumerable<string> levelOptions = Array.Empty<string>();
+
+	private IEnumerable<CourseCardItem> filteredCourses =>
+		CourseRepository.Courses
+			.Where(c => string.IsNullOrEmpty(selectedType) || c.Type == selectedType)
+			.Where(c => string.IsNullOrEmpty(selectedFormat) || c.Format == selectedFormat)
+			.Where(c => string.IsNullOrEmpty(selectedLevel) || c.Difficulty == selectedLevel)
+			.ToList();
+
+	protected override void OnInitialized()
+	{
+		typeOptions = CourseRepository.Courses.Select(c => c.Type).Distinct();
+		formatOptions = CourseRepository.Courses.Select(c => c.Format).Distinct();
+		levelOptions = CourseRepository.Courses.Select(c => c.Difficulty).Distinct();
+	}
+
+	private void ResetFilters()
+	{
+		selectedType = string.Empty;
+		selectedFormat = string.Empty;
+		selectedLevel = string.Empty;
+	}
 }

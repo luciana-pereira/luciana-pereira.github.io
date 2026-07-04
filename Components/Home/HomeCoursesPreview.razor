@@ -1,4 +1,6 @@
 @using System.Linq
+@using site.Data
+@using site.Models
 @inject IJSRuntime JS
 
 <section id="courses" class="section surface courses-section @(IsPreview ? "courses-section--preview" : "courses-section--full")">
@@ -23,12 +25,12 @@
 						<span class="course-badge">@course.Badge</span>
 					}
 
-					@if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
-					{
-						<button class="course-play" @onclick="() => OpenPreview(course)" aria-label="Abrir preview de @course.Title">
-							<i class="fa-solid fa-play"></i>
-						</button>
-					}
+						@if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
+						{
+							<button type="button" class="course-play" @onclick="() => OpenPreview(course)" aria-label="Abrir preview de @course.Title">
+								<i class="fa-solid fa-play"></i>
+							</button>
+						}
 				</div>
 
 				<div class="course-card__body">
@@ -58,7 +60,7 @@
 					<div class="course-card__actions">
 						@if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
 						{
-							<button class="course-card__preview" @onclick="() => OpenPreview(course)">
+							<button type="button" class="course-card__preview" @onclick="() => OpenPreview(course)">
 								<i class="fa-solid fa-play"></i>
 								Ver preview
 							</button>
@@ -91,7 +93,7 @@
 					<h3>@SelectedCourse.Title</h3>
 					<p>@SelectedCourse.Description</p>
 				</div>
-				<button class="course-modal__close" @onclick="ClosePreview" aria-label="Fechar player">
+				<button type="button" class="course-modal__close" @onclick="ClosePreview" aria-label="Fechar player">
 					<i class="fa-solid fa-xmark"></i>
 				</button>
 			</header>
@@ -112,12 +114,13 @@
 
 @code {
 	[Parameter] public bool IsPreview { get; set; } = true;
+	[Parameter] public IEnumerable<CourseCardItem>? Courses { get; set; }
 
 	private bool ShowPlayerModal;
 	private CourseCardItem? SelectedCourse;
 
 	private IEnumerable<CourseCardItem> VisibleCourses =>
-		IsPreview ? Courses.Take(3) : Courses;
+		Courses is not null ? Courses : (IsPreview ? CourseRepository.Courses.Take(3) : CourseRepository.Courses);
 
 	private async Task OpenPreview(CourseCardItem course)
 	{
@@ -162,86 +165,5 @@
 		_ => string.Empty
 	};
 
-	private readonly List<CourseCardItem> Courses =
-	[
-		new(
-			"AZ-900 Foundations",
-			"Fundamentos de cloud Azure com foco em conceitos, servicos e arquitetura de referencia.",
-			"Curso",
-			"Iniciante",
-			"2h 10m",
-			"Serie guiada",
-			"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1280&q=80",
-			"https://www.youtube.com/@LucianaPereiraDev",
-			"https://www.youtube-nocookie.com/embed/HQ3w6Muwx38",
-			true,
-			"Mais procurado"
-		),
-		new(
-			"AZ-204 Developer",
-			"Aplicacoes cloud-native com App Service, Functions, storage e seguranca para devs.",
-			"Formação",
-			"Intermediario",
-			"3h 40m",
-			"Trilha completa",
-			"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1280&q=80",
-			"https://www.youtube.com/@LucianaPereiraDev",
-			"https://www.youtube-nocookie.com/embed/7S_tz1z_5bA",
-			true,
-			"Atualizado"
-		),
-		new(
-			"AZ-305 Architect",
-			"Decisoes de arquitetura, resiliencia e custos para desenhar solucoes escalaveis na Azure.",
-			"Curso",
-			"Avancado",
-			"4h 20m",
-			"Masterclass",
-			"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1280&q=80",
-			"https://www.youtube.com/@LucianaPereiraDev",
-			"https://www.youtube-nocookie.com/embed/9f8s4J6NFWY",
-			false,
-			string.Empty
-		),
-		new(
-			"System Design",
-			"Modelagem de sistemas distribuidos, trade-offs e padroes para entrevistas e projetos reais.",
-			"Curso",
-			"Intermediario",
-			"2h 50m",
-			"Aulas praticas",
-			"https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=1280&q=80",
-			"https://www.youtube.com/@LucianaPereiraDev",
-			"https://www.youtube-nocookie.com/embed/wd4x4Sx3dYQ",
-			false,
-			string.Empty
-		),
-		new(
-			"C# Backend",
-			"APIs robustas com .NET, boas praticas de dominio, testes e observabilidade para producao.",
-			"Curso",
-			"Intermediario",
-			"3h 00m",
-			"Hands-on",
-			"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1280&q=80",
-			"https://www.youtube.com/@LucianaPereiraDev",
-			"https://www.youtube-nocookie.com/embed/K1iu1kXkVoA",
-			false,
-			string.Empty
-		)
-	];
-
-	private sealed record CourseCardItem(
-		string Title,
-		string Description,
-		string Type,
-		string Difficulty,
-		string Duration,
-		string Format,
-		string Thumbnail,
-		string Url,
-		string EmbedUrl,
-		bool IsFeatured,
-		string Badge
-	);
+	// Course data moved to Data/CourseRepository
 }
