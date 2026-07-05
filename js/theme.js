@@ -1,4 +1,4 @@
-﻿window.theme = {
+﻿globalThis.theme = {
   toggle: () => {
     const current = document.documentElement.dataset.theme;
 

@@ -1,5 +1,5 @@
-﻿window.loadParticles = () => {
-  if (!window.particlesJS) {
+﻿globalThis.loadParticles = () => {
+  if (!globalThis.particlesJS) {
     console.error("particles.js não carregou");
     return;
   }
