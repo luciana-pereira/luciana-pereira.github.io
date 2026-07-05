@@ -37,12 +37,11 @@ Este site foi criado para ser:
 
 ## Quer falar comigo?
 
-- LinkedIn: https://www.linkedin.com/in/lucianapereiras/
-- GitHub: https://github.com/luciana-pereira
+- LinkedIn: <https://www.linkedin.com/in/lucianapereiras/>
+- GitHub: <https://github.com/luciana-pereira>
 
 ---
 
 ## Observação
 
 Estou trabalhando para manter o site sempre atualizado e seguro. A partir de agora, o próximo passo será aplicar mecanismos que protejam melhor o código e o conteúdo em desenvolvimento.
-

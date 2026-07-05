@@ -55,15 +55,6 @@
         ThemeService.OnThemeChanged -= HandleThemeChanged;
     }
         
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await ThemeService.InitializeAsync();
-            StateHasChanged();
-        }
-    }
-
     private void ToggleMobileMenu()
     {
         showMobileMenu = !showMobileMenu;

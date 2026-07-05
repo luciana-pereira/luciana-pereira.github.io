@@ -1,28 +1,7 @@
-@using site.Data
+﻿@using site.Data
 @using site.Models
 
-@inject IJSRuntime JS
-
-@code {
-    private List<CourseCardItem> featured = CourseRepository.Courses
-        .OrderByDescending(c => c.Views)
-        .Take(3)
-        .ToList();
-
-    private int index = 0;
-
-    private void Prev()
-    {
-        index = (index - 1 + featured.Count) % featured.Count;
-    }
-
-    private void Next()
-    {
-        index = (index + 1) % featured.Count;
-    }
-}
-
-<section class="section featured-section">
+<section class="section featured-section" @onmouseover="PauseAutoScroll" @onmouseout="ResumeAutoScroll">
     <div class="featured-container">
         <button class="featured-nav featured-nav--prev" @onclick="Prev">‹</button>
 
@@ -51,7 +30,7 @@
                     </div>
                     <div class="featured-cta">
                         <a class="course-card__cta" href="@item.Url" target="_blank" rel="noopener noreferrer">Acessar</a>
-                        <button type="button" class="course-card__preview" @onclick="() => OpenPreview(item)">Ver preview</button>
+                        <button type="button" class="course-card__preview" @onclick="() => HandlePreview(item)">Ver preview</button>
                     </div>
                 </div>
             </article>
@@ -63,15 +42,73 @@
     <div class="featured-indicators">
         @for (int i = 0; i < featured.Count; i++)
         {
-            <button type="button" class="indicator @(i == index ? "active" : string.Empty)" @onclick="() => index = i" aria-label=$"Ir para slide {i+1}" aria-pressed="@(i==index)"></button>
+            <button type="button" class="indicator @(i == index ? "active" : string.Empty)" @onclick="() => index = i" aria-label="@($"Ir para slide {i + 1}")" aria-pressed="@(i == index)"></button>
         }
     </div>
 </section>
 
 @code {
-    private async Task OpenPreview(CourseCardItem item)
+    [Parameter] public EventCallback<CourseCardItem> OnPreview { get; set; }
+
+    private List<CourseCardItem> featured = CourseRepository.Courses
+        .OrderByDescending(c => c.Views)
+        .Take(3)
+        .ToList();
+
+    private int index = 0;
+    private bool autoScrollPaused = false;
+    private readonly TimeSpan autoScrollInterval = TimeSpan.FromSeconds(3);
+    private Timer? autoScrollTimer;
+
+    protected override void OnInitialized()
     {
-        await JS.InvokeVoidAsync("console.log", $"Abrir preview: {item.Title}");
+        base.OnInitialized();
+        autoScrollTimer = new Timer(_ => InvokeAsync(AutoScroll), null, autoScrollInterval, autoScrollInterval);
+    }
+
+    private void Prev()
+    {
+        index = (index - 1 + featured.Count) % featured.Count;
+    }
+
+    private void Next()
+    {
+        index = (index + 1) % featured.Count;
+    }
+
+    private Task AutoScroll()
+    {
+        if (!autoScrollPaused && featured.Count > 0)
+        {
+            index = (index + 1) % featured.Count;
+            StateHasChanged();
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private void PauseAutoScroll()
+    {
+        autoScrollPaused = true;
+    }
+
+    private void ResumeAutoScroll()
+    {
+        autoScrollPaused = false;
+    }
+
+    public void Dispose()
+    {
+        autoScrollTimer?.Dispose();
+        autoScrollTimer = null;
+    }
+
+    private async Task HandlePreview(CourseCardItem item)
+    {
+        if (OnPreview.HasDelegate)
+        {
+            await OnPreview.InvokeAsync(item);
+        }
     }
 
     private static string FormatViews(int v)

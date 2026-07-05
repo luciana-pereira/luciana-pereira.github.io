@@ -1,5 +1,6 @@
 @using site.Models
 @using site.Services
+@using site.Components.Common
 @implements IDisposable
 @inject ThemeService ThemeService
 
@@ -60,10 +61,6 @@
 
             <h5>Contato</h5>
 
-            <p>
-                contato@devzerobug.com.br
-            </p>
-
             <div class="footer__mini-form">
 
                 <input
@@ -114,15 +111,6 @@
         new SocialLink() { Url = "https://www.instagram.com/lucianapereiradev/", Icon = "fa-brands fa-instagram", Name = "Instagram" },
         new SocialLink() { Url = "https://www.youtube.com/channel/UC9Xo2l8n7s1m5j3v6k5z9w", Icon = "fa-brands fa-youtube", Name = "YouTube" },
     };
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await ThemeService.InitializeAsync();
-            StateHasChanged();
-        }
-    }
 
     private string CurrentLogo =>
         ThemeService.IsDarkMode

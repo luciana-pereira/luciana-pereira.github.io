@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@using site.Services
+@inject ThemeService ThemeService
 
 <div class="page">
     @* <NavMenu /> *@
@@ -11,8 +13,13 @@
     <Footer />
 </div>
 
-@inject IJSRuntime JS
-
 @code {
-
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await ThemeService.InitializeAsync();
+            StateHasChanged();
+        }
+    }
 }
