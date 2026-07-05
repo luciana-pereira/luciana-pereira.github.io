@@ -1,8 +1,7 @@
 ﻿@page "/cursos"
 
-<FeaturedCarousel />
+<FeaturedCarousel OnPreview="HandleCoursePreview" />
 
-@* Filtro único funcional no topo. O resultado filtrado é passado para o componente de cursos *@
 <div class="filters-bar filters-bar--top">
 	<div class="filters-wrap">
 		<select class="filter-select" @bind="selectedType">
@@ -20,11 +19,11 @@
 			@foreach (var l in levelOptions) { <option value="@l">@l</option> }
 		</select>
 
-		<button type="button" class="filter-clear" @onclick="ResetFilters">Limpar</button>
+		<button type="button" class="btn btn--secondary" @onclick="ResetFilters">Limpar</button>
 	</div>
 </div>
 
-<HomeCoursesPreview IsPreview="false" Courses="filteredCourses" />
+<HomeCoursesPreview IsPreview="false" Courses="filteredCourses" ShowPlayerModal="showCourseModal" SelectedCourse="selectedCourse" OnPreview="HandleCoursePreview" ClosePreview="CloseCoursePreview" />
 
 @using site.Data
 @using site.Models
@@ -37,6 +36,9 @@
 	private IEnumerable<string> typeOptions = Array.Empty<string>();
 	private IEnumerable<string> formatOptions = Array.Empty<string>();
 	private IEnumerable<string> levelOptions = Array.Empty<string>();
+
+	private bool showCourseModal;
+	private CourseCardItem? selectedCourse;
 
 	private IEnumerable<CourseCardItem> filteredCourses =>
 		CourseRepository.Courses
@@ -57,5 +59,17 @@
 		selectedType = string.Empty;
 		selectedFormat = string.Empty;
 		selectedLevel = string.Empty;
+	}
+
+	private void HandleCoursePreview(CourseCardItem course)
+	{
+		selectedCourse = course;
+		showCourseModal = true;
+	}
+
+	private void CloseCoursePreview()
+	{
+		showCourseModal = false;
+		selectedCourse = null;
 	}
 }

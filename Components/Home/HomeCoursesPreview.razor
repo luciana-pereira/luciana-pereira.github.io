@@ -1,169 +1,198 @@
-@using System.Linq
+﻿@using System.Linq
 @using site.Data
 @using site.Models
 @inject IJSRuntime JS
 
 <section id="courses" class="section surface courses-section @(IsPreview ? "courses-section--preview" : "courses-section--full")">
-	<div class="courses-header">
-		<h2 class="courses-title">Cursos</h2>
-		<p class="courses-subtitle">
-			@(IsPreview
-				? "Conteudos em trilhas para cloud, arquitetura e backend."
-				: "Certificacoes Azure, arquitetura e backend com foco pratico para acelerar sua evolucao.")
-		</p>
-	</div>
+    <div class="courses-header">
+        <h2 class="courses-title">Cursos</h2>
+        <p class="courses-subtitle">
+            @(IsPreview
+                ? "Conteudos em trilhas para cloud, arquitetura e backend."
+                : "Certificacoes Azure, arquitetura e backend com foco pratico para acelerar sua evolucao.")
+        </p>
+    </div>
 
-	<div class="courses-grid">
-		@foreach (var course in VisibleCourses)
-		{
-			<article class="course-card @(course.IsFeatured ? "course-card--featured" : string.Empty)">
-				<div class="course-card__media">
-					<img src="@course.Thumbnail" alt="Thumbnail do curso @course.Title" class="course-card__thumbnail" loading="lazy" />
+    <div class="courses-grid">
+        @foreach (var course in VisibleCourses)
+        {
+            <article class="course-card @(course.IsFeatured ? "course-card--featured" : string.Empty)">
+                <div class="course-card__media">
+                    <img src="@course.Thumbnail" alt="Thumbnail do curso @course.Title" class="course-card__thumbnail" loading="lazy" />
 
-					@if (course.IsFeatured)
-					{
-						<span class="course-badge">@course.Badge</span>
-					}
+                    @if (course.IsFeatured)
+                    {
+                        <span class="course-badge">@course.Badge</span>
+                    }
 
-						@if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
-						{
-							<button type="button" class="course-play" @onclick="() => OpenPreview(course)" aria-label="Abrir preview de @course.Title">
-								<i class="fa-solid fa-play"></i>
-							</button>
-						}
-				</div>
+                    @if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
+                    {
+                        <button type="button" class="course-play" @onclick="() => HandleOpenPreview(course)" aria-label="Abrir preview de @course.Title">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    }
+                </div>
 
-				<div class="course-card__body">
-					<h3 class="course-card__title">@course.Title</h3>
-					@if (!IsPreview)
-					{
-						<p class="course-card__description">@course.Description</p>
-					}
+                <div class="course-card__body">
+                    <h3 class="course-card__title">@course.Title</h3>
+                    @if (!IsPreview)
+                    {
+                        <p class="course-card__description">@course.Description</p>
+                    }
 
-					<div class="course-card__meta course-card__meta--icons">
-						<span class="course-pill course-pill--type">
-							<i class="fa-solid fa-graduation-cap"></i> @course.Type
-						</span>
-						<span class="course-meta__item"><i class="fa-solid fa-clock"></i> @course.Duration</span>
-						<span class="course-meta__item"><i class="fa-solid fa-layer-group"></i> @course.Format</span>
-					</div>
+                    <div class="course-card__meta course-card__meta--icons">
+                        <span class="course-pill course-pill--type">
+                            <i class="fa-solid fa-graduation-cap"></i> @course.Type
+                        </span>
+                        <span class="course-meta__item"><i class="fa-solid fa-clock"></i> @course.Duration</span>
+                        <span class="course-meta__item"><i class="fa-solid fa-layer-group"></i> @course.Format</span>
+                    </div>
 
-					<div class="course-card__progress">
-						<div class="course-card__progress-line">
-							<span class="course-progress__fill @DifficultyClass(course.Difficulty)"></span>
-						</div>
-						<div class="course-card__progress-label">
-							<span>@course.Difficulty</span>
-						</div>
-					</div>
+                    <div class="course-card__progress">
+                        <div class="course-card__progress-line">
+                            <span class="course-progress__fill @DifficultyClass(course.Difficulty)"></span>
+                        </div>
+                        <div class="course-card__progress-label">
+                            <span>@course.Difficulty</span>
+                        </div>
+                    </div>
 
-					<div class="course-card__actions">
-						@if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
-						{
-							<button type="button" class="course-card__preview" @onclick="() => OpenPreview(course)">
-								<i class="fa-solid fa-play"></i>
-								Ver preview
-							</button>
-						}
+                    <div class="course-card__actions">
+                        @if (!IsPreview && !string.IsNullOrWhiteSpace(course.EmbedUrl))
+                        {
+                            <button type="button" class="course-card__preview" @onclick="() => HandleOpenPreview(course)">
+                                <i class="fa-solid fa-play"></i>
+                                Ver preview
+                            </button>
+                        }
 
-						<a class="course-card__cta" href="@course.Url" target="_blank" rel="noopener noreferrer" @onclick="() => TrackCtaClick(course)">
-							<i class="fa-solid fa-arrow-up-right-from-square"></i>
-							@(IsPreview ? "Abrir trilha" : "Acessar no YouTube")
-						</a>
-					</div>
-				</div>
-			</article>
-		}
-	</div>
+                        <a class="course-card__cta" href="@course.Url" target="_blank" rel="noopener noreferrer" @onclick="() => TrackCtaClick(course)">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            @(IsPreview ? "Abrir trilha" : "Acessar no YouTube")
+                        </a>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
 
-	@if (IsPreview)
-	{
-		<div class="courses-actions">
-			<a class="courses-link" href="/cursos">Ver trilhas completas</a>
-		</div>
-	}
+    @if (IsPreview)
+    {
+        <div class="courses-actions">
+            <a class="courses-link" href="/cursos">Ver trilhas completas</a>
+        </div>
+    }
 </section>
 
-@if (!IsPreview && ShowPlayerModal && SelectedCourse is not null)
+@if (!IsPreview && CurrentShowPlayerModal && CurrentSelectedCourse is not null)
 {
-	<div class="course-modal-backdrop" @onclick="ClosePreview">
-		<section class="course-modal" @onclick:stopPropagation="true" aria-label="Player do curso">
-			<header class="course-modal__header">
-				<div>
-					<h3>@SelectedCourse.Title</h3>
-					<p>@SelectedCourse.Description</p>
-				</div>
-				<button type="button" class="course-modal__close" @onclick="ClosePreview" aria-label="Fechar player">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-			</header>
+    <div class="course-modal-backdrop" @onclick="HandleClosePreview">
+        <section class="course-modal" @onclick:stopPropagation="true" aria-label="Player do curso">
+            <header class="course-modal__header">
+                <div>
+                    <h3>@CurrentSelectedCourse.Title</h3>
+                    <p>@CurrentSelectedCourse.Description</p>
+                </div>
+                <button type="button" class="course-modal__close" @onclick="HandleClosePreview" aria-label="Fechar player">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </header>
 
-			<div class="course-modal__player">
-				<iframe
-					src="@SelectedCourse.EmbedUrl"
-					title="Preview do curso @SelectedCourse.Title"
-					loading="lazy"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerpolicy="strict-origin-when-cross-origin"
-					allowfullscreen>
-				</iframe>
-			</div>
-		</section>
-	</div>
+            <div class="course-modal__player">
+                <iframe
+                    src="@CurrentSelectedCourse.EmbedUrl"
+                    title="Preview do curso @CurrentSelectedCourse.Title"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </div>
 }
 
 @code {
-	[Parameter] public bool IsPreview { get; set; } = true;
-	[Parameter] public IEnumerable<CourseCardItem>? Courses { get; set; }
+    [Parameter] public bool IsPreview { get; set; } = true;
+    [Parameter] public IEnumerable<CourseCardItem>? Courses { get; set; }
+    [Parameter] public EventCallback<CourseCardItem> OnPreview { get; set; }
+    [Parameter] public bool ShowPlayerModal { get; set; }
+    [Parameter] public CourseCardItem? SelectedCourse { get; set; }
+    [Parameter] public EventCallback ClosePreview { get; set; }
 
-	private bool ShowPlayerModal;
-	private CourseCardItem? SelectedCourse;
+    private bool internalShowPlayerModal;
+    private CourseCardItem? internalSelectedCourse;
 
-	private IEnumerable<CourseCardItem> VisibleCourses =>
-		Courses is not null ? Courses : (IsPreview ? CourseRepository.Courses.Take(3) : CourseRepository.Courses);
+    private IEnumerable<CourseCardItem> VisibleCourses =>
+        Courses is not null ? Courses : (IsPreview ? CourseRepository.Courses.Take(3) : CourseRepository.Courses);
 
-	private async Task OpenPreview(CourseCardItem course)
-	{
-		SelectedCourse = course;
-		ShowPlayerModal = true;
+    private bool UseExternalPreviewState => OnPreview.HasDelegate;
+    private bool CurrentShowPlayerModal => UseExternalPreviewState ? ShowPlayerModal : internalShowPlayerModal;
+    private CourseCardItem? CurrentSelectedCourse => UseExternalPreviewState ? SelectedCourse : internalSelectedCourse;
 
-		await JS.InvokeVoidAsync("courseTracking.track", "preview_opened", new
-		{
-			course = course.Title,
-			source = IsPreview ? "home_preview" : "courses_page"
-		});
-	}
+    private async Task HandleOpenPreview(CourseCardItem course)
+    {
+        if (OnPreview.HasDelegate)
+        {
+            await OnPreview.InvokeAsync(course);
+            return;
+        }
 
-	private async Task ClosePreview()
-	{
-		if (SelectedCourse is not null)
-		{
-			await JS.InvokeVoidAsync("courseTracking.track", "preview_closed", new
-			{
-				course = SelectedCourse.Title
-			});
-		}
+        await OpenPreviewInternal(course);
+    }
 
-		ShowPlayerModal = false;
-		SelectedCourse = null;
-	}
+    private async Task HandleClosePreview()
+    {
+        if (ClosePreview.HasDelegate)
+        {
+            await ClosePreview.InvokeAsync();
+            return;
+        }
 
-	private async Task TrackCtaClick(CourseCardItem course)
-	{
-		await JS.InvokeVoidAsync("courseTracking.track", "youtube_cta_clicked", new
-		{
-			course = course.Title,
-			source = IsPreview ? "home_preview" : "courses_page"
-		});
-	}
+        await ClosePreviewInternal();
+    }
 
-	private static string DifficultyClass(string difficulty) => difficulty switch
-	{
-		"Iniciante" => "course-pill--beginner",
-		"Intermediario" => "course-pill--intermediate",
-		"Avancado" => "course-pill--advanced",
-		_ => string.Empty
-	};
+    private async Task OpenPreviewInternal(CourseCardItem course)
+    {
+        internalSelectedCourse = course;
+        internalShowPlayerModal = true;
 
-	// Course data moved to Data/CourseRepository
+        await JS.InvokeVoidAsync("courseTracking.track", "preview_opened", new
+        {
+            course = course.Title,
+            source = IsPreview ? "home_preview" : "courses_page"
+        });
+    }
+
+    private async Task ClosePreviewInternal()
+    {
+        var selected = CurrentSelectedCourse;
+        if (selected is not null)
+        {
+            await JS.InvokeVoidAsync("courseTracking.track", "preview_closed", new
+            {
+                course = selected.Title
+            });
+        }
+
+        internalShowPlayerModal = false;
+        internalSelectedCourse = null;
+    }
+
+    private async Task TrackCtaClick(CourseCardItem course)
+    {
+        await JS.InvokeVoidAsync("courseTracking.track", "youtube_cta_clicked", new
+        {
+            course = course.Title,
+            source = IsPreview ? "home_preview" : "courses_page"
+        });
+    }
+
+    private static string DifficultyClass(string difficulty) => difficulty switch
+    {
+        "Iniciante" => "course-pill--beginner",
+        "Intermediario" => "course-pill--intermediate",
+        "Avancado" => "course-pill--advanced",
+        _ => string.Empty
+    };
 }

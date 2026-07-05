@@ -32,11 +32,6 @@
                     @@LucianaPereiraDev
                     <div class="btn-tag">Em construção</div>
                 </a>
-                <a class="btn--social" href="https://www.youtube.com/@@DevZeroBug" target="_blank">
-                    <i class="fa-brands fa-youtube"></i>
-                    @@DevZeroBug
-                    <div class="btn-tag">Em construção</div>
-                </a>
             </div>        
         </div>
 
@@ -59,16 +54,6 @@
     [Parameter] public string Description1 { get; set; } = "";
     [Parameter] public string Description2 { get; set; } = "";
     [Parameter] public string Image { get; set; } = "";
-    @inject ThemeService ThemeService
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await ThemeService.InitializeAsync();
-            StateHasChanged();
-        }
-    }
 
     private void GoToCourses()
     {
