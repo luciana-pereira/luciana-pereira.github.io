@@ -1,4 +1,5 @@
 @* @using site.Models *@
+@using site.Data
 @using site.Enums
 @using site.Services
 @inject NavigationManager Navigation
@@ -11,9 +12,13 @@
             <p class="home__description">@Description1</p>
             <p class="home__description">@Description2</p>
             <div class="home__actions">
-                <button class="btn btn--primary" @onclick="GoToCourses">
+                <button class="btn btn--primary" @onclick="GoToCourses" disabled="@( !CourseRepository.IsPlaylistPublished )">
                     <Icon Name="IconType.Courses"  />
-                    Ver Cursos
+                    @(CourseRepository.IsPlaylistPublished ? "Ver Cursos" : "Cursos em breve")
+                    @if (!CourseRepository.IsPlaylistPublished)
+                    {
+                        <span class="btn-tag btn-tag--inline">Em breve</span>
+                    }
                 </button>
                 <button class="btn btn--secondary">
                     <Icon 

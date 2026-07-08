@@ -4,6 +4,8 @@ namespace site.Data;
 
 public static class CourseRepository
 {
+    public static bool IsPlaylistPublished { get; } = false;
+
     public static List<CourseCardItem> Courses { get; } = new()
     {
         new(
