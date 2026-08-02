@@ -1,0 +1,131 @@
+.about-who {
+    display: grid;
+    gap: clamp(1rem, 1vw, 1rem);
+    padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.about-who__label {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(123, 97, 255, 0.2);
+    background: rgba(123, 97, 255, 0.08);
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-who__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.about-who__card,
+.about-who__aside {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.about-who__card {
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.about-who__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(123, 97, 255, 0.38);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.about-who__card i,
+.about-who__aside li i {
+    width: 34px;
+    height: 34px;
+    padding: 1px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(180deg, rgba(10, 10, 18, 0.98), rgba(10, 10, 18, 0.98)) padding-box,
+        linear-gradient(135deg, #4a43ff, #8f45ff, #ff00c8) border-box;
+    -webkit-background-clip: padding-box, border-box;
+    background-clip: padding-box, border-box;
+    -webkit-text-fill-color: currentColor;
+    color: #d8ddff;
+    box-shadow: 0 10px 18px rgba(106, 63, 255, 0.14);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.about-who__card:hover i,
+.about-who__aside li:hover i {
+    transform: translateY(-1px) scale(1.05);
+    color: #fff;
+    background:
+        linear-gradient(180deg, rgba(10, 10, 18, 0.98), rgba(10, 10, 18, 0.98)) padding-box,
+        linear-gradient(135deg, #23d3ff, #7a52ff, #ff5ab3) border-box;
+    -webkit-background-clip: padding-box, border-box;
+    background-clip: padding-box, border-box;
+    -webkit-text-fill-color: currentColor;
+    box-shadow: 0 12px 22px rgba(35, 211, 255, 0.14);
+}
+
+.about-who__card p {
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.about-who__aside h3 {
+    font-size: 1.05rem;
+}
+
+.about-who__aside ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.about-who__aside li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.about-who__aside li:hover {
+    color: var(--text);
+    transform: translateX(2px);
+}
+
+@media (max-width: 1100px) {
+    .about-who__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .about-who__grid {
+        grid-template-columns: 1fr;
+    }
+}
