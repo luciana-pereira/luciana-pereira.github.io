@@ -1,0 +1,38 @@
+<section class="about-achievements surface" data-reveal>
+    <span class="about-achievements__label">Conquistas em destaque</span>
+
+    <div class="about-achievements__grid">
+        @foreach (AchievementCard item in Cards)
+        {
+            <article class="about-achievements__card">
+                <div class="about-achievements__head">
+                    <i class="@item.Icon"></i>
+                    <span>@item.Year</span>
+                </div>
+
+                <h3>@item.Title</h3>
+                <p>@item.Description</p>
+            </article>
+        }
+    </div>
+</section>
+
+@code {
+    private sealed class AchievementCard
+    {
+        public string Year { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+    }
+
+    private static readonly IReadOnlyList<AchievementCard> Cards =
+    [
+      new AchievementCard() { Year = "2020", Title = "42 São Paulo", Description = "Basecamp: Uma das experiências mais enriquecedoras da minha carreira. Vivência intensa em colaboração e resolução de problemas.", Icon = "fa-solid fa-award" },
+      new AchievementCard() { Year = "2022", Title = "1º Lugar", Description = "Smart Mobility com proposta inovadora e impacto real para a mobilidade urbana.", Icon = "fa-solid fa-trophy" },
+      new AchievementCard() { Year = "2023", Title = "1º Lugar", Description = "TechCare4All proposta de projeto inovadora para a area da saúde e IA.", Icon = "fa-solid fa-heart-pulse" },
+      new AchievementCard() { Year = "Carreira", Title = "Avanade", Description = "Entrega de projetos com tecnologias Microsoft e arquitetura moderna.", Icon = "fa-solid fa-diagram-project" },
+      new AchievementCard() { Year = "Evolução", Title = "Certificações", Description = "Azure, IA e MongoDB como trilha contínua de especialização.", Icon = "fa-solid fa-award" },
+      new AchievementCard() { Year = "Atual", Title = "Microsoft Learn", Description = "Compartilhando conteúdo e aprendizados da comunidade.", Icon = "fa-brands fa-microsoft" }
+    ];
+}
