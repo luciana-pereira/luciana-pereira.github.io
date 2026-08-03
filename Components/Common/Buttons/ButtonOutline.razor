@@ -1,0 +1,28 @@
+<button
+        class="btn-outline @Class"
+        @onclick="OnClick">
+
+    @if (!string.IsNullOrWhiteSpace(Icon))
+    {
+        <i class="@Icon"></i>
+    }
+
+    <span>@ChildContent</span>
+
+</button>
+
+@code{
+
+    [Parameter]
+    public string Class { get; set; } = "";
+
+    [Parameter]
+    public string Icon { get; set; } = "";
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+}
