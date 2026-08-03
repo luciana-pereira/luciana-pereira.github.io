@@ -4,7 +4,7 @@
 @implements IDisposable
 @inject ThemeService ThemeService
 
-<footer class="footer">
+<footer class="footer" data-reveal>
 
     <div class="footer__container">
 
@@ -19,14 +19,20 @@
                 Engenheira de software full-stack apaixonada por
                 arquitetura, cloud e plataformas modernas.
             </p>
+
             <div class="footer__location">
                 <i class="fa-solid fa-location-dot"></i>
                 <p>São Paulo, Brasil</p>
             </div>
+
             <SocialLinks CssClass="social__icons" Links="socialLinks" />
             <div class="footer__newsletter">
 
                 <h5>Receba conteúdos</h5>
+
+                <p class="footer__newsletter-copy">
+                    Insights sobre arquitetura, cloud, produto e carreira, direto na caixa de entrada.
+                </p>
 
                 <div class="footer__newsletter-form">
 
@@ -43,20 +49,26 @@
             </div>
         </div>
 
-        <!-- Conteúdo -->
         <div class="footer__links">
 
             <h5>Conteúdo</h5>
 
+            <a href="/sobre">Sobre</a>
             <a href="#blog">Blog</a>
-            <a href="#about">Sobre</a>
+            <a href="/certificacoes">Certificações</a>
+            <a href="/conteudo">Conteúdo</a>
             <a href="/cursos">Cursos</a>
             <a href="#projects">Projetos</a>
-            <a href="#experience">Experiência</a>
+            <a href="/contato">Contato</a>
+
+            <div class="footer__chips">
+                <span>Freelas</span>
+                <span>Mentorias</span>
+                <span>Palestras</span>
+            </div>
 
         </div>
 
-        <!-- Contato -->
         <div class="footer__contact">
 
             <h5>Contato</h5>
@@ -75,17 +87,21 @@
                     Enviar Mensagem
                 </button>
 
-            </div>            
-            
+            </div>
+
             @* <button class="footer__button">
                 Vamos Trabalhar Juntos
             </button> *@
+
+            <div class="footer__contact-links">
+                <a href="https://github.com/luciana-pereira" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/lucianapereiras/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
 
         </div>
 
     </div>
 
-    <!-- Bottom -->
     <div class="footer__bottom">
 
         <p>

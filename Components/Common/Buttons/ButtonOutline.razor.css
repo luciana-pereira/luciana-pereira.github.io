@@ -1,0 +1,36 @@
+.btn-outline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    padding: 1rem 1.8rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background:
+        linear-gradient(#0b0b12, #0b0b12) padding-box,
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--primary)
+        ) border-box;
+    color: var(--text);
+    cursor: pointer;
+    transition: .35s;
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    font-weight: 700;
+}
+
+.btn-outline:hover{
+    border-color:#d900ff;
+    transform:
+        translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(217,0,255,.20);
+    background:rgba(255,255,255,.05);
+}
+
+.btn-outline:active{
+    transform:scale(.98);
+}

@@ -1,0 +1,212 @@
+.about-skills {
+    display: grid;
+    padding: 1.25rem;
+}
+
+.about-skills__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.9rem;
+}
+
+.about-skills__panel {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.about-skills__panel--competencies {
+    align-content: start;
+}
+
+.about-skills__label {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.about-skills__competencies-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+}
+
+.about-skills__meters {
+    display: grid;
+    gap: 0.72rem;
+}
+
+.about-skill-meter {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.about-skill-meter header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-skill-meter header strong {
+    font-size: 0.92rem;
+}
+
+.about-skill-meter header span {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.about-skill-meter__track {
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.about-skill-meter__track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff00c8, #7f54ff, #1cb8ff);
+}
+
+.about-skills__expand-btn {
+    width: fit-content;
+    margin-top: 0.35rem;
+    border: 0;
+    background: transparent;
+    color: #e544d9;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+}
+
+.about-values-list,
+.about-focus-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.62rem;
+}
+
+.about-values-list li,
+.about-focus-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.65rem;
+    align-items: start;
+    padding: 0.55rem 0.1rem;
+}
+
+.about-values-list li strong,
+.about-focus-list li strong {
+    color: var(--text);
+    font-size: 0.91rem;
+}
+
+.about-values-list li small,
+.about-focus-list li small {
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.about-values-list__icon,
+.about-focus-list__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: linear-gradient(135deg, #00c8ff, #7a52ff, #ff00c8);
+    box-shadow: 0 8px 18px rgba(88, 67, 255, 0.28);
+}
+
+.about-focus-list li {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+    padding: 0.58rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.about-skills__link,
+.about-skills__cta {
+    text-decoration: none;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.about-skills__link {
+    color: var(--accent);
+}
+
+.about-skills__cta {
+    margin-top: 0.6rem;
+    padding: 0.72rem 1.1rem;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #4a43ff, #8f45ff, #ff00c8);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 12px 22px rgba(100, 57, 255, 0.26);
+}
+
+.about-skills__panel--focus {
+    background:
+        radial-gradient(circle at top right, rgba(0, 163, 255, 0.14), transparent 35%),
+        rgba(255, 255, 255, 0.03);
+}
+
+.about-skills__panel .about-skills__list {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+i.fa-solid.fa-diagram-project,
+i.fa-solid.fa-cloud {
+    font-size:small;
+
+    background: var(--text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1200px) {
+    .about-skills__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-skills__competencies-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .about-skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-tech-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

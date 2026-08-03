@@ -1,0 +1,112 @@
+@using site.Components.Common.Buttons
+@using static System.Net.Mime.MediaTypeNames
+
+<section class="about surface" data-reveal>
+  <div class="about__ambient about__ambient--primary"></div>
+  <div class="about__ambient about__ambient--secondary"></div>
+  <div class="about__grid"></div>
+
+  <span class="about__label">
+    Sobre mim
+  </span>
+
+  <h1 class="about__hero-title">
+    Olá, eu sou
+  </h1>
+
+  <span class="about__hero-title--highlight">Luciana Pereira</span>
+
+  <div class="about__roles">
+
+    <span class="about__role">
+      <i class="fa-solid fa-code"></i>
+      Software Engineer
+    </span>
+
+    <span class="about__role">
+      <i class="fa-solid fa-laptop-code"></i>
+      Full Stack Developer
+    </span>
+
+    <span class="about__role">
+      <i class="fa-solid fa-cloud"></i>
+      Cloud & Architecture
+    </span>
+
+  </div>
+
+  <div class="about__content-grid">
+
+    <div class="about__container about__content">
+
+      <div class="about__left">
+
+        <p class="about__intro">
+          Apaixonada por tecnologia,
+          arquitetura de software e criação de
+          soluções que geram impacto real.
+
+          Aqui você encontra parte da minha
+          jornada, projetos, aprendizados
+          e conquistas.
+        </p>
+
+        <div class="about__buttons">
+          <ButtonGradient Icon="fa-solid fa-arrow-right">
+            Ver meus projetos
+          </ButtonGradient>
+
+          <ButtonOutline Icon="fa-solid fa-download">
+            Baixar meu CV
+          </ButtonOutline>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="about__right">
+      <div class="about__photo">
+        <img src="@Image" alt="Luciana Pereira" class="image__profile" />
+      </div>
+
+      <div class="about__info">
+        <div class="about-card">
+          <div class="about-card__header">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Localização</span>
+          </div>
+
+          <strong>São Paulo, Brasil</strong>
+
+          <div class="about-card__map">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card__header">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Disponível para</span>
+          </div>
+
+          <ul>
+            @* <li>Oportunidades</li> *@
+            <li>Projetos</li>
+            <li>Mentorias</li>
+            <li>Palestras</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about__stats">
+    <AboutStats />
+  </div>
+
+</section>
+
+@code {
+  [Parameter] public string Image { get; set; } = "";
+}

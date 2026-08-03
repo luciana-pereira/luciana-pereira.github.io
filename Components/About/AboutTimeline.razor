@@ -1,0 +1,194 @@
+@using site.Services
+
+@inject ThemeService ThemeService
+
+<section class="about-timeline surface">
+
+  <span class="about-timeline__label">
+    Minha trajetória
+  </span>
+
+  <div class="about-timeline__wrapper">
+
+    <button class="about-timeline__arrow" @onclick="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="about-timeline__viewport">
+
+      <div class="about-timeline__track" style="transform:translateX(-@(CurrentIndex * CardWidth)px)">
+
+        @foreach (var item in Timeline)
+        {
+          <div class="about-timeline__column">
+
+            <div class="about-timeline__point">
+              <span class="about-timeline__line-left"></span>
+              <span class="about-timeline__dot"></span>
+              <span class="about-timeline__line-right"></span>
+            </div>
+
+            <article class="about-timeline__card">
+
+              <div class="about-timeline__icon">
+                <i class="@item.Icon"></i>
+              </div>
+
+              <span class="about-timeline__year">
+                @item.Year
+              </span>
+
+              <h3>@item.Title</h3>
+
+              <small>@item.Subtitle</small>
+
+              <p>@item.Description</p>
+
+              <div class="about-timeline__image-wrap">
+                <img src="@item.Image" />
+              </div>
+
+            </article>
+
+          </div>
+        }
+
+      </div>
+
+    </div>
+
+    <button class="about-timeline__arrow" @onclick="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+</section>
+
+@code {
+
+  private sealed class TimelineItem
+  {
+    public string Year { get; set; } = "";
+    public string Title { get; set; } = "";
+    public string Subtitle { get; set; } = "";
+    public string Description { get; set; } = "";
+    public string Icon { get; set; } = "";
+    public string Image { get; set; } = "";
+  }
+
+  private IReadOnlyList<TimelineItem> Timeline => new[]
+  {
+      new TimelineItem
+        {
+            Year="Set/2020 - Nov/2020",
+            Title="Gama Academy",
+            Subtitle="Treinamento e Desenvolvimento Full Stack",
+            Description="Programa de formação intensiva em desenvolvimento web. Fui uma das 150 finalistas do programa de aceleração de carreira Gama Academy.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/gama_academy.png"
+        },
+      new TimelineItem
+        {
+            Year="out/2020 - abr/2021",
+            Title="Laboratória",
+            Subtitle="Bootcamp",
+            Description="Programa de formação intensiva em desenvolvimento web. O bootcamp da labotaria foi o programa que meu deu a oportunidade de migrar de carreira e me tornar uma desenvolvedora de software.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/laboratoria_icon.jpg"
+        },
+        new TimelineItem
+        {
+            Year="maio/2021",
+            Title="Reprograma",
+            Subtitle="Curso",
+            Description="Curso de imersão em JavaScript com foco em Backend.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/reprograma_banner.png"
+        },
+        new TimelineItem
+        {
+            Year="maio/2021 - Atual",
+            Title="Avanade",
+            Subtitle="Software Engineer",
+            Description="Inicio da carreira como engenheira de software, atuando em projetos de desenvolvimento web e soluções corporativas.",
+            Icon="fa-solid fa-briefcase",
+            Image="/images/avanade_banner.jpg"
+        },
+        new TimelineItem
+        {
+            Year="Abr/2022 - Nov/2024",
+            Title="42 São Paulo",
+            Subtitle="Engenharia de Software",
+            Description="Programa de formação intensiva em engenharia de software, com foco em desenvolvimento web, mobile e práticas de engenharia de software.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/42sp_banner.jpg"
+        },
+        new TimelineItem
+        {
+            Year="Ago/2022 - Ago/2024",
+            Title="FIAP",
+            Subtitle="Sistemas para Internet",
+            Description="Curso de graduação tecnológica com foco em desenvolvimento web, mobile e práticas de engenharia de software.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/fiap.jpg"
+        },
+        new TimelineItem
+        {
+            Year="Nov/2022",
+            Title="Smart Mobility",
+            Subtitle="1º Lugar",
+            Description="Projeto vencedor do Hackathon de Mobilidade Urbana, com foco em soluções inovadoras para transporte público sustentável do Smart Mobility for a Better Tomorrow da FIAP em parceria com o grupo Stellantis.",
+            Icon="fa-solid fa-trophy",
+            Image="/images/win_smart_mobility.jpg"
+        },
+        new TimelineItem
+        {
+            Year="Nov/2023",
+            Title="TechCare4All",
+            Subtitle="1º Lugar",
+            Description="Projeto vencedor do Hackathon TechCare4All, com foco em soluções inovadoras para a área da saúde do Global Solutions Challenge da FIAP em parceria com a Hapvida Notre Dame Intermédica.",
+            Icon="fa-solid fa-trophy",
+            Image="/images/win_tech_care.jpg"
+        }, new TimelineItem
+        {
+            Year="Fev/2025 - Atual",
+            Title="42 São Paulo",
+            Subtitle="Especialização em Systems & Kernel Programming",
+            Description="Especialização em sistemas e programação de kernel.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/especializacao_42sp.jpg"
+        },
+        new TimelineItem
+        {
+            Year="Agos/2026 - Atual",
+            Title="FIAP",
+            Subtitle="Pós-Graduação em Arquitetura de Soluções e IA",
+            Description="MBA em Arquitetura de Soluções e IA com foco em desenvolvimento de soluções escaláveis e inteligentes.",
+            Icon="fa-solid fa-graduation-cap",
+            Image="/images/mba_fiap.jpg"
+        }
+    };
+
+  private int CurrentIndex;
+
+  private const int VisibleCards = 3;
+
+  private const int CardWidth = 250;
+
+  private int MaxIndex =>
+      Math.Max(0, Timeline.Count - VisibleCards);
+
+  private void Next()
+  {
+    if (CurrentIndex < MaxIndex)
+      CurrentIndex++;
+  }
+
+  private void Previous()
+  {
+    if (CurrentIndex > 0)
+      CurrentIndex--;
+  }
+
+}
