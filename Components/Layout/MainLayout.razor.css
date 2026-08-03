@@ -2,15 +2,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 14vh;
+  gap: 1rem;
 }
 
 main {
   flex: 1;
 }
 
-@media (min-width: 641px) {
-  .page {
-    flex-direction: row;
-  }
+.content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }

@@ -3,36 +3,49 @@
 @implements IDisposable
 @inject ThemeService ThemeService
 
-<nav class="navbar">
-    <NavLink href="/" class="nav__link" activeClass="active">
-        <img src="@CurrentLogo" alt="Logo" class="logo" />
-    </NavLink>
+<nav class="navbar surface">
+    <div class="navbar__brand">
+        <NavLink href="/" class="nav__link navbar__logo-link" activeClass="active" aria-label="Ir para a home">
+            <img src="@CurrentLogo" alt="Logo" class="logo" />
+        </NavLink>
+    </div>
 
     <div class="navbar-right">
-        <button class="icon-button" @onclick="ToggleLanguage">
+        <button class="icon-button" @onclick="ToggleLanguage" aria-label="Alternar idioma">
             <Icon Name="IconType.Language"  />
         </button>
 
-        <button class="icon-button" @onclick="ToggleTheme">
+        <button class="icon-button" @onclick="ToggleTheme" aria-label="Alternar tema">
             <Icon Name="IconType.Theme"  />
         </button>
 
-        <button class="icon-button" @onclick="GetInTouch">
+        <button class="icon-button" @onclick="GetInTouch" aria-label="Entrar em contato">
             <Icon Name="IconType.Email"  />
         </button>
 
-        <button class="icon-button hamburger" @onclick="ToggleMobileMenu">
-            <Icon Name="IconType.Menu"  />
-        </button>    
+        @if (showMobileMenu)
+        {
+            <button class="icon-button" @onclick="ToggleMobileMenu" aria-label="Fechar menu">
+                <Icon Name="IconType.Close"  />
+            </button>
+        } else {
+            <button class="icon-button hamburger" @onclick="ToggleMobileMenu" aria-label="Abrir menu">
+                <Icon Name="IconType.Menu"  />
+            </button>
+        }
     </div>
 
     @if (showMobileMenu)
-    { 
+    {
         <div class="mobile__menu">
+            <NavLink href="/" class="nav__link" activeClass="active">Inicio</NavLink>
+            <NavLink href="/sobre" class="nav__link" activeClass="active">Sobre</NavLink>
             <NavLink href="/portfolio" class="nav__link" activeClass="active">Portfólio</NavLink>
+            <NavLink href="/certificacoes" class="nav__link" activeClass="active">Certificações</NavLink>
+            <NavLink href="/conteudo" class="nav__link" activeClass="active">Conteúdo</NavLink>
             <NavLink href="/blog" class="nav__link" activeClass="active">Blog</NavLink>
             <NavLink href="/cursos" class="nav__link" activeClass="active">Cursos</NavLink>
-            <NavLink href="/perfil" class="nav__link" activeClass="active">Perfil</NavLink>
+            <NavLink href="/contato" class="nav__link" activeClass="active">Contato</NavLink>
         </div>
     }
 </nav>
@@ -54,7 +67,7 @@
     {
         ThemeService.OnThemeChanged -= HandleThemeChanged;
     }
-        
+
     private void ToggleMobileMenu()
     {
         showMobileMenu = !showMobileMenu;
@@ -65,19 +78,18 @@
         await ThemeService.ToggleAsync();
     }
 
-    private string CurrentLogo => 
-        ThemeService.IsDarkMode 
-            ? "/images/White_Logo_1.png" 
+    private string CurrentLogo =>
+        ThemeService.IsDarkMode
+            ? "/images/White_Logo_1.png"
             : "/images/Black_Logo_1.png";
 
     private void ToggleLanguage()
     {
-        // Ainda não implementado
     }
 
     private void GetInTouch()
     {
-        
+
     }
 }
 

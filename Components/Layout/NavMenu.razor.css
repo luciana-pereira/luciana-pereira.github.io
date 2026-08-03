@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5rem !important;
-  border-bottom: 1px solid #5e84e8;
 }
 
 .navbar-right {
@@ -19,12 +18,11 @@ div.mobile__menu {
 
   display: flex;
   flex-direction: column;
-  background: var(--bg);
+  background: #0a0a0b;
   position: absolute;
   top: 100%;
   right: 0;
   width: 25% !important;
-  border: 1px solid #eee;
   color: var(--text) !important;
   border-radius: 0px 0px 0px 15px;
 }
@@ -62,61 +60,3 @@ button.hamburger:hover {
     display: flex;
   }
 }
-
-/* 
-.toggle-btn {
-    width: 60px;
-    height: 32px;
-    border-radius: 50px;
-    border: 1px solid var(--text);
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-}
-
-.toggle-circle {
-    width: 24px;
-    height: 24px;
-    background: var(--text);
-    border-radius: 50%;
-    position: absolute;
-    top: 3px;
-    left: 4px;
-
-    transition: transform 0.3s ease;
-}
-
-.toggle-btn.active .toggle-circle {
-    transform: translateX(28px);
-}
-
-.icon-left,
-.icon-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.icon-left {
-    left: 8px;
-}
-
-.icon-right {
-    right: 8px;
-}
-
-.icon-left svg,
-.icon-right svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--text);
-}
-
-
-.toggle-btn.active .icon-right svg {
-    opacity: 1;
-}
-
-.toggle-btn:not(.active) .icon-left svg {
-    opacity: 1;
-} */
