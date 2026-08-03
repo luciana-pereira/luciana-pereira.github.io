@@ -1,0 +1,23 @@
+<section class="page-section surface" data-reveal>
+    <h2>Stack e foco</h2>
+    <div class="pill-grid">
+        @foreach (string pill in FocusAreas)
+        {
+            <span class="pill-card">@pill</span>
+        }
+    </div>
+</section>
+
+@code {
+    private static readonly IReadOnlyList<string> FocusAreas = new[]
+    {
+        "Cloud",
+        "Backend",
+        "Frontend",
+        "Arquitetura",
+        "DevOps",
+        "Azure",
+        "AWS",
+        "IA"
+    };
+}
