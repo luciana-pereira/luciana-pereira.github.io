@@ -1,0 +1,114 @@
+<section class="about-skills surface" data-reveal>
+    <div class="about-skills__grid">
+        <article class="about-skills__panel about-skills__panel--competencies">
+            <span class="about-skills__label">Minhas competências</span>
+
+            <div class="about-skills__competencies-layout">
+                <div class="about-skills__meters">
+                    @foreach (Competence item in Competences)
+                    {
+                        <div class="about-skill-meter">
+                            <header>
+                                <strong>@item.Name</strong>
+                                <span>@item.Score%</span>
+                            </header>
+                            <div class="about-skill-meter__track">
+                                <span style="width: @item.Score%;"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </article>
+
+        <article class="about-skills__panel">
+            <span class="about-skills__label">Meus valores</span>
+            <ul class="about-values-list">
+                @foreach (ValueItem item in Values)
+                {
+                    <li>
+                        <span class="about-values-list__icon">
+                            <i class="@item.Icon"></i>
+                        </span>
+                        <div>
+                            <strong>@item.Title</strong>
+                            <small>@item.Description</small>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </article>
+
+        <article class="about-skills__panel about-skills__panel--focus">
+            <span class="about-skills__label">Meu foco atual</span>
+            <ul class="about-focus-list">
+                @foreach (FocusItem item in FocusAreas)
+                {
+                    <li>
+                        <span class="about-focus-list__icon">
+                            <i class="@item.Icon"></i>
+                        </span>
+                        <div>
+                            <strong>@item.Title</strong>
+                            <small>@item.Description</small>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <a class="about-skills__cta" href="/cursos">
+                Ver meus estudos
+                <i class="fa-regular fa-circle-right"></i>
+            </a>
+        </article>
+    </div>
+</section>
+
+@code {
+    private sealed class Competence
+    {
+        public string Name { get; set; } = string.Empty;
+        public int Score { get; set; }
+    }
+
+    private sealed class ValueItem
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+    }
+
+    private sealed class FocusItem
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+    }
+
+    private static readonly IReadOnlyList<Competence> Competences =
+    [
+        new() { Name = "Desenvolvimento Full Stack", Score = 95 },
+        new() { Name = "Backend (.NET)", Score = 90 },
+        new() { Name = "Frontend (React)", Score = 90 },
+        new() { Name = "Cloud (Azure)", Score = 85 },
+        new() { Name = "Arquitetura de Software", Score = 80 },
+        new() { Name = "Banco de Dados", Score = 80 }
+    ];
+
+    private static readonly IReadOnlyList<ValueItem> Values =
+    [
+        new() { Title = "Respeito e Colaboração", Description = "Acredito que as melhores soluções surgem em equipe.", Icon = "fa-regular fa-handshake" },
+        new() { Title = "Qualidade", Description = "Código limpo, testes e boas práticas são inegociáveis.", Icon = "fa-regular fa-gem" },
+        new() { Title = "Transparência", Description = "Comunicação clara e honesta em todas as etapas.", Icon = "fa-regular fa-comments" },
+        new() { Title = "Aprendizado Contínuo", Description = "Sempre estudando e compartilhando conhecimento.", Icon = "fa-solid fa-arrows-rotate" },
+        new() { Title = "Impacto Positivo", Description = "Tecnologia para melhorar vidas e gerar propósito.", Icon = "fa-regular fa-heart" }
+    ];
+
+    private static readonly IReadOnlyList<FocusItem> FocusAreas =
+    [
+        new() { Title = "Arquitetura de Software", Description = "Design de soluções escaláveis e resilientes.", Icon = "fa-solid fa-cubes" },
+        new() { Title = "Cloud Computing", Description = "Azure, AWS e Engenharia de Plataforma.", Icon = "fa-solid fa-cloud" },
+        new() { Title = "Inteligência Artificial", Description = "Aplicando IA para resolver problemas reais.", Icon = "fa-solid fa-brain" },
+        new() { Title = "System Design", Description = "Pensar grande, começar simples e evoluir.", Icon = "fa-solid fa-diagram-project" }
+    ];
+
+}
