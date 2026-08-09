@@ -1,77 +1,133 @@
 window.reveal = {
-  observer: null,
-  bootstrapObserver: null,
-  initialized: false,
+    observer: null,
+    mutationObserver: null,
+    initialized: false,
 
-  init: function () {
-    const elements = Array.from(document.querySelectorAll("[data-reveal]"));
+    init: function () {
+        const elements = Array.from(
+            document.querySelectorAll("[data-reveal]")
+        );
 
-    if (!elements.length) {
-      window.reveal.waitForContent();
-      return;
-    }
+        if (!elements.length) {
+            return;
+        }
 
-    window.reveal.initialized = true;
+        const prefersReducedMotion =
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (window.reveal.bootstrapObserver) {
-      window.reveal.bootstrapObserver.disconnect();
-      window.reveal.bootstrapObserver = null;
-    }
+        if (
+            !window.reveal.observer &&
+            !prefersReducedMotion &&
+            ("IntersectionObserver" in window)
+        ) {
+            window.reveal.observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-revealed");
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                            window.reveal.observer.unobserve(
+                                entry.target
+                            );
+                        }
+                    });
+                },
+                {
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -10% 0px"
+                }
+            );
+        }
 
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-      elements.forEach((element) => element.classList.add("is-revealed"));
-      return;
-    }
+        elements.forEach((element, index) => {
 
-    if (window.reveal.observer) {
-      window.reveal.observer.disconnect();
-    }
+            if (element.classList.contains("is-revealed")) {
+                return;
+            }
 
-    window.reveal.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            window.reveal.observer.unobserve(entry.target);
-          }
+            if (!element.style.getPropertyValue("--reveal-delay")) {
+                element.style.setProperty(
+                    "--reveal-delay",
+                    `${index * 90}ms`
+                );
+            }
+
+            if (
+                prefersReducedMotion ||
+                !("IntersectionObserver" in window)
+            ) {
+                element.classList.add("is-revealed");
+                return;
+            }
+
+            window.reveal.observer.observe(element);
         });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
-    );
 
-    elements.forEach((element, index) => {
-      if (!element.style.getPropertyValue("--reveal-delay")) {
-        element.style.setProperty("--reveal-delay", `${index * 90}ms`);
-      }
+        window.reveal.initialized = true;
+    },
 
-      window.reveal.observer.observe(element);
-    });
-  },
+    watch: function () {
 
-  waitForContent: function () {
-    if (window.reveal.bootstrapObserver || window.reveal.initialized) {
-      return;
+        if (window.reveal.mutationObserver) {
+            return;
+        }
+
+        const root =
+            document.getElementById("app") ||
+            document.body;
+
+        window.reveal.mutationObserver =
+            new MutationObserver((mutations) => {
+
+                let hasNewElements = false;
+
+                for (const mutation of mutations) {
+
+                    if (mutation.type !== "childList") {
+                        continue;
+                    }
+
+                    for (const node of mutation.addedNodes) {
+
+                        if (node.nodeType !== Node.ELEMENT_NODE) {
+                            continue;
+                        }
+
+                        if (
+                            node.matches?.("[data-reveal]") ||
+                            node.querySelector?.("[data-reveal]")
+                        ) {
+                            hasNewElements = true;
+                            break;
+                        }
+                    }
+
+                    if (hasNewElements) {
+                        break;
+                    }
+                }
+
+                if (hasNewElements) {
+                    window.requestAnimationFrame(() => {
+                        window.reveal.init();
+                    });
+                }
+            });
+
+        window.reveal.mutationObserver.observe(root, {
+            childList: true,
+            subtree: true
+        });
     }
-
-    const root = document.getElementById("app") || document.body;
-
-    window.reveal.bootstrapObserver = new MutationObserver(() => {
-      const elements = document.querySelectorAll("[data-reveal]");
-
-      if (elements.length) {
-        window.reveal.init();
-      }
-    });
-
-    window.reveal.bootstrapObserver.observe(root, {
-      childList: true,
-      subtree: true,
-    });
-  },
 };
 
 window.addEventListener("load", () => {
-  window.requestAnimationFrame(() => window.reveal.init());
+
+    window.requestAnimationFrame(() => {
+
+        window.reveal.init();
+        window.reveal.watch();
+
+    });
+
 });

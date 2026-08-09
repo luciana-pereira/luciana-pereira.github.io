@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luciana Pereira</title>
+
+    <script>
+        const path = window.location.pathname;
+        const search = window.location.search;
+        const hash = window.location.hash;
+
+        sessionStorage.setItem(
+            "redirect",
+            path + search + hash
+        );
+
+        window.location.replace("/");
+    </script>
+
+    <link rel="icon" href="favicon.ico" />
+
+</head>
+<body>
+
+</body>
+</html>
