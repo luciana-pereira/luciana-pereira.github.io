@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "studies": [
+    {
+      "source": {
+        "repositoryId": 1467973605,
+        "fullName": "luciana-pereira/vox-nexo",
+        "htmlUrl": "https://github.com/luciana-pereira/vox-nexo",
+        "defaultBranch": "master",
+        "path": "portfolio.json",
+        "blobSha": "a8f1dabc0b3ec16a8661e77b7c66eaa243412960",
+        "portfolioSchemaVersion": 1
+      },
+      "study": {
+        "id": "voxnexo",
+        "slug": "voxnexo",
+        "title": {
+          "pt": "VoxNexo — Tradutor de Áudio para Desktop",
+          "en": "VoxNexo — Desktop Audio Translator"
+        },
+        "subtitle": {
+          "pt": "Aplicativo Windows que transcreve áudio reproduzido pelo computador em inglês e apresenta a tradução local para português.",
+          "en": "Windows application that transcribes English audio played by the computer and displays a local Portuguese translation."
+        },
+        "category": "ArchitectureEngineering",
+        "badgeLabel": {
+          "pt": "Aplicativo desktop",
+          "en": "Desktop application"
+        },
+        "status": "MvpCompleted",
+        "originType": "Personal",
+        "technologies": [
+          "Python 3.13",
+          "Tkinter",
+          "WASAPI loopback",
+          "faster-whisper",
+          "Argos Translate",
+          "PyInstaller",
+          "Inno Setup",
+          "pytest",
+          "Ruff"
+        ],
+        "highlightNote": {
+          "pt": "Captura exclusivamente o áudio de reprodução do Windows; o processamento de voz e a tradução acontecem localmente, sem abrir o microfone.",
+          "en": "Captures Windows playback audio exclusively; speech processing and translation run locally without opening the microphone."
+        },
+        "context": {
+          "pt": "O VoxNexo auxilia no acompanhamento de vídeos e reuniões em inglês. O usuário seleciona a saída de áudio do computador, inicia a captura e acompanha na interface os trechos originais e suas traduções para português.",
+          "en": "VoxNexo helps users follow English-language videos and meetings. The user selects the computer's audio output, starts capture, and follows the original segments and their Portuguese translations in the interface."
+        },
+        "functionalRequirements": [
+          {
+            "pt": "Capturar o áudio reproduzido na saída selecionada do Windows por WASAPI loopback, sem acessar o microfone.",
+            "en": "Capture audio played through the selected Windows output using WASAPI loopback, without accessing the microphone."
+          },
+          {
+            "pt": "Transcrever fala em inglês com o modelo local distil-small.en.",
+            "en": "Transcribe English speech using the local distil-small.en model."
+          },
+          {
+            "pt": "Traduzir os trechos reconhecidos do inglês para português localmente.",
+            "en": "Translate recognized segments from English to Portuguese locally."
+          },
+          {
+            "pt": "Permitir iniciar e parar a captura e acompanhar os resultados na interface.",
+            "en": "Allow users to start and stop capture and follow results in the interface."
+          },
+          {
+            "pt": "Exportar a transcrição e a tradução para um documento Word somente quando solicitado pelo usuário.",
+            "en": "Export the transcript and translation to a Word document only when requested by the user."
+          }
+        ],
+        "nonFunctionalRequirements": [
+          {
+            "pt": "Manter áudio, transcrição e tradução locais durante a sessão, sem enviar trechos a serviços remotos.",
+            "en": "Keep audio, transcript, and translation local during the session, without sending segments to remote services."
+          },
+          {
+            "pt": "Não gravar o áudio em arquivo nem abrir o microfone.",
+            "en": "Do not save audio to a file or open the microphone."
+          },
+          {
+            "pt": "Usar uma fila limitada para descartar áudio antigo quando o processamento ficar atrasado.",
+            "en": "Use a bounded queue to discard stale audio when processing falls behind."
+          },
+          {
+            "pt": "Separar interface, captura e inferência para manter responsiva a interface.",
+            "en": "Separate the interface, capture, and inference to keep the interface responsive."
+          }
+        ],
+        "architecture": {
+          "summary": {
+            "pt": "Aplicativo desktop em camadas: interface Tkinter, serviço de captura e tradução em segundo plano e módulo independente de exportação DOCX. A captura e a inferência trabalham em threads separadas e comunicam eventos à interface por filas.",
+            "en": "Layered desktop application: a Tkinter interface, a background capture and translation service, and an independent DOCX export module. Capture and inference run on separate threads and send events to the interface through queues."
+          },
+          "diagramDescription": {
+            "pt": "Fluxo: saída de áudio do Windows → WASAPI loopback → fila local limitada → faster-whisper → Argos Translate → interface Tkinter; a exportação DOCX é iniciada separadamente pelo usuário.",
+            "en": "Flow: Windows audio output → WASAPI loopback → bounded local queue → faster-whisper → Argos Translate → Tkinter interface; DOCX export is initiated separately by the user."
+          }
+        },
+        "adrs": [
+          {
+            "id": "ADR-001",
+            "title": {
+              "pt": "Captura exclusiva do áudio de reprodução",
+              "en": "Capture playback audio exclusively"
+            },
+            "context": {
+              "pt": "A aplicação precisa transcrever o áudio reproduzido pelo computador sem capturar conversas pelo microfone.",
+              "en": "The application needs to transcribe audio played by the computer without capturing conversations through the microphone."
+            },
+            "decision": {
+              "pt": "Usar WASAPI loopback pela saída de áudio selecionada e não abrir dispositivos de microfone.",
+              "en": "Use WASAPI loopback from the selected audio output and do not open microphone devices."
+            },
+            "consequences": [
+              {
+                "pt": "A captura fica restrita ao áudio de reprodução do Windows e a fonte é escolhida explicitamente pelo usuário.",
+                "en": "Capture is limited to Windows playback audio, and the source is explicitly selected by the user."
+              }
+            ]
+          },
+          {
+            "id": "ADR-002",
+            "title": {
+              "pt": "Processamento local de transcrição e tradução",
+              "en": "Local transcription and translation"
+            },
+            "context": {
+              "pt": "O áudio e o texto da sessão não devem depender de serviços remotos de inferência.",
+              "en": "Session audio and text should not depend on remote inference services."
+            },
+            "decision": {
+              "pt": "Executar faster-whisper e Argos Translate localmente após baixar os modelos para o cache do usuário.",
+              "en": "Run faster-whisper and Argos Translate locally after downloading models to the user's cache."
+            },
+            "consequences": [
+              {
+                "pt": "A inferência não envia trechos para serviços externos, mas a primeira configuração precisa baixar dependências e modelos.",
+                "en": "Inference does not send segments to external services, but initial setup must download dependencies and models."
+              }
+            ]
+          },
+          {
+            "id": "ADR-003",
+            "title": {
+              "pt": "Fila limitada para áudio recente",
+              "en": "Bounded queue for recent audio"
+            },
+            "context": {
+              "pt": "A inferência pode demorar mais que a captura, acumulando áudio atrasado.",
+              "en": "Inference can take longer than capture, causing audio to accumulate and become stale."
+            },
+            "decision": {
+              "pt": "Limitar a fila a uma janela e descartar a janela antiga quando necessário.",
+              "en": "Limit the queue to one window and discard the older window when necessary."
+            },
+            "consequences": [
+              {
+                "pt": "O processamento prioriza trechos recentes e evita uma fila crescente, embora possa perder áudio quando o sistema estiver sob carga.",
+                "en": "Processing prioritizes recent segments and prevents an ever-growing queue, though audio may be dropped under heavy system load."
+              }
+            ]
+          }
+        ],
+        "tradeOffs": [
+          {
+            "decision": {
+              "pt": "Executar a transcrição e a tradução localmente.",
+              "en": "Run transcription and translation locally."
+            },
+            "rationale": {
+              "pt": "Benefícios: Evita enviar áudio ou texto da sessão a serviços remotos e dispensa chave de API para inferência.\nCustos: A inferência consome recursos do computador e os modelos precisam ser baixados na configuração inicial.",
+              "en": "Benefits: Avoids sending session audio or text to remote services and requires no API key for inference.\nCosts: Inference uses the computer's resources, and models must be downloaded during initial setup."
+            }
+          },
+          {
+            "decision": {
+              "pt": "Manter a fila de áudio limitada a uma janela.",
+              "en": "Keep the audio queue limited to one window."
+            },
+            "rationale": {
+              "pt": "Benefícios: Evita o acúmulo de trechos antigos e prioriza menor atraso.\nCustos: Pode descartar uma janela de áudio se a inferência não acompanhar a captura.",
+              "en": "Benefits: Prevents stale segments from accumulating and prioritizes lower latency.\nCosts: May discard an audio window if inference cannot keep up with capture."
+            }
+          },
+          {
+            "decision": {
+              "pt": "Criar documentos Word somente mediante ação explícita.",
+              "en": "Create Word documents only after an explicit user action."
+            },
+            "rationale": {
+              "pt": "Benefícios: Evita exportações inesperadas e dá ao usuário controle sobre a criação do arquivo.\nCustos: O usuário precisa iniciar a exportação e escolher o destino do documento.",
+              "en": "Benefits: Avoids unexpected exports and gives users control over file creation.\nCosts: Users must initiate the export and choose where to save the document."
+            }
+          }
+        ],
+        "quality": {
+          "tests": {
+            "pt": "Testes automatizados com pytest para a lógica do tradutor e a exportação Word; não há métrica de cobertura documentada.",
+            "en": "Automated pytest tests cover translator logic and Word export; no coverage metric is documented."
+          },
+          "security": {
+            "pt": "O fluxo de áudio não abre o microfone, não grava o áudio e não envia trechos para inferência remota. Não há autenticação, pois o aplicativo é local.",
+            "en": "The audio flow does not open the microphone, record audio, or send segments for remote inference. Authentication is not used because the application is local."
+          },
+          "observability": {
+            "pt": "A interface apresenta o estado da captura e erros de processamento ao usuário; não há monitoramento distribuído.",
+            "en": "The interface displays capture status and processing errors to the user; distributed monitoring is not implemented."
+          },
+          "delivery": {
+            "pt": "GitHub Actions executa testes e lint no Windows com Python 3.13; o script de build gera executável PyInstaller e instalador Inno Setup.",
+            "en": "GitHub Actions runs tests and lint on Windows with Python 3.13; the build script produces a PyInstaller executable and an Inno Setup installer."
+          }
+        },
+        "results": [],
+        "learnings": [
+          {
+            "pt": "Separar captura, inferência e interface em threads e filas ajuda a manter a aplicação responsiva.",
+            "en": "Separating capture, inference, and the interface across threads and queues helps keep the application responsive."
+          },
+          {
+            "pt": "Uma fila limitada é uma escolha importante em processamento contínuo quando priorizar dados recentes é mais útil que acumular atraso.",
+            "en": "A bounded queue is important in continuous processing when prioritizing recent data is more useful than accumulating delay."
+          },
+          {
+            "pt": "Modelos locais favorecem privacidade, mas exigem atenção ao tamanho dos downloads e aos recursos disponíveis no computador.",
+            "en": "Local models favor privacy, but require consideration of download size and available computer resources."
+          }
+        ],
+        "nextSteps": [
+          {
+            "pt": "Adicionar suporte a idiomas de origem além do inglês.",
+            "en": "Add support for source languages beyond English."
+          },
+          {
+            "pt": "Avaliar e documentar latência e qualidade da tradução em diferentes computadores e condições de áudio.",
+            "en": "Evaluate and document translation latency and quality across different computers and audio conditions."
+          },
+          {
+            "pt": "Adicionar monitoramento local opcional de desempenho sem coletar áudio ou conteúdo da transcrição.",
+            "en": "Add optional local performance monitoring without collecting audio or transcript content."
+          }
+        ]
+      }
+    }
+  ]
+}

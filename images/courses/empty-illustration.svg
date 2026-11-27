@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="e-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1a5e"/>
+      <stop offset="1" stop-color="#120b2e"/>
+    </linearGradient>
+    <linearGradient id="e-frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b6dff"/>
+      <stop offset="1" stop-color="#4b2fd0"/>
+    </linearGradient>
+    <linearGradient id="e-base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7457ff"/>
+      <stop offset="1" stop-color="#3a22a8"/>
+    </linearGradient>
+    <linearGradient id="e-play" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c8b8ff"/>
+      <stop offset="1" stop-color="#ff4fd8"/>
+    </linearGradient>
+    <linearGradient id="e-book" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d4bff"/>
+      <stop offset="1" stop-color="#9b7bff"/>
+    </linearGradient>
+    <radialGradient id="e-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7b61ff" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#7b61ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="240" cy="170" rx="220" ry="140" fill="url(#e-glow)"/>
+  <ellipse cx="240" cy="290" rx="210" ry="14" fill="#7b61ff" opacity="0.25"/>
+
+  <!-- claquete -->
+  <g transform="translate(70 40) rotate(-12 60 60)">
+    <rect x="0" y="40" width="130" height="90" rx="8" fill="#1d1340"/>
+    <path d="M0 18 L130 0 L134 26 L4 44 Z" fill="#e9e4ff"/>
+    <path d="M14 16 L34 13 L26 40 L6 43 Z M54 10 L74 7 L66 34 L46 37 Z M94 4 L114 1 L106 28 L86 31 Z" fill="#7b61ff"/>
+    <rect x="0" y="40" width="130" height="14" fill="#e9e4ff"/>
+    <path d="M14 40 H34 L26 54 H6 Z M54 40 H74 L66 54 H46 Z M94 40 H114 L106 54 H86 Z" fill="#7b61ff"/>
+  </g>
+
+  <!-- laptop com player -->
+  <g transform="translate(120 70)">
+    <rect x="30" y="0" width="210" height="150" rx="14" fill="url(#e-frame)"/>
+    <rect x="42" y="12" width="186" height="126" rx="8" fill="url(#e-screen)"/>
+    <path d="M122 52 L122 96 L160 74 Z" fill="url(#e-play)" stroke="url(#e-play)" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="72" y="114" width="126" height="6" rx="3" fill="#3a2a7a"/>
+    <rect x="72" y="114" width="70" height="6" rx="3" fill="#b9a6ff"/>
+    <path d="M0 154 H270 L252 182 H18 Z" fill="url(#e-base)"/>
+    <rect x="110" y="158" width="50" height="5" rx="2.5" fill="#2a1a5e"/>
+  </g>
+
+  <!-- caneca </> -->
+  <g transform="translate(48 182)">
+    <path d="M22 0 C14 -16 30 -22 22 -38" stroke="#b9a6ff" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M42 2 C34 -14 50 -20 42 -36" stroke="#b9a6ff" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+    <rect x="0" y="8" width="70" height="82" rx="12" fill="#4b2fd0"/>
+    <rect x="0" y="8" width="70" height="12" rx="6" fill="#6d4bff"/>
+    <path d="M70 30 C96 30 96 72 70 72" stroke="#4b2fd0" stroke-width="10" fill="none"/>
+    <path d="M24 42 L14 52 L24 62 M46 42 L56 52 L46 62 M40 38 L30 66" stroke="#e9e4ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- livros -->
+  <g transform="translate(330 196)">
+    <rect x="0" y="40" width="120" height="34" rx="7" fill="#3a22a8"/>
+    <rect x="10" y="47" width="104" height="20" rx="3" fill="#ece8ff" opacity="0.9"/>
+    <rect x="8" y="4" width="112" height="34" rx="7" fill="url(#e-book)"/>
+    <rect x="18" y="11" width="96" height="20" rx="3" fill="#f3f0ff" opacity="0.92"/>
+    <rect x="8" y="4" width="14" height="34" rx="5" fill="#4b2fd0"/>
+  </g>
+</svg>

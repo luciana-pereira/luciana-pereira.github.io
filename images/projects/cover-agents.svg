@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1240"/>
+      <stop offset="1" stop-color="#0a0618"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#7b61ff" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#ff00c7" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ff00c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#6d4bff"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5233e6"/>
+      <stop offset="1" stop-color="#2b1880"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4b5fd"/>
+      <stop offset="1" stop-color="#ff4fd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#bg)"/>
+  <g stroke="#7b61ff" stroke-opacity="0.12">
+    <path d="M0 200h640M0 230h640M80 160 0 260M200 160l-60 100M320 160v100M440 160l60 100M560 160l80 100"/>
+  </g>
+  <rect width="640" height="260" fill="url(#glow)"/>
+  <g fill="#c4b5fd">
+    <circle cx="70" cy="50" r="1.6" opacity="0.7"/><circle cx="560" cy="40" r="1.4" opacity="0.6"/>
+    <circle cx="600" cy="120" r="1.8" opacity="0.5"/><circle cx="40" cy="140" r="1.4" opacity="0.5"/>
+  </g>
+  <g class="cover-art" transform="translate(64 42) scale(0.8)">
+  <rect x="282" y="36" width="76" height="62" rx="18" fill="url(#top)" stroke="#c4b5fd" stroke-width="2"/>
+  <circle cx="306" cy="66" r="7" fill="#fff"/><circle cx="334" cy="66" r="7" fill="#fff"/>
+  <path d="M308 84h24M320 36V24" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="320" cy="20" r="5" fill="#ff4fd8"/>
+  <path d="M320 98v34M320 132H220v34M320 132h100v34M320 132v34" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="220" cy="196" r="30" fill="#24165a" stroke="#a78bfa" stroke-width="2"/><path d="M208 186h24M208 196h24M208 206h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="320" cy="196" r="30" fill="#24165a" stroke="#ff4fd8" stroke-width="2"/><circle cx="320" cy="196" r="9" stroke="#fff" stroke-width="3"/><path d="M320 180v6M320 206v6M304 196h6M330 196h6" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="420" cy="196" r="30" fill="#24165a" stroke="#a78bfa" stroke-width="2"/><ellipse cx="420" cy="186" rx="13" ry="5" stroke="#fff" stroke-width="3"/><path d="M407 186v20c0 3 6 5 13 5s13-2 13-5v-20M407 196c0 3 6 5 13 5s13-2 13-5" stroke="#fff" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,291 @@
+[
+  {
+    "id": "aeroshield-ai",
+    "slug": "aeroshield-ai",
+    "title": "AeroShield AI",
+    "subtitle": {
+      "pt": "Plataforma de análise preditiva com IA, dados e orquestração de agentes.",
+      "en": "Predictive analytics platform with AI, data and agent orchestration."
+    },
+    "category": "AppliedProject",
+    "studyType": "ProofOfConcept",
+    "status": "InDevelopment",
+    "date": "2026-02-01",
+    "estimatedHours": 40,
+    "originType": "Personal",
+    "technologies": ["Python", "FastAPI", "LLM", "Azure"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/cover-aeroshield.svg",
+    "featured": true,
+    "thumbnail": "images/home/project-aeroshield.svg"
+  },
+  {
+    "id": "arquitetura-solucoes-nuvem",
+    "slug": "arquitetura-solucoes-nuvem",
+    "title": {
+      "pt": "Arquitetura de Soluções na Nuvem",
+      "en": "Cloud Solution Architecture"
+    },
+    "subtitle": {
+      "pt": "Estudo de arquitetura e implantação de uma aplicação escalável na Azure.",
+      "en": "Architecture and deployment study of a scalable application on Azure."
+    },
+    "category": "ArchitectureEngineering",
+    "studyType": "ArchitectureStudy",
+    "status": "InDevelopment",
+    "originType": "Study",
+    "technologies": [".NET", "Azure", "Terraform", "CI/CD"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/cover-cloud.svg"
+  },
+  {
+    "id": "orquestracao-agentes-llms",
+    "slug": "orquestracao-agentes-llms",
+    "title": {
+      "pt": "Orquestração de Agentes com LLMs",
+      "en": "Agent Orchestration with LLMs"
+    },
+    "subtitle": {
+      "pt": "Experimento prático de coordenação de agentes, com foco em padrões de orquestração e avaliação.",
+      "en": "Hands-on experiment coordinating agents, focused on orchestration patterns and evaluation."
+    },
+    "category": "LabExperiment",
+    "studyType": "AppliedResearch",
+    "status": "InDevelopment",
+    "originType": "Experiment",
+    "technologies": ["LangGraph", "OpenAI", "Python", "RAG"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/cover-agents.svg"
+  },
+  {
+    "id": "portfolio-como-plataforma",
+    "slug": "portfolio-como-plataforma",
+    "title": {
+      "pt": "Portfólio como Plataforma",
+      "en": "Portfolio as a Platform"
+    },
+    "subtitle": {
+      "pt": "Site pessoal em Blazor WebAssembly com blog, cursos e projetos, sem backend próprio.",
+      "en": "Personal site in Blazor WebAssembly with a blog, courses and projects, with no backend of its own."
+    },
+    "category": "AppliedProject",
+    "studyType": "ProofOfConcept",
+    "status": "InDevelopment",
+    "date": "2026-01-01",
+    "estimatedHours": 60,
+    "originType": "Personal",
+    "technologies": ["Blazor", ".NET", "CSS", "GitHub Pages"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/cover-platform.svg"
+  },
+  {
+    "id": "smart-mobility",
+    "slug": "smart-mobility",
+    "title": "Smart Mobility",
+    "subtitle": {
+      "pt": "Solução de mobilidade urbana com foco em transporte público sustentável.",
+      "en": "Urban mobility solution focused on sustainable public transport."
+    },
+    "category": "AppliedProject",
+    "status": "InDevelopment",
+    "technologies": ["React Native", "TypeScript", "Firebase"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/smart-mobility.jpg",
+    "featured": true
+  },
+  {
+    "id": "life-health",
+    "slug": "life-health",
+    "title": "Life Health",
+    "subtitle": {
+      "pt": "Solução que une tecnologia e saúde com desenvolvimento web e recursos inteligentes.",
+      "en": "A solution that brings technology and health together with web development and smart features."
+    },
+    "category": "AppliedProject",
+    "status": "InDevelopment",
+    "technologies": ["React Native", "TypeScript", "C#"],
+    "gitHubUrl": "https://github.com/luciana-pereira",
+    "coverVisual": "images/projects/life-health.jpg",
+    "featured": true
+  },
+  {
+    "id": "vax-coverage-sp-analytics",
+    "slug": "vax-coverage-sp-analytics",
+    "title": "VaxCoverage SP Analytics",
+    "subtitle": {
+      "pt": "Plataforma de análise e previsão do déficit de cobertura vacinal nos municípios do Estado de São Paulo, com pipeline de dados, machine learning e dashboard.",
+      "en": "Platform to analyze and forecast vaccination coverage deficit in São Paulo State municipalities, with a data pipeline, machine learning and a dashboard."
+    },
+    "category": "AppliedProject",
+    "studyType": "AppliedResearch",
+    "status": "InDevelopment",
+    "date": "2026-10-21",
+    "endDate": "2026-11-09",
+    "originType": "Study",
+    "technologies": ["Python", "FastAPI", "Pydantic", "DuckDB", "pandas", "Parquet", "scikit-learn", "Angular", "TypeScript", "Chart.js", "d3-geo", "pytest", "Docker", "GitHub Actions"],
+    "highlightNote": {
+      "pt": "Projeto Integrador IV (UNIVESP): dados do PNI e do IBGE, modelos de classificação com validação temporal e API REST consumida por um dashboard Angular.",
+      "en": "Integrator Project IV (UNIVESP): PNI and IBGE data, classification models with temporal validation and a REST API consumed by an Angular dashboard."
+    },
+    "gitHubUrl": "https://github.com/luciana-pereira/vax-coverage-sp-analytics",
+    "docsUrl": "https://github.com/luciana-pereira/vax-coverage-sp-analytics/tree/master/docs",
+    "demoUrl": "https://vax-coverage-sp-analytics.vercel.app",
+    "coverVisual": "images/projects/cover-vax.svg",
+
+    "context": {
+      "pt": "Projeto Integrador IV da UNIVESP, desenvolvido por uma equipe de sete pessoas, entre elas Luciana Pereira. O objetivo é analisar a cobertura vacinal municipal no Estado de São Paulo e apoiar a identificação de possíveis déficits: identificar os municípios com maior déficit, criar atributos explicativos, treinar modelos supervisionados para classificar o risco de déficit no ano seguinte e disponibilizar os resultados em um dashboard. A cobertura é calculada como doses aplicadas ÷ população-alvo × 100, e o déficit como max(0, meta − cobertura). As previsões apoiam a análise e não substituem a avaliação de profissionais de saúde.",
+      "en": "UNIVESP Integrator Project IV, built by a team of seven people, including Luciana Pereira. The goal is to analyze municipal vaccination coverage in São Paulo State and help identify possible deficits: find the municipalities with the largest deficit, build explanatory features, train supervised models to classify next year's deficit risk and publish the results in a dashboard. Coverage is doses administered ÷ target population × 100, and deficit is max(0, target − coverage). Predictions support analysis and do not replace health professionals' judgment."
+    },
+
+    "functionalRequirements": [
+      { "pt": "Extrair dados do PNI por ano, com paginação limit/offset, e gravá-los em JSONL.", "en": "Extract PNI data by year with limit/offset pagination and store it as JSONL." },
+      { "pt": "Transformar e validar os dados, associando a população-alvo por município, ano e imunizante.", "en": "Transform and validate the data, joining the target population by municipality, year and immunizer." },
+      { "pt": "Calcular cobertura, déficit e classe de déficit (baixo, moderado, alto) e o dataset supervisionado.", "en": "Compute coverage, deficit and deficit class (low, moderate, high) and the supervised dataset." },
+      { "pt": "Treinar e comparar Logistic Regression, Random Forest e Gradient Boosting para prever a classe do ano seguinte.", "en": "Train and compare Logistic Regression, Random Forest and Gradient Boosting to predict next year's class." },
+      { "pt": "Expor uma API REST com saúde, qualidade dos dados, modelos, previsões e municípios, documentada em OpenAPI.", "en": "Expose a REST API with health, data quality, models, predictions and municipalities, documented with OpenAPI." },
+      { "pt": "Oferecer dashboard com visão geral (KPIs, mapa, evolução, ranking, previsões), histórico, municípios, previsões, modelos e qualidade dos dados.", "en": "Provide a dashboard with an overview (KPIs, map, trend, ranking, predictions), history, municipalities, predictions, models and data quality." },
+      { "pt": "Receber um CSV na visão geral para análise agregada temporária.", "en": "Accept a CSV on the overview page for temporary aggregated analysis." }
+    ],
+    "nonFunctionalRequirements": [
+      { "pt": "Sem vazamento de alvo: a classe do próprio ano não é atributo do modelo.", "en": "No target leakage: the current year's class is not a model feature." },
+      { "pt": "Validação temporal (treino < validação < teste), sem split aleatório.", "en": "Temporal validation (train < validation < test), no random split." },
+      { "pt": "Não fabricar valores: sem dados ou modelo, a API responde estados de indisponibilidade.", "en": "No fabricated values: without data or a model, the API returns unavailable states." },
+      { "pt": "O frontend consome apenas a API REST e nunca lê Parquet ou DuckDB.", "en": "The frontend only consumes the REST API and never reads Parquet or DuckDB." },
+      { "pt": "Upload limitado a 25 MiB e 500.000 linhas, processado em memória.", "en": "Upload limited to 25 MiB and 500,000 rows, processed in memory." },
+      { "pt": "Reprodutibilidade: etapas por CLI sobre data/ e ML_RANDOM_STATE fixo (padrão 42).", "en": "Reproducibility: CLI steps over data/ and a fixed ML_RANDOM_STATE (default 42)." }
+    ],
+
+    "architecture": {
+      "summary": {
+        "pt": "Monorepo em camadas: o pipeline (extract, transform, validate, load) leva os dados do PNI e do IBGE até Parquet e DuckDB; o módulo de ML gera features, treina e avalia os modelos e grava modelo e métricas; o backend FastAPI segue routers → services → repositories, só lê os artefatos e usa ml.inference para prever; o frontend Angular consome a API por HTTP.",
+        "en": "Layered monorepo: the pipeline (extract, transform, validate, load) takes PNI and IBGE data to Parquet and DuckDB; the ML module builds features, trains and evaluates models and stores the model and metrics; the FastAPI backend follows routers → services → repositories, only reads the artifacts and uses ml.inference to predict; the Angular frontend consumes the API over HTTP."
+      },
+      "diagram": "images/projects/diagram-vax-coverage.svg",
+      "diagramDescription": {
+        "pt": "Fontes PNI e IBGE SIDRA alimentam o extract, que grava data/raw em JSONL. transform e validate geram data/processed (vaccination.parquet), e load grava o DuckDB. A partir do Parquet processado, features alimenta training e evaluation, que gravam data/models com modelo e métricas. No backend FastAPI, os routers api/v1 chamam services, que usam repositories (lendo o Parquet processado) e ml/inference (lendo o modelo). O frontend Angular, com dashboard, mapa d3-geo e gráficos Chart.js, chama a API por HTTP. A API roda no Render e o frontend na Vercel; o CI no GitHub Actions executa ruff, pytest, testes Karma e o build.",
+        "en": "PNI and IBGE SIDRA sources feed extract, which writes data/raw as JSONL. transform and validate produce data/processed (vaccination.parquet), and load writes DuckDB. From the processed Parquet, features feeds training and evaluation, which write data/models with the model and metrics. In the FastAPI backend, api/v1 routers call services, which use repositories (reading the processed Parquet) and ml/inference (reading the model). The Angular frontend, with the dashboard, d3-geo map and Chart.js charts, calls the API over HTTP. The API runs on Render and the frontend on Vercel; GitHub Actions CI runs ruff, pytest, Karma tests and the build."
+      }
+    },
+
+    "adrs": [
+      {
+        "id": "ADR-001",
+        "title": { "pt": "Monorepo com pipeline/, ml/, backend/ e frontend/", "en": "Monorepo with pipeline/, ml/, backend/ and frontend/" },
+        "status": "Accepted",
+        "decision": { "pt": "Organizar o projeto em um monorepo com uma pasta por camada.", "en": "Organize the project as a monorepo with one folder per layer." },
+        "consequences": [
+          { "pt": "Separa responsabilidades e permite evolução independente de cada camada.", "en": "Separates responsibilities and lets each layer evolve independently." }
+        ],
+        "evidence": [ { "pt": "docs/architecture/overview.md (Decisões arquiteturais)", "en": "docs/architecture/overview.md (Architecture decisions)" } ]
+      },
+      {
+        "id": "ADR-002",
+        "title": { "pt": "Dois CLIs: pipeline.cli e ml.cli", "en": "Two CLIs: pipeline.cli and ml.cli" },
+        "status": "Accepted",
+        "decision": { "pt": "Manter um CLI para dados e outro para ML.", "en": "Keep one CLI for data and another for ML." },
+        "consequences": [
+          { "pt": "A camada de dados não importa treino nem inferência.", "en": "The data layer does not import training or inference." }
+        ],
+        "evidence": [ { "pt": "pipeline/cli.py e ml/cli.py", "en": "pipeline/cli.py and ml/cli.py" } ]
+      },
+      {
+        "id": "ADR-003",
+        "title": { "pt": "Alvo é a classe de déficit do ano seguinte", "en": "Target is next year's deficit class" },
+        "status": "Accepted",
+        "context": { "pt": "A classe do ano t é função da cobertura e do déficit do mesmo ano.", "en": "The class for year t is a function of the same year's coverage and deficit." },
+        "decision": { "pt": "Prever deficit_class_next (classe em t+1) usando atributos do ano corrente e defasados.", "en": "Predict deficit_class_next (class at t+1) from current and lagged features." },
+        "alternatives": [ { "pt": "Prever a classe do próprio ano.", "en": "Predict the same year's class." } ],
+        "consequences": [
+          { "pt": "Evita vazamento de alvo.", "en": "Avoids target leakage." },
+          { "pt": "Exige pelo menos dois períodos rotulados; um único ano não permite treino.", "en": "Requires at least two labeled periods; a single year cannot be trained." }
+        ],
+        "evidence": [ { "pt": "docs/ml/ml-pipeline.md", "en": "docs/ml/ml-pipeline.md" } ]
+      },
+      {
+        "id": "ADR-004",
+        "title": { "pt": "Validação temporal", "en": "Temporal validation" },
+        "status": "Accepted",
+        "context": { "pt": "Os dados são séries anuais.", "en": "The data is an annual series." },
+        "decision": { "pt": "Separar treino < validação < teste por ano e escolher o modelo pelo F1 macro.", "en": "Split train < validation < test by year and select the model by macro F1." },
+        "alternatives": [ { "pt": "Split aleatório.", "en": "Random split." } ],
+        "consequences": [
+          { "pt": "Um split aleatório vazaria o futuro.", "en": "A random split would leak the future." },
+          { "pt": "Com só dois períodos não há validação separada e a escolha usa o teste, o que é registrado como resultado otimista.", "en": "With only two periods there is no separate validation and selection uses the test set, recorded as an optimistic result." }
+        ],
+        "evidence": [ { "pt": "ml/training/train.py e docs/ml/ml-pipeline.md", "en": "ml/training/train.py and docs/ml/ml-pipeline.md" } ]
+      },
+      {
+        "id": "ADR-005",
+        "title": { "pt": "DuckDB sobre Parquet na API", "en": "DuckDB over Parquet in the API" },
+        "status": "Accepted",
+        "decision": { "pt": "A API consulta o Parquet de features por DuckDB.", "en": "The API queries the features Parquet through DuckDB." },
+        "consequences": [
+          { "pt": "Leitura analítica local, sem servidor de banco.", "en": "Local analytical reads with no database server." }
+        ],
+        "evidence": [ { "pt": "docs/architecture/overview.md (Fluxo de dados, item 6)", "en": "docs/architecture/overview.md (Data flow, item 6)" } ]
+      },
+      {
+        "id": "ADR-006",
+        "title": { "pt": "Estados *_unavailable em vez de valores estimados", "en": "*_unavailable states instead of estimated values" },
+        "status": "Accepted",
+        "decision": { "pt": "Sem artefatos, a API responde data_unavailable, model_unavailable ou not_trained, com mensagem e listas vazias; GET /api/v1/data-quality lista as pendências.", "en": "Without artifacts, the API returns data_unavailable, model_unavailable or not_trained with a message and empty lists; GET /api/v1/data-quality lists what is missing." },
+        "consequences": [
+          { "pt": "Nada é fabricado quando faltam dados reais.", "en": "Nothing is fabricated when real data is missing." }
+        ],
+        "evidence": [ { "pt": "docs/architecture/overview.md (Estados \"sem dados\")", "en": "docs/architecture/overview.md (\"No data\" states)" } ]
+      },
+      {
+        "id": "ADR-007",
+        "title": { "pt": "Dashboard Streamlit mantido em legacy/", "en": "Streamlit dashboard kept in legacy/" },
+        "status": "Accepted",
+        "decision": { "pt": "Manter o dashboard Streamlit original até o Angular ter paridade.", "en": "Keep the original Streamlit dashboard until Angular reaches parity." },
+        "consequences": [
+          { "pt": "Preserva o dashboard existente durante a migração.", "en": "Preserves the existing dashboard during the migration." }
+        ],
+        "evidence": [ { "pt": "legacy/ e README.md", "en": "legacy/ and README.md" } ]
+      }
+    ],
+
+    "tradeOffs": [
+      {
+        "decision": { "pt": "Alvo no ano seguinte (t+1)", "en": "Next-year target (t+1)" },
+        "alternatives": { "pt": "Classe do próprio ano", "en": "Same-year class" },
+        "rationale": { "pt": "Evita vazamento de alvo, mas exige série histórica com pelo menos dois períodos rotulados.", "en": "Avoids target leakage but needs a history with at least two labeled periods." }
+      },
+      {
+        "decision": { "pt": "Validação temporal", "en": "Temporal validation" },
+        "alternatives": { "pt": "Split aleatório", "en": "Random split" },
+        "rationale": { "pt": "Não vaza o futuro; com dois períodos a seleção usa o teste e o resultado fica otimista.", "en": "Does not leak the future; with two periods selection uses the test set and the result is optimistic." }
+      },
+      {
+        "decision": { "pt": "DuckDB sobre Parquet", "en": "DuckDB over Parquet" },
+        "alternatives": { "pt": "Servidor de banco", "en": "Database server" },
+        "rationale": { "pt": "Leitura analítica local sem servidor; a API só lê os artefatos gerados pelo pipeline.", "en": "Local analytical reads without a server; the API only reads pipeline artifacts." }
+      }
+    ],
+
+    "quality": {
+      "tests": { "pt": "pytest (backend, pipeline, ML, integração e e2e), Jasmine/Karma no frontend e ruff no lint; um teste falha se o OpenAPI documentado ficar desatualizado.", "en": "pytest (backend, pipeline, ML, integration and e2e), Jasmine/Karma on the frontend and ruff for lint; a test fails if the documented OpenAPI is out of date." },
+      "security": { "pt": ".env e segredos não versionados, origens permitidas em CORS_ORIGINS, upload limitado a 25 MiB e 500.000 linhas, ./data montado somente leitura no contêiner.", "en": ".env and secrets not versioned, allowed origins in CORS_ORIGINS, uploads limited to 25 MiB and 500,000 rows, ./data mounted read-only in the container." },
+      "observability": { "pt": "GET /api/v1/health para saúde da API e GET /api/v1/data-quality listando as pendências de dados.", "en": "GET /api/v1/health for API health and GET /api/v1/data-quality listing data gaps." },
+      "delivery": { "pt": "CI no GitHub Actions (lint, pytest, testes e build do frontend), Docker Compose opcional, API no Render via Docker com health check e frontend na Vercel.", "en": "GitHub Actions CI (lint, pytest, frontend tests and build), optional Docker Compose, API on Render via Docker with a health check and frontend on Vercel." }
+    },
+
+    "results": [
+      { "kind": "Measured", "value": "2,4 mi", "label": { "pt": "Registros PNI de 2024 no raw local (2.401.483 linhas), segundo a auditoria de 05/11/2026", "en": "2024 PNI records in the local raw file (2,401,483 rows), per the 2026-11-05 audit" } },
+      { "kind": "Measured", "value": "645", "label": { "pt": "Municípios de SP cobertos pelo raw de 2024", "en": "SP municipalities covered by the 2024 raw file" } },
+      { "kind": "Measured", "value": "90", "label": { "pt": "Siglas de imunobiológicos no raw de 2024", "en": "Immunobiological codes in the 2024 raw file" } },
+      { "kind": "Delivered", "label": { "pt": "API FastAPI publicada no Render, com Swagger UI e ReDoc", "en": "FastAPI API published on Render, with Swagger UI and ReDoc" } },
+      { "kind": "Delivered", "label": { "pt": "Dashboard Angular publicado na Vercel", "en": "Angular dashboard published on Vercel" } },
+      { "kind": "InValidation", "label": { "pt": "Cobertura e previsões aguardam população-alvo e metas validadas por imunizante e série histórica para validação temporal", "en": "Coverage and predictions await validated target population and goals per immunizer, and a history for temporal validation" } }
+    ],
+
+    "nextSteps": [
+      { "pt": "Fornecer população-alvo por imunizante e metas com origem validada.", "en": "Provide target population per immunizer and goals with a validated source." },
+      { "pt": "Obter cruzamento oficial de codigo_vacina para a sigla de imunizante da API PNI completa.", "en": "Get an official mapping from codigo_vacina to the immunizer code for the full PNI API." },
+      { "pt": "Configurar o GeoJSON municipal para habilitar o mapa.", "en": "Configure the municipal GeoJSON to enable the map." },
+      { "pt": "Remover o Streamlit de legacy/ quando o Angular tiver paridade.", "en": "Remove the Streamlit app from legacy/ once Angular reaches parity." },
+      { "pt": "Ingestão IoT de sensores da rede de frio (planejada, depende de dados que o grupo ainda não possui).", "en": "IoT ingestion from cold-chain sensors (planned, depends on data the team does not have yet)." }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <!-- Fiel a README.md e docs/architecture/overview.md de luciana-pereira/vax-coverage-sp-analytics -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#140b2e"/>
+      <stop offset="1" stop-color="#0a0618"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7b61ff"/>
+      <stop offset="1" stop-color="#ff00c7"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#a78bfa"/>
+    </marker>
+    <style>
+      .group { fill: rgba(123,97,255,0.06); stroke: #7b61ff; stroke-opacity: 0.55; stroke-width: 1.5; stroke-dasharray: 6 5; }
+      .box { fill: #1a1040; stroke: #8b72ff; stroke-width: 1.5; }
+      .store { fill: #24124a; stroke: #e879f9; stroke-width: 1.5; }
+      .gtitle { fill: #e9d5ff; font-size: 17px; font-weight: 700; }
+      .t { fill: #ffffff; font-size: 15px; font-weight: 600; }
+      .s { fill: #c4b5fd; font-size: 12.5px; }
+      .note { fill: #a1a1c2; font-size: 12.5px; }
+      .flow { stroke: #a78bfa; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" rx="18" fill="url(#bg)"/>
+
+  <!-- Fontes -->
+  <rect class="box" x="20" y="80" width="155" height="100" rx="12"/>
+  <text class="t" x="97" y="118" text-anchor="middle">Fontes</text>
+  <text class="s" x="97" y="140" text-anchor="middle">PNI (doses aplicadas)</text>
+  <text class="s" x="97" y="160" text-anchor="middle">IBGE SIDRA</text>
+
+  <!-- Pipeline de dados -->
+  <rect class="group" x="200" y="40" width="380" height="300" rx="16"/>
+  <text class="gtitle" x="220" y="68">Pipeline de dados · pipeline.cli</text>
+
+  <rect class="box" x="220" y="90" width="150" height="50" rx="10"/>
+  <text class="t" x="295" y="113" text-anchor="middle">extract</text>
+  <text class="s" x="295" y="130" text-anchor="middle">paginado limit/offset</text>
+  <rect class="store" x="400" y="90" width="160" height="50" rx="10"/>
+  <text class="t" x="480" y="113" text-anchor="middle">data/raw</text>
+  <text class="s" x="480" y="130" text-anchor="middle">JSONL</text>
+
+  <rect class="box" x="220" y="180" width="150" height="50" rx="10"/>
+  <text class="t" x="295" y="203" text-anchor="middle">transform</text>
+  <text class="s" x="295" y="220" text-anchor="middle">+ validate</text>
+  <rect class="store" x="400" y="180" width="160" height="50" rx="10"/>
+  <text class="t" x="480" y="203" text-anchor="middle">data/processed</text>
+  <text class="s" x="480" y="220" text-anchor="middle">vaccination.parquet</text>
+
+  <rect class="store" x="220" y="265" width="150" height="50" rx="10"/>
+  <text class="t" x="295" y="288" text-anchor="middle">DuckDB</text>
+  <text class="s" x="295" y="305" text-anchor="middle">vax.duckdb</text>
+  <rect class="box" x="400" y="265" width="160" height="50" rx="10"/>
+  <text class="t" x="480" y="295" text-anchor="middle">load</text>
+
+  <path class="flow" d="M175 115H218" marker-end="url(#arrow)"/>
+  <path class="flow" d="M370 115H398" marker-end="url(#arrow)"/>
+  <path class="flow" d="M480 140V160H295V178" marker-end="url(#arrow)"/>
+  <path class="flow" d="M370 205H398" marker-end="url(#arrow)"/>
+  <path class="flow" d="M480 230V263" marker-end="url(#arrow)"/>
+  <path class="flow" d="M400 290H372" marker-end="url(#arrow)"/>
+
+  <!-- Machine Learning -->
+  <rect class="group" x="200" y="370" width="380" height="145" rx="16"/>
+  <text class="gtitle" x="220" y="398">Machine Learning · ml.cli</text>
+  <rect class="store" x="215" y="420" width="112" height="62" rx="10"/>
+  <text class="t" x="271" y="446" text-anchor="middle">data/models</text>
+  <text class="s" x="271" y="466" text-anchor="middle">modelo + métricas</text>
+  <rect class="box" x="337" y="420" width="112" height="62" rx="10"/>
+  <text class="t" x="393" y="446" text-anchor="middle">training</text>
+  <text class="s" x="393" y="466" text-anchor="middle">+ evaluation</text>
+  <rect class="box" x="459" y="420" width="106" height="62" rx="10"/>
+  <text class="t" x="512" y="446" text-anchor="middle">features</text>
+  <text class="s" x="512" y="466" text-anchor="middle">cobertura, déficit</text>
+  <text class="note" x="220" y="504">Logistic Regression · Random Forest · Gradient Boosting</text>
+
+  <path class="flow" d="M560 205H600V451H567" marker-end="url(#arrow)"/>
+  <path class="flow" d="M459 451H451" marker-end="url(#arrow)"/>
+  <path class="flow" d="M337 451H329" marker-end="url(#arrow)"/>
+
+  <!-- Backend -->
+  <rect class="group" x="620" y="40" width="300" height="300" rx="16"/>
+  <text class="gtitle" x="640" y="68">Backend · FastAPI</text>
+  <rect class="box" x="640" y="90" width="260" height="50" rx="10"/>
+  <text class="t" x="770" y="113" text-anchor="middle">api/v1 routers</text>
+  <text class="s" x="770" y="130" text-anchor="middle">schemas Pydantic · OpenAPI</text>
+  <rect class="box" x="640" y="175" width="260" height="45" rx="10"/>
+  <text class="t" x="770" y="203" text-anchor="middle">services</text>
+  <rect class="box" x="640" y="255" width="125" height="50" rx="10"/>
+  <text class="t" x="702" y="285" text-anchor="middle">repositories</text>
+  <rect class="box" x="775" y="255" width="125" height="50" rx="10"/>
+  <text class="t" x="837" y="285" text-anchor="middle">ml/inference</text>
+  <text class="note" x="770" y="328" text-anchor="middle">Somente leitura dos artefatos em data/</text>
+
+  <path class="flow" d="M770 140V173" marker-end="url(#arrow)"/>
+  <path class="flow" d="M702 220V253" marker-end="url(#arrow)"/>
+  <path class="flow" d="M837 220V253" marker-end="url(#arrow)"/>
+  <path class="flow" d="M600 280H638" marker-end="url(#arrow)"/>
+  <path class="flow" d="M271 482V540H837V307" marker-end="url(#arrow)"/>
+
+  <!-- Frontend -->
+  <rect class="group" x="950" y="40" width="230" height="300" rx="16"/>
+  <text class="gtitle" x="970" y="68">Frontend · Angular 19</text>
+  <rect class="box" x="970" y="90" width="190" height="50" rx="10"/>
+  <text class="t" x="1065" y="120" text-anchor="middle">Dashboard</text>
+  <rect class="box" x="970" y="155" width="190" height="50" rx="10"/>
+  <text class="t" x="1065" y="178" text-anchor="middle">Mapa</text>
+  <text class="s" x="1065" y="195" text-anchor="middle">d3-geo · SVG · GeoJSON</text>
+  <rect class="box" x="970" y="220" width="190" height="50" rx="10"/>
+  <text class="t" x="1065" y="250" text-anchor="middle">Gráficos · Chart.js</text>
+  <text class="note" x="1065" y="300" text-anchor="middle">Consome só a API REST;</text>
+  <text class="note" x="1065" y="318" text-anchor="middle">não lê Parquet/DuckDB</text>
+
+  <path class="flow" d="M968 115H902" marker-end="url(#arrow)"/>
+  <text class="s" x="935" y="106" text-anchor="middle">HTTP</text>
+
+  <!-- Entrega -->
+  <rect x="950" y="380" width="230" height="135" rx="16" fill="rgba(255,0,199,0.05)" stroke="url(#edge)" stroke-width="1.5"/>
+  <text class="gtitle" x="970" y="410">Deploy</text>
+  <text class="s" x="970" y="440">API: Render (Docker,</text>
+  <text class="s" x="970" y="458">health check /api/v1/health)</text>
+  <text class="s" x="970" y="484">Frontend: Vercel</text>
+
+  <rect x="20" y="560" width="1160" height="44" rx="12" fill="rgba(255,0,199,0.05)" stroke="url(#edge)" stroke-width="1.5"/>
+  <text class="t" x="40" y="587">Qualidade e entrega</text>
+  <text class="s" x="210" y="587">CI GitHub Actions: ruff + pytest (backend, pipeline, ML, integração, e2e) · npm test (Jasmine/Karma) + build · Docker Compose opcional</text>
+</svg>

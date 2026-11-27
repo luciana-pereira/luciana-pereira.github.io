@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1240"/>
+      <stop offset="1" stop-color="#0a0618"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#7b61ff" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#ff00c7" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ff00c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#6d4bff"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5233e6"/>
+      <stop offset="1" stop-color="#2b1880"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4b5fd"/>
+      <stop offset="1" stop-color="#ff4fd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#bg)"/>
+  <g stroke="#7b61ff" stroke-opacity="0.12">
+    <path d="M0 200h640M0 230h640M80 160 0 260M200 160l-60 100M320 160v100M440 160l60 100M560 160l80 100"/>
+  </g>
+  <rect width="640" height="260" fill="url(#glow)"/>
+  <g fill="#c4b5fd">
+    <circle cx="70" cy="50" r="1.6" opacity="0.7"/><circle cx="560" cy="40" r="1.4" opacity="0.6"/>
+    <circle cx="600" cy="120" r="1.8" opacity="0.5"/><circle cx="40" cy="140" r="1.4" opacity="0.5"/>
+  </g>
+  <g class="cover-art" transform="translate(64 42) scale(0.8)">
+  <rect x="200" y="40" width="240" height="160" rx="14" fill="#1a1040" stroke="url(#accent)" stroke-width="2.5"/>
+  <path d="M200 70h240" stroke="#a78bfa" stroke-opacity="0.6" stroke-width="2"/>
+  <circle cx="220" cy="55" r="5" fill="#ff4fd8"/><circle cx="238" cy="55" r="5" fill="#a78bfa"/><circle cx="256" cy="55" r="5" fill="#7b61ff"/>
+  <rect x="218" y="86" width="96" height="58" rx="8" fill="url(#top)"/>
+  <rect x="326" y="86" width="96" height="26" rx="6" fill="#3b2a8a"/><rect x="326" y="118" width="96" height="26" rx="6" fill="#3b2a8a"/>
+  <rect x="218" y="156" width="204" height="28" rx="6" fill="#2b1d6e"/>
+  <path d="M256 108l-10 8 10 8M276 108l10 8-10 8" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M236 170h120" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  </g>
+</svg>

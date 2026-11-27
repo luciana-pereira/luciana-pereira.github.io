@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="a-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a1f9e"/>
+      <stop offset="0.55" stop-color="#5b1fa8"/>
+      <stop offset="1" stop-color="#a0128a"/>
+    </linearGradient>
+    <linearGradient id="a-top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9ccff"/>
+      <stop offset="1" stop-color="#9b7bff"/>
+    </linearGradient>
+    <linearGradient id="a-side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7b61ff"/>
+      <stop offset="1" stop-color="#4a2fc8"/>
+    </linearGradient>
+    <linearGradient id="a-side2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a3de0"/>
+      <stop offset="1" stop-color="#321c99"/>
+    </linearGradient>
+    <radialGradient id="a-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff4fd8" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff4fd8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="320" height="240" fill="url(#a-bg)"/>
+  <ellipse cx="170" cy="130" rx="130" ry="80" fill="url(#a-glow)"/>
+
+  <!-- etiqueta "times" -->
+  <rect x="126" y="34" width="68" height="20" rx="10" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.4"/>
+  <rect x="140" y="41" width="40" height="6" rx="3" fill="#ffffff" fill-opacity="0.75"/>
+
+  <!-- conexões -->
+  <g stroke="#ffd6f5" stroke-opacity="0.75" stroke-width="2">
+    <path d="M160 54v26"/>
+    <path d="M160 102 104 132"/>
+    <path d="M160 102 216 132"/>
+    <path d="M104 150 160 178"/>
+    <path d="M216 150 160 178"/>
+  </g>
+
+  <!-- serviço central -->
+  <path d="M160 78 184 86 160 94 136 86Z" fill="url(#a-top)"/>
+  <path d="M136 86v14l24 8V94Z" fill="url(#a-side)"/>
+  <path d="M184 86v14l-24 8V94Z" fill="url(#a-side2)"/>
+
+  <!-- serviços laterais -->
+  <path d="M104 124 128 132 104 140 80 132Z" fill="url(#a-top)"/>
+  <path d="M80 132v14l24 8v-14Z" fill="url(#a-side)"/>
+  <path d="M128 132v14l-24 8v-14Z" fill="url(#a-side2)"/>
+
+  <path d="M216 124 240 132 216 140 192 132Z" fill="url(#a-top)"/>
+  <path d="M192 132v14l24 8v-14Z" fill="url(#a-side)"/>
+  <path d="M240 132v14l-24 8v-14Z" fill="url(#a-side2)"/>
+
+  <!-- serviço base -->
+  <path d="M160 168 184 176 160 184 136 176Z" fill="url(#a-top)"/>
+  <path d="M136 176v14l24 8v-14Z" fill="url(#a-side)"/>
+  <path d="M184 176v14l-24 8v-14Z" fill="url(#a-side2)"/>
+
+  <!-- blocos soltos -->
+  <path d="M262 168 276 172 262 176 248 172Z" fill="url(#a-top)" opacity="0.8"/>
+  <path d="M248 172v8l14 4v-8Z" fill="url(#a-side)" opacity="0.8"/>
+  <path d="M276 172v8l-14 4v-8Z" fill="url(#a-side2)" opacity="0.8"/>
+
+  <g fill="#ffffff">
+    <circle cx="160" cy="54" r="2.5"/>
+    <circle cx="104" cy="132" r="2"/>
+    <circle cx="216" cy="132" r="2"/>
+    <circle cx="160" cy="176" r="2"/>
+  </g>
+</svg>

@@ -1,0 +1,175 @@
+[
+  {
+    "id": "reprograma-front-end",
+    "kind": "Training",
+    "institution": "Reprograma",
+    "title": { "pt": "Desenvolvimento Front-end", "en": "Front-end Development" },
+    "cohort": { "pt": "Turma Online 4", "en": "Online 4 cohort" },
+    "start": "2019-10-18",
+    "end": "2019-12-20",
+    "duration": { "pt": "aprox. 9 semanas", "en": "approx. 9 weeks" },
+    "description": { "pt": "Formação em desenvolvimento Front-end com projeto final.", "en": "Front-end development program with a final project." },
+    "topics": ["HTML", "CSS", "JavaScript", "Sass", "React", "Bootstrap", "CSS Grid", "Flexbox", "TypeScript", "Git", "GitHub", "Scrum"],
+    "workload": [
+      { "topic": "HTML", "hours": 10 },
+      { "topic": "CSS", "hours": 10 },
+      { "topic": "JavaScript", "hours": 20 },
+      { "topic": "Bootstrap", "hours": 10 },
+      { "topic": { "pt": "Bibliotecas e Frameworks", "en": "Libraries and Frameworks" }, "hours": 20 },
+      { "topic": { "pt": "Git e GitHub", "en": "Git and GitHub" }, "hours": 10 },
+      { "topic": "Scrum", "hours": 10 },
+      { "topic": "TypeScript", "hours": 10 }
+    ],
+    "links": [
+      { "label": { "pt": "Projeto final", "en": "Final project" }, "url": "https://reprograma.github.io/On4-projeto-final/index.html" }
+    ],
+    "image": { "src": "images/reprograma.png", "fit": "logo", "width": 40, "height": 40, "alt": { "pt": "Logotipo da Reprograma", "en": "Reprograma logo" } },
+    "icon": "fa-solid fa-code"
+  },
+  {
+    "id": "gama-hiring-coders",
+    "kind": "Training",
+    "institution": "Gama Academy",
+    "title": "Hiring Coders",
+    "start": "2020-03",
+    "end": "2020-09",
+    "duration": { "pt": "seis meses", "en": "six months" },
+    "description": {
+      "pt": "Programa em parceria com a VTEX, com foco em desenvolvimento Full Stack. Também desenvolvi habilidades socioemocionais: trabalho em equipe, resolução de problemas, empatia, comunicação, autoaprendizagem e adaptabilidade.",
+      "en": "Program in partnership with VTEX, focused on Full Stack development. I also developed soft skills: teamwork, problem solving, empathy, communication, self-directed learning and adaptability."
+    },
+    "topics": ["HTML5", "CSS3", "Bootstrap", "Git", "GitHub", "JavaScript", "TypeScript", { "pt": "Testes", "en": "Testing" }, "React", "Node.js", "GraphQL", { "pt": "Treinamento VTEX", "en": "VTEX training" }],
+    "image": { "src": "images/gama_academy.png", "fit": "contain", "width": 797, "height": 272, "alt": { "pt": "Banner do Hiring Coders, da Gama Academy em parceria com a VTEX", "en": "Hiring Coders banner, by Gama Academy in partnership with VTEX" } },
+    "icon": "fa-solid fa-laptop-code"
+  },
+  {
+    "id": "laboratoria-bootcamp",
+    "kind": "Training",
+    "institution": "Laboratoria",
+    "title": "Bootcamp",
+    "start": "2020-10",
+    "end": "2021-04",
+    "duration": { "pt": "seis meses", "en": "six months" },
+    "description": {
+      "pt": "Bootcamp com desenvolvimento de habilidades socioemocionais: trabalho em equipe, resolução de problemas, empatia, comunicação, autoaprendizagem e adaptabilidade.",
+      "en": "Bootcamp that also developed soft skills: teamwork, problem solving, empathy, communication, self-directed learning and adaptability."
+    },
+    "topics": ["JavaScript", "HTML5", "CSS3", "UX", "React", "Material UI", "Node.js", "Jest", "Firebase"],
+    "image": { "src": "images/laboratoria_icon.jpg", "fit": "logo", "width": 150, "height": 150, "alt": { "pt": "Logotipo da Laboratoria", "en": "Laboratoria logo" } },
+    "icon": "fa-solid fa-graduation-cap"
+  },
+  {
+    "id": "42sp-basecamp",
+    "kind": "Training",
+    "institution": "42 São Paulo",
+    "title": "Basecamp",
+    "start": "2020-11",
+    "end": "2020-11",
+    "duration": { "pt": "um mês", "en": "one month" },
+    "description": { "pt": "Formação em Shell e linguagem C.", "en": "Training in Shell and the C language." },
+    "topics": ["Shell", "C", "Git", "GitHub"],
+    "badge": "42",
+    "icon": "fa-solid fa-terminal"
+  },
+  {
+    "id": "avanade",
+    "kind": "Experience",
+    "institution": "Avanade do Brasil",
+    "start": "2021-05",
+    "status": "Current",
+    "roles": [
+      { "title": { "pt": "Desenvolvedora Front-end", "en": "Front-end Developer" } },
+      { "title": { "pt": "Desenvolvedora Full Stack Pleno", "en": "Mid-level Full Stack Developer" } }
+    ],
+    "description": {
+      "pt": "Desenvolvimento de interfaces web ricas e interativas, integração com APIs, sistemas analíticos e sistemas de gerenciamento, atendendo às estratégias de negócio dos clientes.",
+      "en": "Development of rich, interactive web interfaces, API integrations, analytics systems and management systems that support clients' business strategies."
+    },
+    "image": { "src": "images/avanade_banner.jpg", "fit": "cover", "width": 800, "height": 418, "alt": { "pt": "Logotipo da Avanade", "en": "Avanade logo" } },
+    "icon": "fa-solid fa-briefcase"
+  },
+  {
+    "id": "fiap-sistemas-para-internet",
+    "kind": "Degree",
+    "institution": "FIAP",
+    "title": { "pt": "Graduação em Sistemas para Internet", "en": "Undergraduate degree in Internet Systems" },
+    "start": "2021-08",
+    "end": "2024-08",
+    "description": { "pt": "Foco em Full Stack, E-Commerce e Transformação Digital.", "en": "Focus on Full Stack, E-Commerce and Digital Transformation." },
+    "image": { "src": "images/fiap.jpg", "fit": "cover", "width": 311, "height": 162, "alt": { "pt": "Logotipo da FIAP", "en": "FIAP logo" } },
+    "icon": "fa-solid fa-building-columns"
+  },
+  {
+    "id": "42sp-common-core",
+    "kind": "Training",
+    "institution": "42 São Paulo",
+    "title": { "pt": "Engenharia de Software (Common Core)", "en": "Software Engineering (Common Core)" },
+    "start": "2022-08-08",
+    "end": "2024-09-30",
+    "badge": "42",
+    "icon": "fa-solid fa-terminal"
+  },
+  {
+    "id": "premio-smart-mobility",
+    "kind": "Award",
+    "institution": "Smart Mobility",
+    "title": { "pt": "Premiação", "en": "Award" },
+    "start": "2022",
+    "description": { "pt": "Projeto vencedor da competição.", "en": "Winning project of the competition." },
+    "award": {
+      "placement": 1,
+      "project": "SmartMobi",
+      "competition": "Smart Mobility for a Better Tomorrow Challenge",
+      "organizers": { "pt": "FIAP e Grupo Stellantis", "en": "FIAP and Stellantis Group" }
+    },
+    "image": { "src": "images/win_smart_mobility.jpg", "fit": "cover", "width": 480, "height": 360, "alt": { "pt": "Prêmio do Smart Mobility: skate e camiseta da competição", "en": "Smart Mobility award: the competition's skateboard and T-shirt" } },
+    "icon": "fa-solid fa-trophy"
+  },
+  {
+    "id": "premio-tech-care-for-all",
+    "kind": "Award",
+    "institution": "Tech Care For All",
+    "title": { "pt": "Premiação", "en": "Award" },
+    "start": "2023",
+    "description": { "pt": "Projeto voltado ao futuro da saúde com tecnologia.", "en": "Project focused on the future of healthcare through technology." },
+    "award": {
+      "placement": 1,
+      "project": "Life Health",
+      "competition": "Global Solution 2023",
+      "organizers": { "pt": "FIAP, TechCare4All e Hapvida NotreDame Intermédica", "en": "FIAP, TechCare4All and Hapvida NotreDame Intermédica" }
+    },
+    "image": { "src": "images/win_tech_care.jpg", "fit": "cover", "width": 480, "height": 334, "alt": { "pt": "Prêmio do TechCare4All: skate e camiseta da Global Solution", "en": "TechCare4All award: the Global Solution skateboard and T-shirt" } },
+    "icon": "fa-solid fa-trophy"
+  },
+  {
+    "id": "42sp-especializacao-sistemas",
+    "kind": "Training",
+    "institution": "42 São Paulo",
+    "title": { "pt": "Especialização em Sistemas", "en": "Systems Specialization" },
+    "start": "2024-10-01",
+    "status": "Current",
+    "image": { "src": "images/especializacao_42sp.jpg", "fit": "cover", "width": 1280, "height": 853, "alt": { "pt": "Estudantes no laboratório da 42 São Paulo", "en": "Students in the 42 São Paulo lab" } },
+    "badge": "42",
+    "icon": "fa-solid fa-terminal"
+  },
+  {
+    "id": "fiap-mba-arquitetura-solucoes-ia",
+    "kind": "Postgraduate",
+    "institution": "FIAP",
+    "title": { "pt": "MBA em Arquitetura de Soluções & IA", "en": "MBA in Solutions Architecture & AI" },
+    "start": "2026",
+    "status": "InProgress",
+    "image": { "src": "images/mba_fiap.jpg", "fit": "cover", "width": 619, "height": 323, "alt": { "pt": "Banner do MBA em Arquitetura de Soluções da FIAP", "en": "FIAP Solutions Architecture MBA banner" } },
+    "icon": "fa-solid fa-user-graduate"
+  },
+  {
+    "id": "usp-esalq-mba-gestao-projetos",
+    "kind": "Postgraduate",
+    "institution": "USP/Esalq",
+    "title": { "pt": "MBA em Gestão de Projetos", "en": "MBA in Project Management" },
+    "start": "2026",
+    "end": "2027",
+    "status": "InProgress",
+    "icon": "fa-solid fa-user-graduate"
+  }
+]

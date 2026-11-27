@@ -1,0 +1,53 @@
+[
+  {
+    "id": "dotnet8-microservices",
+    "title": ".NET 8: Microservices na Prática",
+    "description": "Construa e orquestre microservices com .NET 8, Docker e mensageria, do zero à implantação.",
+    "type": "Course",
+    "category": ".NET",
+    "level": "Intermediate",
+    "format": "HandsOn",
+    "publishedAt": "2026-05-15T08:00:00",
+    "duration": "02:48:10",
+    "workloadHours": 12,
+    "views": 4200,
+    "progress": 100,
+    "thumbnail": null,
+    "youTubeUrl": "https://www.youtube.com/@LucianaPereiraDev",
+    "previewVideoId": null
+  },
+  {
+    "id": "formacao-arquitetura-solucoes",
+    "title": "Formação: Arquitetura de Soluções",
+    "description": "Trilha completa sobre arquitetura, padrões, nuvem e boas práticas para soluções escaláveis.",
+    "type": "Formation",
+    "category": "Cloud",
+    "level": "Advanced",
+    "format": "FullTrack",
+    "publishedAt": "2026-04-02T19:00:00",
+    "duration": "03:21:05",
+    "workloadHours": 40,
+    "views": 6800,
+    "progress": 72,
+    "thumbnail": null,
+    "youTubeUrl": "https://www.youtube.com/@LucianaPereiraDev",
+    "previewVideoId": null
+  },
+  {
+    "id": "serie-ia-generativa-llms",
+    "title": "Série: IA Generativa e LLMs na Prática",
+    "description": "Do conceito à aplicação: RAG, orquestração de agentes e casos de uso reais.",
+    "type": "GuidedSeries",
+    "category": "IA",
+    "level": "Intermediate",
+    "format": "GuidedSeries",
+    "publishedAt": "2026-03-20T18:30:00",
+    "duration": "01:37:42",
+    "workloadHours": 10,
+    "views": 1900,
+    "progress": 45,
+    "thumbnail": null,
+    "youTubeUrl": "https://www.youtube.com/@LucianaPereiraDev",
+    "previewVideoId": null
+  }
+]

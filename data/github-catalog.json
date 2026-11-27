@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-27T01:09:48Z",
+  "repositories": [
+    {
+      "id": 1428967042,
+      "name": "vax-coverage-sp-analytics",
+      "fullName": "luciana-pereira/vax-coverage-sp-analytics",
+      "htmlUrl": "https://github.com/luciana-pereira/vax-coverage-sp-analytics",
+      "description": "💉 Plataforma de inteligência e análise preditiva da cobertura vacinal nos municípios do Estado de São Paulo. Utiliza FastAPI, DuckDB, Machine Learning (Scikit-Learn) e dashboard interativo em Angular com visualizações geográficas.",
+      "homepage": "https://vax-coverage-sp-analytics.vercel.app",
+      "primaryLanguage": "Python",
+      "languages": [
+        {
+          "name": "Python",
+          "bytes": 261713
+        },
+        {
+          "name": "TypeScript",
+          "bytes": 181277
+        },
+        {
+          "name": "SCSS",
+          "bytes": 13509
+        },
+        {
+          "name": "PowerShell",
+          "bytes": 7886
+        },
+        {
+          "name": "Shell",
+          "bytes": 4640
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 3631
+        },
+        {
+          "name": "Jupyter Notebook",
+          "bytes": 904
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 892
+        },
+        {
+          "name": "HTML",
+          "bytes": 456
+        }
+      ],
+      "topics": [],
+      "createdAt": "2026-10-21T21:51:00Z",
+      "pushedAt": "2026-11-09T16:06:55Z",
+      "archived": false,
+      "fork": false,
+      "caseStudySlug": "vax-coverage-sp-analytics"
+    },
+    {
+      "id": 1467973605,
+      "name": "vox-nexo",
+      "fullName": "luciana-pereira/vox-nexo",
+      "htmlUrl": "https://github.com/luciana-pereira/vox-nexo",
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "Python",
+      "languages": [
+        {
+          "name": "Python",
+          "bytes": 27146
+        },
+        {
+          "name": "Batchfile",
+          "bytes": 1251
+        },
+        {
+          "name": "Inno Setup",
+          "bytes": 1129
+        }
+      ],
+      "topics": [],
+      "createdAt": "2026-11-22T20:45:54Z",
+      "pushedAt": "2026-11-27T00:34:14Z",
+      "archived": false,
+      "fork": false,
+      "caseStudySlug": null
+    }
+  ]
+}

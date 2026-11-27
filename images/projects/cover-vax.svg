@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1240"/>
+      <stop offset="1" stop-color="#0a0618"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#7b61ff" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#ff00c7" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ff00c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#6d4bff"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c4b5fd"/>
+      <stop offset="1" stop-color="#5233e6"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#ff4fd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#bg)"/>
+  <g stroke="#7b61ff" stroke-opacity="0.12">
+    <path d="M0 200h640M0 230h640M80 160 0 260M200 160l-60 100M320 160v100M440 160l60 100M560 160l80 100"/>
+  </g>
+  <rect width="640" height="260" fill="url(#glow)"/>
+  <g fill="#c4b5fd">
+    <circle cx="70" cy="50" r="1.6" opacity="0.7"/><circle cx="560" cy="40" r="1.4" opacity="0.6"/>
+    <circle cx="600" cy="120" r="1.8" opacity="0.5"/><circle cx="40" cy="140" r="1.4" opacity="0.5"/>
+  </g>
+  <g class="cover-art" transform="translate(64 42) scale(0.8)">
+    <!-- painel com barras de cobertura e linha de tendência -->
+    <rect x="150" y="40" width="250" height="170" rx="14" fill="#140b33" stroke="url(#top)" stroke-width="2"/>
+    <rect x="178" y="138" width="26" height="52" rx="4" fill="url(#bar)"/>
+    <rect x="220" y="110" width="26" height="80" rx="4" fill="url(#bar)"/>
+    <rect x="262" y="124" width="26" height="66" rx="4" fill="url(#bar)"/>
+    <rect x="304" y="88" width="26" height="102" rx="4" fill="url(#bar)"/>
+    <rect x="346" y="72" width="26" height="118" rx="4" fill="url(#bar)"/>
+    <path d="M178 120 L233 92 L275 104 L317 70 L372 56" stroke="url(#accent)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="372" cy="56" r="5" fill="#ff4fd8"/>
+    <path d="M170 64h60" stroke="#c4b5fd" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round"/>
+    <!-- marcador de município -->
+    <path d="M470 92c0-22 17-38 38-38s38 16 38 38c0 30-38 64-38 64s-38-34-38-64z" fill="url(#top)" stroke="#c4b5fd" stroke-width="2"/>
+    <circle cx="508" cy="92" r="13" fill="#140b33"/>
+    <path d="M508 85v14M501 92h14" stroke="#22d3ee" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="508" cy="172" rx="34" ry="8" fill="#7b61ff" opacity="0.35"/>
+  </g>
+</svg>
